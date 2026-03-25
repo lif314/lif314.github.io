@@ -29,9 +29,14 @@ My goal is to leverage multimodal perception and large-scale models to enhance t
 # 🔥 News
 <div id="news-container">
 <ul>
-<li><em>2026.02</em>: &nbsp;🎉 Our paper on vision language grounding and grasping got accepted in CVPR 2026.</li>
+<li><em>2026.03</em>: &nbsp;🎉 Invited to serve as a Reviewer for NeurIPS 2026.</li>
+<li><em>2026.02</em>: &nbsp;🎉 Invited to serve as a Reviewer for ECCV 2026.</li>
+<li><em>2026.02</em>: &nbsp;🎉 Our paper on Vision-Language Grounding and Grasping got accepted in CVPR 2026.</li>
+<li><em>2025.11</em>: &nbsp;🎉 Our paper on Efficient Image Representation got accepted in AAAI 2026.</li>
+<li><em>2024.12</em>: &nbsp;🎉 Our paper on Continuous Audio Signal Representation got accepted in AAAI 2025.</li>
+<li><em>2024.07</em>: &nbsp;🎉 Our paper on 3D Semantic Gaussian Splatting Field got accepted in ACM MM 2024.</li>
 </ul>
-<!-- <span id="news-toggle" onclick="toggleNews()">Show more</span> -->
+<span id="news-toggle" onclick="toggleNews()">Show more</span>
 </div>
 
 <style>
