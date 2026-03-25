@@ -34,6 +34,7 @@ My goal is to leverage multimodal perception and large-scale models to enhance t
 <li><em>2026.02</em>: &nbsp;🎉 Our paper on Vision-Language Grounding and Grasping got accepted in CVPR 2026.</li>
 <li><em>2025.11</em>: &nbsp;🎉 Our paper on Efficient Image Representation got accepted in AAAI 2026.</li>
 <li><em>2024.12</em>: &nbsp;🎉 Our paper on Continuous Audio Signal Representation got accepted in AAAI 2025.</li>
+<li><em>2024.12</em>: &nbsp;🎉 Our paper on Audio-Visual Navigation got accepted in AAAI 2025.</li>
 <li><em>2024.07</em>: &nbsp;🎉 Our paper on 3D Semantic Gaussian Splatting Field got accepted in ACM MM 2024.</li>
 </ul>
 <span id="news-toggle" onclick="toggleNews()">Show more</span>
@@ -307,6 +308,8 @@ Recently, the multi-modal fusion of RGB, depth, and semantics has shown great po
 - *2019.09 - 2023.07*, Undergraduate, Software Engineering, Tongji University.
 
 # 🎖️ Honors and Awards
+- *2025.12*, Tongji University Outstanding Doctoral Student Scholarship 
+- *2025.11*, Tongji University Outstanding Doctoral Student
 - *2023.08*, Outstanding Graduate of Tongji University
 - *2023.07*, Outstanding Undergraduate Thesis of Tongji University
 
