@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/huajian/project/huajian-zeng.github.io/projects/**)",
+      "Read(//Users/huajian/project/XingxingZuo.github.io/**)",
+      "Bash(grep -r \"More.*Research\\\\|more.*research\" /Users/huajian/project/XingxingZuo.github.io --include=*.html --include=*.md)",
+      "Bash(grep -n \"More\\\\|more\" /Users/huajian/project/XingxingZuo.github.io/_projects/*.md)",
+      "Bash(grep -r Research /Users/huajian/project/XingxingZuo.github.io --include=*.html --include=*.md)",
+      "Bash(grep -r \"More\\\\|more\\\\|Learn\\\\|learn\\\\|Details\\\\|details\" /Users/huajian/project/XingxingZuo.github.io/_includes --include=*.html -C 3)",
+      "Bash(find /Users/huajian/project/XingxingZuo.github.io -path *nerf* -type f)",
+      "Read(//Users/huajian/project/nerfies.github.io/**)",
+      "Read(//Users/huajian/project/huajian-zeng.github.io/**)"
+    ],
+    "additionalDirectories": [
+      "/Users/huajian/project/huajian-zeng.github.io/projects/coe",
+      "/Users/huajian/project/huajian-zeng.github.io/projects/flowhoi",
+      "/Users/huajian/project/huajian-zeng.github.io/_pages"
+    ]
+  }
+}
