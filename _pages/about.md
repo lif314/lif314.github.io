@@ -18,40 +18,20 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 <!-- PhD -->
-I am a first year PhD student in Robotics at the [Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)](https://www.mbzuai.ac.ae/) with [Prof. Xingxing Zuo](https://xingxingzuo.github.io/). Before that I obtained my master's degree in [Informatics](https://www.cit.tum.de/en/cit/studies/degree-programs/master-informatics/) at the [Technical University of Munich (TUM)](https://www.tum.de/) and bachelor's degree in [Computer Engineering](https://www.tu.berlin/en/studying/study-programs/all-programs-offered/study-course/computer-engineering-b-sc) at the [Technical University of Berlin (TUB)](https://www.tu.berlin/). 
+I am a third-year PhD student in the [MAP-Group](https://cslinzhang.github.io/home/) at [Tongji University](https://en.tongji.edu.cn/p/#/), under the supervision of Prof. [Lin Zhang](https://scholar.google.com/citations?user=8VOk_S4AAAAJ&hl=en) and Prof. [Ying Shen](https://scholar.google.com/citations?user=A0N_mS0AAAAJ&hl=en). I obtained my bachelor’s degree from Tongji University in 2023, after which I began my doctoral studies.
 
-During my studies, I was student research assistant at the [TUM Computer Vision Group](https://cvg.cit.tum.de/), working with [Prof. Daniel Cremers](https://cvg.cit.tum.de/members/cremers) and [Dr. Xi Wang](https://xiwang1212.github.io/homepage/). I also collaborate closely with [Kaixin Bai](https://baikaixin-public.github.io/) and [Lei Zhang](https://leizhang-public.github.io/) at the [Agile Robots](https://www.agile-robots.com/en/). In addition, I worked extensively with [Dr. Linh Kästner](https://linhdoan.io/) on several projects in social navigation for mobile robots at [TUB](https://www.tu.berlin/) and [NUS](https://www.nus.edu.sg/).
+<!-- research interest -->
+My research interests lie in the field of Embodied AI, focusing on enabling robots to perceive and interact with the physical world through advanced learning representations. Specifically, my work explores: Multimodal Representation for Robotics, Vision-Language Fields, and Generalist Robot Models.
 
-<!-- research interest: 从视频中学习复杂的机器人操作 -->
-My research interests focus on 3D computer vision and human/hand-object interaction, aiming to teach robots to better perceive and understand the 3D world for complex manipulation tasks.
-
-
-
- <!-- One project focused on shape matching, with [Maolin Gao](https://maolingao.github.io/) and . The other project focused on object trajectory generation, with [Abhishek Saroha](https://cvg.cit.tum.de/members/saroha) and . I also collaborate closely with [Kaixin Bai](https://baikaixin-public.github.io/) and [Lei Zhang](https://leizhang-public.github.io/) at the [Agile Robots](https://www.agile-robots.com/en/). In addition, I worked extensively with [Dr. Linh Kästner](https://linhdoan.io/) on several projects in social navigation for mobile robots at [TUB](https://www.tu.berlin/) and [NUS](https://www.nus.edu.sg/).  -->
-
-<!-- looking for cooperator -->
-<!-- If you are seeking any form of **academic cooperation**, feel free to drop me an email at [huajian.zeng@mbzuai.ac.ae](mailto:huajian.zeng@mbzuai.ac.ae). -->
+My goal is to leverage multimodal perception and large-scale models to enhance the generalization and manipulation capabilities of robots in complex, real-world environments.
 
 
 # 🔥 News
 <div id="news-container">
 <ul>
-<li><em>2026.02</em>: &nbsp;🎉 Our latest work on hand-object interaction generation for dexterous robot manipulation is available on <a href="https://arxiv.org/abs/2602.13444">arXiv</a>.</li>
-<li><em>2026.01</em>: &nbsp;🎉 Our paper on stereo perception of transparent objects got accepted in <a href="https://2026.ieee-icra.org/">ICRA 2026</a> in Vienna, Austria.</li>
-<li><em>2025.11</em>: &nbsp;🎉 Our paper on object trajectory prediction got accepted in <a href="https://3dvconf.github.io/2026/">3DV 2026</a> in Vancouver, Canada.</li>
-<li><em>2025.08</em>: &nbsp;Move to Abu Dhabi and join MBZUAI as a PhD student.</li>
-<li><em>2025.06</em>: &nbsp;🎉 Our paper on 2nd version of arena benchmark got accepted in <a href="https://www.iros25.org/">IROS 2025</a> in Hangzhou, China.</li>
-<li><em>2025.05</em>: &nbsp;We organized the <a href="https://linhdoan.io/arena-challenge/">Arena 2025 challenge</a> of <a href="https://socialnav2025.pages.dev/">ICRA 2025 workshop Advances in Social Navigation: Planning, HRI and Beyond</a>.</li>
-<li><em>2025.04</em>: &nbsp;🎉 Our paper on 5th version of arena platform got accepted in <a href="https://roboticsconference.org/2025/">RSS 2025</a> in Los Angeles, USA.</li>
-<li><em>2025.01</em>: &nbsp;🎉 Our paper on 4th version of arena platform got accepted in <a href="https://2025.ieee-icra.org/">ICRA 2025</a> in Atlanta, USA.</li>
-<li><em>2024.11</em>: &nbsp;🎉 Our paper on embedding learning for point clouds got accepted in <a href="https://3dvconf.github.io/2025/">3DV 2025</a> in Singapore.</li>
-<li><em>2024.04</em>: &nbsp;🎉 Our paper on 3rd version of arena platform got accepted in <a href="https://roboticsconference.org/2024/">RSS 2024</a> in Delft, Netherlands.</li>
-<li><em>2023.07</em>: &nbsp;I join Agile Robots <img src='./images/agile.jpg' width="20"> as a compter vision intern in Munich.</li>
-<li><em>2023.06</em>: &nbsp;🎉 Our paper on Arena-Rosnav 2.0 platform got accepted in <a href="https://ieee-iros.org/">IROS 2023</a> in Detroit, USA.</li>
-<li><em>2023.04</em>: &nbsp;🎉 Our paper on 2D DRL-based robot navigation simulator got accepted in <a href="http://2023.ubiquitousrobots.org/">Ubiquitous Robots 2023</a> in Honolulu, USA.</li>
-<li><em>2022.10</em>: &nbsp;Move to Munich and started my master's study at TUM.</li>
+<li><em>2026.02</em>: &nbsp;🎉 Our paper on vision language grounding and grasping got accepted in CVPR 2026.</li>
 </ul>
-<span id="news-toggle" onclick="toggleNews()">Show more</span>
+<!-- <span id="news-toggle" onclick="toggleNews()">Show more</span> -->
 </div>
 
 <style>
