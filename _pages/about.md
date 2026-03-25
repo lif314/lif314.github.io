@@ -138,24 +138,18 @@ function toggleBibtex(element) {
 
 </div>
 </div>
-<!-- pub short -->
-<!-- - [Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet](https://github.com), A, B, C, **CVPR 2020** -->
-
 
 
 # 📖 Educations
 - *2023.09 - 2029.03 (expected)*, PhD, Computer Science and Technology, Tongji University.
 - *2019.09 - 2023.07*, Undergraduate, Software Engineering, Tongji University.
 
-<!-- # 🎖 Honors and Awards
-- *2024.10*, Deutschestipendium 2024/2025 -->
+# 🎖 Honors and Awards
+- *2023.08*, Outstanding Graduate of Tongji University
+- *2023.07*, Outstanding Undergraduate Thesis of Tongji University
 
 # 📚 Academic Services
-- Reviewer: CVPR 2026, ICML 2025,  AAAI 2025/2026, MM 2025.
-<!-- 
-# 💻 Internships
-- *2023.07 - 2024.05*, [Agile Robots](https://www.agile-robots.com/en/), Munich.
+- Reviewer: CVPR 2026, ICML 2025,  AAAI 2025/2026, MM 2025
 
-# 🤝 Volunteer Works
-- *2024.06 - 2024.07*, [UEFA Euro 2024](https://www.uefa.com/euro2024/), Munich.
- -->
+# 🤝 Project Experience
+- 长春市科技攻关揭榜挂帅项目“基于多传感器融合技术车载高精度增强现实(AR)导航软件开发”(24JB)，2025.1~2025.12，长春市科学技术局
