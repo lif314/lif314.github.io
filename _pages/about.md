@@ -116,9 +116,94 @@ function toggleBibtex(element) {
 
 # 📝 Publications 
 
-<!-- pub with images -->
+<!-- 6 -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2026</div><img src='images/cvpr26_realvlg_r1.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box-text' markdown="1">
 
-<!-- 2 -->
+[**RealVLG-R1: A Large-Scale Real-World Visual-Language Grounding Benchmark for Robotic Perception and Manipulation**](https://arxiv.org/abs/2603.14880)
+
+**Linfei Li**, Lin Zhang, Ying Shen
+
+[[code]](https://github.com/lif314/RealVLG-R1)
+[[arXiv]](https://arxiv.org/abs/2603.14880)
+<span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
+<span class="bibtex-toggle" onclick="toggleBibtex(this)">[bibtex]</span>
+<span class="abstract-content">
+Visual-language grounding aims to establish semantic correspondences between natural language and visual entities, enabling models to accurately identify and localize target objects based on textual instructions. Existing VLG approaches focus on coarse-grained, object-level localization, while traditional robotic grasping methods rely predominantly on geometric cues and lack language guidance, which limits their applicability in language-driven manipulation scenarios. To address these limitations, we propose the RealVLG framework, which integrates the RealVLG-11B dataset and the RealVLG-R1 model to unify real-world visual-language grounding and grasping tasks. RealVLG-11B dataset provides multi-granularity annotations including bounding boxes, segmentation masks, grasp poses, contact points, and human-verified fine-grained language descriptions, covering approximately 165,000 images, over 800 object instances, 1.3 million segmentation, detection, and language annotations, and roughly 11 billion grasping examples. Building on this dataset, RealVLG-R1 employs Reinforcement Fine-tuning on pretrained large-scale vision-language models to predict bounding boxes, segmentation masks, grasp poses, and contact points in a unified manner given natural language instructions. Experimental results demonstrate that RealVLG supports zero-shot perception and manipulation in real-world unseen environments, establishing a unified semantic-visual multimodal benchmark that provides a comprehensive data and evaluation platform for language-driven robotic perception and grasping policy learning.
+</span>
+<span class="bibtex-content">
+@article{li2026realvlg,
+  title={RealVLG-R1: A Large-Scale Real-World Visual-Language Grounding Benchmark for Robotic Perception and Manipulation},
+  author={Li, Linfei and Zhang, Lin and Shen, Ying},
+  journal={arXiv preprint arXiv:2603.14880},
+  year={2026}
+}
+</span>
+
+</div>
+</div>
+
+<!-- 5 -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/arxiv25_inrbench.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[**INR-Bench: A Unified Benchmark for Implicit Neural Representations in Multi-Domain Regression and Reconstruction**](https://arxiv.org/abs/2510.10188)
+
+**Linfei Li**, Fengyi Zhang, Zhong Wang, Lin Zhang, Ying Shen
+
+[[code]](https://github.com/lif314/INR-Bench)
+[[arXiv]](https://arxiv.org/abs/2510.10188)
+<span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
+<span class="bibtex-toggle" onclick="toggleBibtex(this)">[bibtex]</span>
+<span class="abstract-content">
+Implicit Neural Representations (INRs) have gained success in various signal processing tasks due to their advantages of continuity and infinite resolution. However, the factors influencing their effectiveness and limitations remain underexplored. To better understand these factors, we leverage insights from Neural Tangent Kernel (NTK) theory to analyze how model architectures (classic MLP and emerging KAN), positional encoding, and nonlinear primitives affect the response to signals of varying frequencies. Building on this analysis, we introduce INR-Bench, the first comprehensive benchmark specifically designed for multimodal INR tasks. It includes 56 variants of Coordinate-MLP models (featuring 4 types of positional encoding and 14 activation functions) and 22 Coordinate-KAN models with distinct basis functions, evaluated across 9 implicit multimodal tasks. These tasks cover both forward and inverse problems, offering a robust platform to highlight the strengths and limitations of different neural models, thereby establishing a solid foundation for future research. 
+</span>
+<span class="bibtex-content">
+@article{li2025inr,
+  title={INR-Bench: A Unified Benchmark for Implicit Neural Representations in Multi-Domain Regression and Reconstruction},
+  author={Li, Linfei and Zhang, Fengyi and Wang, Zhong and Zhang, Lin and Shen, Ying},
+  journal={arXiv preprint arXiv:2510.10188},
+  year={2025}
+}
+</span>
+
+</div>
+</div>
+
+
+<!-- 4 -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">AAAI 2026</div><img src='images/aaai26_smartsplat.gif' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[**SmartSplat: Feature-Smart Gaussians for Scalable Compression of Ultra-High-Resolution Images**](https://ojs.aaai.org/index.php/AAAI/article/view/37558)
+
+**Linfei Li**, Lin Zhang, Zhong Wang, Ying Shen
+
+[[webpage]](https://smartsplat.github.io/SmartSplat-Website/)
+[[code]](https://github.com/lif314/SmartSplat)
+[[arXiv]](https://arxiv.org/abs/2512.20377)
+<span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
+<span class="bibtex-toggle" onclick="toggleBibtex(this)">[bibtex]</span>
+<span class="abstract-content">
+Recent advances in generative AI have accelerated the production of ultra-high-resolution visual content. However, traditional image formats face significant limitations in efficient compression and real-time decoding, which restricts their applicability on end-user devices. Inspired by 3D Gaussian Splatting, 2D Gaussian image models have achieved notable progress in enhancing image representation efficiency and quality. Nevertheless, existing methods struggle to balance compression ratios and reconstruction fidelity in ultra-high-resolution scenarios. To address these challenges, we propose SmartSplat, a highly adaptive and feature-aware GS-based image compression framework that effectively supports arbitrary image resolutions and compression ratios. By leveraging image-aware features such as gradients and color variances, SmartSplat introduces a Gradient-Color Guided Variational Sampling strategy alongside an Exclusion-based Uniform Sampling scheme, significantly improving the non-overlapping coverage of Gaussian primitives in pixel space. Additionally, a Scale-Adaptive Gaussian Color Sampling method is proposed to enhance the initialization of Gaussian color attributes across scales. Through joint optimization of spatial layout, scale, and color initialization, SmartSplat can efficiently capture both local structures and global textures of images using a limited number of Gaussians, achieving superior reconstruction quality under high compression ratios. Extensive experiments on DIV8K and a newly created 16K dataset demonstrate that SmartSplat significantly outperforms state-of-the-art methods at comparable compression ratios and surpasses their compression limits, exhibiting strong scalability and practical applicability. This framework can effectively alleviate the storage and transmission burdens of ultra-high-resolution images, providing a robust foundation for future high-efficiency visual content processing.
+</span>
+<span class="bibtex-content">
+@article{Li2026smartsplat,
+  title        = {SmartSplat: Feature-Smart Gaussians for Scalable Compression of Ultra-High-Resolution Images},
+  volume       = {40},
+  number       = {8},
+  journal      = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  author       = {Li, Linfei and Zhang, Lin and Wang, Zhong and Shen, Ying},
+  year         = {2026},
+  pages        = {6315-6323}
+}
+</span>
+
+</div>
+</div>
+
+
+<!-- 3 -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">AAAI 2025</div><img src='images/aaai2025_nerf.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -132,7 +217,7 @@ function toggleBibtex(element) {
 <span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
 <span class="bibtex-toggle" onclick="toggleBibtex(this)">[bibtex]</span>
 <span class="abstract-content">
-Although Coordinate-MLP-based implicit neural representations have excelled in representing radiance fields, 3D shapes, and images, their application to audio signals remains underexplored. To fill this gap, we investigate existing implicit neural representations, from which we extract 3 types of positional encoding and 16 commonly used activation functions. Through combinatorial design, we establish the first benchmark for Coordinate-MLPs in audio signal representations. Our benchmark reveals that Coordinate-MLPs require complex hyperparameter tuning and frequency-dependent initialization, limiting their robustness. To address these issues, we propose Fourier-ASR, a novel framework based on the Fourier series theorem and the Kolmogorov-Arnold representation theorem. Fourier-ASR introduces Fourier Kolmogorov-Arnold Networks (Fourier-KAN), which leverage periodicity and strong nonlinearity to represent audio signals, eliminating the need for additional positional encoding. Furthermore, a Frequency-adaptive Learning Strategy (FaLS) is proposed to enhance the convergence of Fourier-KAN by capturing high-frequency components and preventing overfitting of low-frequency signals. Extensive experiments conducted on natural speech and music datasets reveal that: (1) well-designed positional encoding and activation functions in Coordinate-MLPs can effectively improve audio representation quality; and (2) Fourier-ASR can robustly represent complex audio signals without extensive hyperparameter tuning. Looking ahead, the continuity and infinite resolution of implicit audio representations make our research highly promising for tasks such as audio compression, synthesis, and generation. The source code will be released publicly to ensure reproducibility.
+Although Coordinate-MLP-based implicit neural representations have excelled in representing radiance fields, 3D shapes, and images, their application to audio signals remains underexplored. To fill this gap, we investigate existing implicit neural representations, from which we extract 3 types of positional encoding and 16 commonly used activation functions. Through combinatorial design, we establish the first benchmark for Coordinate-MLPs in audio signal representations. Our benchmark reveals that Coordinate-MLPs require complex hyperparameter tuning and frequency-dependent initialization, limiting their robustness. To address these issues, we propose Fourier-ASR, a novel framework based on the Fourier series theorem and the Kolmogorov-Arnold representation theorem. Fourier-ASR introduces Fourier Kolmogorov-Arnold Networks (Fourier-KAN), which leverage periodicity and strong nonlinearity to represent audio signals, eliminating the need for additional positional encoding. Furthermore, a Frequency-adaptive Learning Strategy (FaLS) is proposed to enhance the convergence of Fourier-KAN by capturing high-frequency components and preventing overfitting of low-frequency signals. Extensive experiments conducted on natural speech and music datasets reveal that: (1) well-designed positional encoding and activation functions in Coordinate-MLPs can effectively improve audio representation quality; and (2) Fourier-ASR can robustly represent complex audio signals without extensive hyperparameter tuning. Looking ahead, the continuity and infinite resolution of implicit audio representations make our research highly promising for tasks such as audio compression, synthesis, and generation.
 </span>
 <span class="bibtex-content">
 @article{Li2025nerf,
@@ -150,6 +235,36 @@ Although Coordinate-MLP-based implicit neural representations have excelled in r
 </div>
 
 
+<!-- 2 -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">AAAI 2025</div><img src='images/aaai2025_audio_nav.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[**Towards Audio-Visual Navigation in Noisy Environments: A Large-Scale Benchmark Dataset and an Architecture Considering Multiple Sound-Sources**](https://ojs.aaai.org/index.php/AAAI/article/view/33608)
+
+Zhanbo Shi, Lin Zhang, **Linfei Li**, Ying Shen
+
+[[code]](https://github.com/ZhanboShiAI/ENMuS)
+[[pdf]](https://ojs.aaai.org/index.php/AAAI/article/view/33608)
+[[appendix]](https://github.com/ZhanboShiAI/ENMuS/blob/main/Appendix.pdf)
+<span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
+<span class="bibtex-toggle" onclick="toggleBibtex(this)">[bibtex]</span>
+<span class="abstract-content">
+Audio-visual navigation has received considerable attention in recent years. However, the majority of related investigations have focused on single sound-source scenarios. Studies in this field for multiple sound-source scenarios remain underexplored due to the limitations of two aspects. First, the existing audio-visual navigation dataset only has limited audio samples, making it difficult to simulate diverse multiple sound-source environments. Second, existing navigation frameworks are mainly designed for single sound-source scenarios, thus their performance is severely reduced in multiple sound-source scenarios. In this work, we make an attempt to fill in these two research gaps to some extent. First, we establish a large-scale BEnchmark Dataset for Audio-Vsual Navigation, namely BeDAViN. This dataset consists of 2,258 audio samples with a total duration of 10.8 hours, which is more than 33 times longer than the existing audio dataset employed in the audio-visual navigation task. Second, we propose a new Embodied Navigation framework for MUltiple Sound-Sources Scenarios called ENMuS3. There are mainly two essential components in ENMuS3, the sound event descriptor and the multi-scale scene memory transformer. The former component equips the agent with the ability to extract spatial and semantic features of the target sound-source among multiple sound-sources, while the latter provides the ability to track the target object effectively in noisy environments. Experimental results on our BeDAViN show that ENMuS3 strongly outperforms its counterparts with a significant improvement in success rates across diverse scenarios.
+</span>
+<span class="bibtex-content">
+@article{Shi_Zhang_Li_Shen_2025,
+  title        = {Towards Audio-Visual Navigation in Noisy Environments: A Large-Scale Benchmark Dataset and an Architecture Considering Multiple Sound-Sources},
+  volume       = {39},
+  number       = {14},
+  journal      = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  author       = {Shi, Zhanbo and Zhang, Lin and Li, Linfei and Shen, Ying},
+  year         = {2025},
+  pages        = {14673-14680}
+}
+</span>
+
+</div>
+</div>
 
 <!-- 1 -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACM MM 2024</div><img src='images/mm2024_gs3lam.png' alt="sym" width="500" height="300"></div></div>
