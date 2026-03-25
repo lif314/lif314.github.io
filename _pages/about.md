@@ -119,7 +119,7 @@ function toggleBibtex(element) {
 <!-- pub with images -->
 
 <!-- 2 -->
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACM MM 2024</div><img src='images/aaai2025_nerf.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">AAAI 2025</div><img src='images/aaai2025_nerf.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [**Representing Sounds as Neural Amplitude Fields: A Benchmark of Coordinate-MLPs and a Fourier Kolmogorov-Arnold Framework**](https://ojs.aaai.org/index.php/AAAI/article/view/34624)
@@ -131,16 +131,20 @@ function toggleBibtex(element) {
 [[arXiv]](https://arxiv.org/abs/2601.06406)
 <span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
 <span class="bibtex-toggle" onclick="toggleBibtex(this)">[bibtex]</span>
-<span class="abstract-content">Although Coordinate-MLP-based implicit neural representations have excelled in representing radiance fields, 3D shapes, and images, their application to audio signals remains underexplored. To fill this gap, we investigate existing implicit neural representations, from which we extract 3 types of positional encoding and 16 commonly used activation functions. Through combinatorial design, we establish the first benchmark for Coordinate-MLPs in audio signal representations. Our benchmark reveals that Coordinate-MLPs require complex hyperparameter tuning and frequency-dependent initialization, limiting their robustness. To address these issues, we propose Fourier-ASR, a novel framework based on the Fourier series theorem and the Kolmogorov-Arnold representation theorem. Fourier-ASR introduces Fourier Kolmogorov-Arnold Networks (Fourier-KAN), which leverage periodicity and strong nonlinearity to represent audio signals, eliminating the need for additional positional encoding. Furthermore, a Frequency-adaptive Learning Strategy (FaLS) is proposed to enhance the convergence of Fourier-KAN by capturing high-frequency components and preventing overfitting of low-frequency signals. Extensive experiments conducted on natural speech and music datasets reveal that: (1) well-designed positional encoding and activation functions in Coordinate-MLPs can effectively improve audio representation quality; and (2) Fourier-ASR can robustly represent complex audio signals without extensive hyperparameter tuning. Looking ahead, the continuity and infinite resolution of implicit audio representations make our research highly promising for tasks such as audio compression, synthesis, and generation. The source code will be released publicly to ensure reproducibility.</span>
+<span class="abstract-content">
+Although Coordinate-MLP-based implicit neural representations have excelled in representing radiance fields, 3D shapes, and images, their application to audio signals remains underexplored. To fill this gap, we investigate existing implicit neural representations, from which we extract 3 types of positional encoding and 16 commonly used activation functions. Through combinatorial design, we establish the first benchmark for Coordinate-MLPs in audio signal representations. Our benchmark reveals that Coordinate-MLPs require complex hyperparameter tuning and frequency-dependent initialization, limiting their robustness. To address these issues, we propose Fourier-ASR, a novel framework based on the Fourier series theorem and the Kolmogorov-Arnold representation theorem. Fourier-ASR introduces Fourier Kolmogorov-Arnold Networks (Fourier-KAN), which leverage periodicity and strong nonlinearity to represent audio signals, eliminating the need for additional positional encoding. Furthermore, a Frequency-adaptive Learning Strategy (FaLS) is proposed to enhance the convergence of Fourier-KAN by capturing high-frequency components and preventing overfitting of low-frequency signals. Extensive experiments conducted on natural speech and music datasets reveal that: (1) well-designed positional encoding and activation functions in Coordinate-MLPs can effectively improve audio representation quality; and (2) Fourier-ASR can robustly represent complex audio signals without extensive hyperparameter tuning. Looking ahead, the continuity and infinite resolution of implicit audio representations make our research highly promising for tasks such as audio compression, synthesis, and generation. The source code will be released publicly to ensure reproducibility.
+</span>
 <span class="bibtex-content">
-  @inproceedings{li2024gs3lam,<br>
-  &nbsp;&nbsp;title={GS3LAM: Gaussian Semantic Splatting SLAM},<br>
-  &nbsp;&nbsp;author={Li, Linfei and Zhang, Lin and Wang, Zhong and Shen, Ying},<br>
-  &nbsp;&nbsp;booktitle={Proceedings of the 32nd ACM International Conference on Multimedia},<br>
-  &nbsp;&nbsp;pages={3019--3027},<br>
-  &nbsp;&nbsp;year={2024},<br>
-  &nbsp;&nbsp;numpages={9}<br>
-}</span>
+@article{Li2025nerf,<br>
+   title={Representing Sounds as Neural Amplitude Fields: A Benchmark of Coordinate-MLPs and a Fourier Kolmogorov-Arnold Framework},<br>
+   volume={39},<br>
+   number={23},<br>
+   journal={Proceedings of the AAAI Conference on Artificial Intelligence},<br>
+   author={Li, Linfei and Zhang, Lin and Wang, Zhong and Zhang, Fengyi and Li, Zelin and Shen, Ying},<br>
+   year={2025},<br>
+   pages={24458–24466}<br>
+}
+</span>
 
 </div>
 </div>
