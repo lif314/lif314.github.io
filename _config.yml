@@ -9,7 +9,7 @@
 title                    : "Linfei Li (李林飞)"
 description              : 
 repository               : "lif314/lif314.github.io"
-google_scholar_stats_use_cdn : true
+google_scholar_stats_use_cdn : false
 
 # google analytics
 google_analytics_id      :  # get google_analytics_id from https://analytics.google.com/analytics/
