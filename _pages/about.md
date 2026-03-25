@@ -314,4 +314,4 @@ Recently, the multi-modal fusion of RGB, depth, and semantics has shown great po
 - Reviewer: CVPR 2026, ICML 2025,  AAAI 2025/2026, MM 2025
 
 # 🤝 Project Experience
-- 长春市科技攻关揭榜挂帅项目“基于多传感器融合技术车载高精度增强现实(AR)导航软件开发”(24JB)，2025.1~2025.12，长春市科学技术局
+- Changchun City Science and Technology Tackling and Open Competition Program "Development of In-Vehicle High-Precision Augmented Reality (AR) Navigation Software Based on Multi-Sensor Fusion Technology" (24JB), 2025.01–2025.12, Changchun Municipal Bureau of Science and Technology.
