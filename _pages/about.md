@@ -118,6 +118,33 @@ function toggleBibtex(element) {
 
 <!-- pub with images -->
 
+<!-- 2 -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ACM MM 2024</div><img src='images/aaai2025_nerf.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[**Representing Sounds as Neural Amplitude Fields: A Benchmark of Coordinate-MLPs and a Fourier Kolmogorov-Arnold Framework**](https://ojs.aaai.org/index.php/AAAI/article/view/34624)
+
+**Linfei Li**, Lin Zhang, Zhong Wang, Fengyi Zhang, Zelin Li, Ying Shen
+
+[[webpage]](https://neaf-audio.github.io/NeAF-Audio/)
+[[code]](https://github.com/lif314/Fourier-ASR)
+[[arXiv]](https://arxiv.org/abs/2601.06406)
+<span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
+<span class="bibtex-toggle" onclick="toggleBibtex(this)">[bibtex]</span>
+<span class="abstract-content">Although Coordinate-MLP-based implicit neural representations have excelled in representing radiance fields, 3D shapes, and images, their application to audio signals remains underexplored. To fill this gap, we investigate existing implicit neural representations, from which we extract 3 types of positional encoding and 16 commonly used activation functions. Through combinatorial design, we establish the first benchmark for Coordinate-MLPs in audio signal representations. Our benchmark reveals that Coordinate-MLPs require complex hyperparameter tuning and frequency-dependent initialization, limiting their robustness. To address these issues, we propose Fourier-ASR, a novel framework based on the Fourier series theorem and the Kolmogorov-Arnold representation theorem. Fourier-ASR introduces Fourier Kolmogorov-Arnold Networks (Fourier-KAN), which leverage periodicity and strong nonlinearity to represent audio signals, eliminating the need for additional positional encoding. Furthermore, a Frequency-adaptive Learning Strategy (FaLS) is proposed to enhance the convergence of Fourier-KAN by capturing high-frequency components and preventing overfitting of low-frequency signals. Extensive experiments conducted on natural speech and music datasets reveal that: (1) well-designed positional encoding and activation functions in Coordinate-MLPs can effectively improve audio representation quality; and (2) Fourier-ASR can robustly represent complex audio signals without extensive hyperparameter tuning. Looking ahead, the continuity and infinite resolution of implicit audio representations make our research highly promising for tasks such as audio compression, synthesis, and generation. The source code will be released publicly to ensure reproducibility.</span>
+<span class="bibtex-content">
+  @inproceedings{li2024gs3lam,<br>
+  &nbsp;&nbsp;title={GS3LAM: Gaussian Semantic Splatting SLAM},<br>
+  &nbsp;&nbsp;author={Li, Linfei and Zhang, Lin and Wang, Zhong and Shen, Ying},<br>
+  &nbsp;&nbsp;booktitle={Proceedings of the 32nd ACM International Conference on Multimedia},<br>
+  &nbsp;&nbsp;pages={3019--3027},<br>
+  &nbsp;&nbsp;year={2024},<br>
+  &nbsp;&nbsp;numpages={9}<br>
+}</span>
+
+</div>
+</div>
+
 
 
 <!-- 1 -->
@@ -133,7 +160,7 @@ function toggleBibtex(element) {
 [[pdf]](https://dl.acm.org/doi/abs/10.1145/3664647.3680739)
 <span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
 <span class="bibtex-toggle" onclick="toggleBibtex(this)">[bibtex]</span>
-<span class="abstract-content">Recently, the multi-modal fusion of RGB, depth, and semantics has shown great potential in the domain of dense Simultaneous Localization and Mapping (SLAM), as known as dense semantic SLAM. Yet a prerequisite for generating consistent and continuous semantic maps is the availability of dense, efficient, and scalable scene representations. To date, existing semantic SLAM systems based on explicit scene representations (points/meshes/surfels) are limited by their resolutions and inabilities to predict unknown areas, thus failing to generate dense maps. Contrarily, a few implicit scene representations (Neural Radiance Fields) to deal with these problems rely on time-consuming ray tracing-based volume rendering technique, which cannot meet the real-time rendering requirements of SLAM. Fortunately, the Gaussian Splatting scene representation has recently emerged, which inherits the efficiency and scalability of point/surfel representations while smoothly represents geometric structures in a continuous manner, showing promise in addressing the aforementioned challenges. To this end, we propose GS3LAM, a Gaussian Semantic Splatting SLAM framework, which takes multimodal data as input and can render consistent, continuous dense semantic maps in real-time. To fuse multimodal data, GS3LAM models the scene as a Semantic Gaussian Field (SG-Field), and jointly optimizes camera poses and the field by establishing error constraints between observed and predicted data. Furthermore, a Depth-adaptive Scale Regularization (DSR) scheme is proposed to tackle the problem of misalignment between scale-invariant Gaussians and geometric surfaces within the SG-Field. To mitigate the forgetting phenomenon, we propose an effective Random Sampling-based Keyframe Mapping (RSKM) strategy, which exhibits notable superiority over local covisibility optimization strategies commonly utilized in 3DGS-based SLAM systems. Extensive experiments conducted on the benchmark datasets reveal that compared with state-of-the-art competitors, GS3 LAM demonstrates increased tracking robustness, superior real-time rendering quality, and enhanced semantic reconstruction precision. To make the results reproducible, the source code is available at https://github.com/lif314/GS3LAM.</span>
+<span class="abstract-content">Recently, the multi-modal fusion of RGB, depth, and semantics has shown great potential in the domain of dense Simultaneous Localization and Mapping (SLAM), as known as dense semantic SLAM. Yet a prerequisite for generating consistent and continuous semantic maps is the availability of dense, efficient, and scalable scene representations. To date, existing semantic SLAM systems based on explicit scene representations (points/meshes/surfels) are limited by their resolutions and inabilities to predict unknown areas, thus failing to generate dense maps. Contrarily, a few implicit scene representations (Neural Radiance Fields) to deal with these problems rely on time-consuming ray tracing-based volume rendering technique, which cannot meet the real-time rendering requirements of SLAM. Fortunately, the Gaussian Splatting scene representation has recently emerged, which inherits the efficiency and scalability of point/surfel representations while smoothly represents geometric structures in a continuous manner, showing promise in addressing the aforementioned challenges. To this end, we propose GS3LAM, a Gaussian Semantic Splatting SLAM framework, which takes multimodal data as input and can render consistent, continuous dense semantic maps in real-time. To fuse multimodal data, GS3LAM models the scene as a Semantic Gaussian Field (SG-Field), and jointly optimizes camera poses and the field by establishing error constraints between observed and predicted data. Furthermore, a Depth-adaptive Scale Regularization (DSR) scheme is proposed to tackle the problem of misalignment between scale-invariant Gaussians and geometric surfaces within the SG-Field. To mitigate the forgetting phenomenon, we propose an effective Random Sampling-based Keyframe Mapping (RSKM) strategy, which exhibits notable superiority over local covisibility optimization strategies commonly utilized in 3DGS-based SLAM systems. Extensive experiments conducted on the benchmark datasets reveal that compared with state-of-the-art competitors, GS3 LAM demonstrates increased tracking robustness, superior real-time rendering quality, and enhanced semantic reconstruction precision.</span>
 <span class="bibtex-content">@inproceedings{li2024gs3lam,<br>  title={GS3LAM: Gaussian Semantic Splatting SLAM},<br>  author={Li, Linfei and Zhang, Lin and Wang, Zhong and Shen, Ying},<br>  booktitle={Proceedings of the 32nd ACM International Conference on Multimedia},<br>  pages={3019--3027},<br>  year={2024},<br>  numpages={9}<br>}</span>
 
 </div>
@@ -144,7 +171,7 @@ function toggleBibtex(element) {
 - *2023.09 - 2029.03 (expected)*, PhD, Computer Science and Technology, Tongji University.
 - *2019.09 - 2023.07*, Undergraduate, Software Engineering, Tongji University.
 
-# 🎖 Honors and Awards
+# 🎖️ Honors and Awards
 - *2023.08*, Outstanding Graduate of Tongji University
 - *2023.07*, Outstanding Undergraduate Thesis of Tongji University
 
