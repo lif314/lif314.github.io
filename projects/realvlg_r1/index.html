@@ -38,7 +38,7 @@
   </div>
   <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://huajian-zeng.github.io/">
+      <a class="navbar-item" href="https://lif314.github.io/">
       <span class="icon">
           <i class="fas fa-home"></i>
       </span>
@@ -49,17 +49,11 @@
           More Research
         </a>
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://huajian-zeng.github.io/projects/coe/">
-            CoE
+          <a class="navbar-item" href="https://smartsplat.github.io/SmartSplat-Website/">
+            SmartSplat
           </a>
-          <a class="navbar-item" href="https://huajian-zeng.github.io/projects/flowhoi/">
-            FlowHOI
-          </a>
-          <a class="navbar-item" href="https://sites.google.com/view/cleardepth/">
-            ClearDepth
-          </a>
-          <a class="navbar-item" href="https://github.com/Arena-Rosnav">
-            Arena Series
+          <a class="navbar-item" href="https://neaf-audio.github.io/NeAF-Audio/">
+            Fourier-ASR
           </a>
         </div>
       </div>
@@ -179,85 +173,113 @@
     <!-- Pipeline Overview. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Pipeline Overview</h2>
+        <h2 class="title is-3">Overview</h2>
         <div class="content has-text-justified">
-          <img src="./method.png" alt="Pipeline Overview">
+          <img src="./teaser.png" alt="Overview">
           <p>
-            Given an observed trajectory and scene context, our model predicts future 6-DOF object trajectories conditioned on a specified goal state. The pipeline consists of:
+          We propose RealVLG, a unified framework that integrates the RealVLG-11B dataset and RealVLG-R1 model to enable multigranularity, zero-shot robotic visual-language grounding and grasping in real-world scenarios.
           </p>
           <ul>
-            <li><b>Multi-modal Feature Extraction</b> &mdash; We encode (a) trajectory dynamics via a linear layer, (b) local geometry propagated from the scene point cloud to the object's bounding box using PointNet++, (c) semantic fixture boxes and labels along with natural language descriptions using CLIP, and (d) fixture bounding box interactions via self-attention.</li>
-            <li><b>Feature Fusion</b> &mdash; A Perceiver IO-inspired multimodal transformer with learnable latent arrays performs hierarchical fusion through stacked cross-attention and self-attention blocks, prioritizing hard geometric constraints over softer semantic cues.</li>
-            <li><b>Trajectory Prediction</b> &mdash; The fused latent is fed directly to the prediction head, generating future 6-DOF object trajectories conditioned on the multimodal scene representation and goal state.</li>
+            <li><b>RealVLG-11B Dataset: </b> The largest real-world grounding and grasping dataset with multi-granularity annotations from semantic localization to grasp-level understanding.</li>
+            <li><b>RealVLG-R1 Model:</b> A unified model trained via Reinforcement Learning Fine-tuning for zero-shot language-driven grounding and grasping.</li>
+            <li><b>RealVLG Benchmark:</b> A unified visual-language grounding and grasping benchmark for robotic perception and grasping policy learning. </li>
           </ul>
         </div>
       </div>
     </div>
     <!--/ Pipeline Overview. -->
 
-    <!-- Qualitative Results. -->
+    <!-- Pipeline Overview. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Qualitative Results</h2>
+        <h2 class="title is-3">RealVLG-11B Dataset</h2>
         <div class="content has-text-justified">
-          <h3 class="title is-4">Results on the ADT Dataset</h3>
-          <img src="./static/images/qualitative_adt.png" alt="Qualitative results on the ADT dataset">
+          <h3 class="title is-4">Unified Data Annotation</h3>
+          <img src="./RealVLG-11B.png" alt="Annotation">
           <p>
-            The green trajectory represents the input history across all experiments. Only our model produces trajectories that both reach the target and avoid collisions, while also achieving shorter path lengths compared to the ground-truth natural trajectories.
+          The pipeline integrates automatic language generation, model-based verification, and manual review to generate high-quality multi-granularity visual and language annotations.
           </p>
-
-          <h3 class="title is-4">Results on the HD-EPIC Dataset</h3>
-          <img src="./static/images/qualitative_hdepic.png" alt="Qualitative results on the HD-EPIC dataset">
+          <h3 class="title is-4">Unified Vision-Language Grounding and Grasping Dataset</h3>
+          <img src="./realvlg_dataset.png" alt="Dataset Overview">
           <p>
-            The green points indicate the input history. Our model generates trajectories that are more efficient than the ground truth, while all baselines remain stuck in repetitive motions.
+           Comparison of RealVLG-11B with existing grasping datasets. “–” indicates unknown values.
           </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Qualitative Results. -->
-
-    <!-- Hand Tracking. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Hand Tracking for Object Trajectory Extraction</h2>
-        <div class="content has-text-justified">
-          <img src="./static/images/suppl_hands23.png" alt="Hand tracking pipeline for HD-EPIC object trajectory extraction">
+          <h3 class="title is-4">Qualitative Comparison of Data Quality</h3>
+          <img src="./RealVLG-DataCompare.png" alt="Dataset Compare">
           <p>
-            HD-EPIC only annotates object positions at pickup and drop events. We use the interacting hand as a proxy for the object's motion: by tracking the hand via Project Aria's MPS and detecting hand-object contact with a pretrained Hands23 detector, we infer dense 6-DOF object trajectories between pickup and release.
+           Unlike the diffusion-generated, low-resolution images and weakly aligned textual and grasp annotations in Grasp-Anything datasets, RealVLG-11B provides high-resolution real-world imagery, instance-level language grounding, and standardized, physically executable grasp labels, enabling more accurate and robust visual–language grasping.
           </p>
         </div>
       </div>
     </div>
-    <!--/ Hand Tracking. -->
+    <!--/ Pipeline Overview. -->
 
-    <!-- 3D Bounding Box Extraction. -->
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">3D Bounding Box Extraction for HD-EPIC</h2>
-        <div class="content has-text-justified">
-          <img src="./supp_hdepic_bbox.png" alt="3D Bounding Box Extraction Pipeline for HD-EPIC">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Framework of RealVLG-R1</h2>
+      <div class="content has-text-justified">
+        <img src="./RealVLG-R1.png" alt="RealVLG-R1 Model">
+        <p>
+        RealVLG-R1 fine-tunes pretrained LVLMs via reward-driven RL using task-specific verifiable rewards, enabling adaptive learning and improved generalization over bounding boxes, segmentation, grasp rectangles, and contact points. It includes two aspects:
+        </p>
+        <ul>
+          <li><b>Policy Optimization with Verifiable Rewards: </b> GRPO and GSPO. </li>
+          <li><b>Task-Specific Pipelines and Verifiable Rewards:</b> Bbox, Segmentation, 4-DoF Grasp Pose, Grasp Contact Points. </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">RealVLG Benchmark</h2>
+      <div class="content has-text-justified">
+        <h3 class="title is-4">Comprehensive Results</h2>
+        <img src="./RealVLG-Benchmark.png" alt="RealVLG Benchmark">
+        <p>
+        All metrics are reported in percentage format.
+        </p>
+
+        <h3 class="title is-4">Training Performance</h2>
+        <img src="./RealVLG-Training.png" alt="RealVLG Training">
+        <p>
+        Training reward/accuracy curves for GRPO, GSPO, and SFT on Contact tasks. Overall, GRPO and GSPO significantly improve SFT through RLVR. GRPO achieves slightly higher accuracy on 3B, while GSPO performs better on 7B and exhibits more stable outputs across training steps.
+        </p>
+      </div>
+    </div>
+  </div>
+
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Real-World Visual-Language Grasping Experiments</h2>
+      <div class="content has-text-justified">
+          <h3 class="title is-4">Real-world Experimental Setup</h3>
+          <img src="./RealVLG-Setting.png" alt="Setup">
           <p>
-            HD-EPIC lacks 3D bounding box annotations for scene objects. We recover them automatically: given a 2D annotation mask, we filter 3D point correspondences using depth estimates from Unik3D and back-project them into 3D space, then fit a 3D bounding box to the filtered point cloud.
+           (a) The 7-DoF Franka Research 3 robot equipped with an eye-in-hand Intel RealSense D435i camera, used for real-world evaluation of RealVLG-R1. (b) The set of 10 test objects used to assess the model’s generalization and manipulation performance.
           </p>
-        </div>
+
+          <h3 class="title is-4">Single Object Grasping</h3>
+          <img src="./RealVLG-Single.png" alt="Single">
+          <p>
+           GraspNet often fails or predicts misaligned grasp poses due to noisy or incomplete point cloud data (e.g., Cup), reflective surfaces, and small or thin objects, such as Marker, Screwdriver, and Razor. In contrast, RealVLG-R1 leverages RGB vision and language instructions to accurately localize the target and generate executable grasp contact points, demonstrating robust and reliable grasping behavior across diverse objects.
+          </p>
+
+           <h3 class="title is-4"> Clutter Object Grasping</h3>
+          <img src="./RealVLG-Clutter-lgd.png" alt="Clutter LGD">
+          <p>
+           LGD struggles to perform language-conditioned grasps in cluttered environments due to limited perceptual resolution, suboptimal language integration, and reliance on unconditional grasp pose predictions.
+          </p>
+          <img src="./RealVLG-Clutter-ours.png" alt="Clutter Ours">
+          <p>
+           RealVLG-R1 demonstrates accurate language-conditioned grasping, robust zero-shot performance in cluttered environments, and interpretable predictions of grasp poses.
+          </p>
       </div>
     </div>
-    <!--/ 3D Bounding Box Extraction. -->
+  </div>
+   
 
-    <!-- More Qualitative Results. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">More Qualitative Results</h2>
-        <div class="content has-text-justified">
-          <h3 class="title is-4">Additional Results on the ADT Dataset</h3>
-          <img src="./static/images/supp_adt_ok.png" alt="Additional qualitative results on the ADT dataset">
 
-          <h3 class="title is-4">Additional Results on the HD-EPIC Dataset</h3>
-          <img src="./static/images/supp_hdepic_ok.png" alt="Additional qualitative results on the HD-EPIC dataset">
-        </div>
-      </div>
-    </div>
-    <!--/ More Qualitative Results. -->
   </div>
 </section>
 
@@ -265,10 +287,10 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{zeng2026gmt,
-  title     = {{GMT}: Goal-Conditioned Multimodal Transformer for 6-DOF Object Trajectory Synthesis in 3D Scenes},
-  author    = {Zeng, Huajian and Saroha, Abhishek and Cremers, Daniel and Wang, Xi},
-  booktitle = {International Conference on 3D Vision (3DV)},
+    <pre><code>@inproceedings{li2026realvlg,
+  title     = {RealVLG-R1: A Large-Scale Real-World Visual-Language Grounding Benchmark for Robotic Perception and Manipulation},
+  author    = {Li, Linfei and Zhang, Lin and Shen, Ying},
+  booktitle = {CVPR},
   year      = {2026},
 }</code></pre>
   </div>
