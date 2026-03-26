@@ -129,6 +129,7 @@ function toggleBibtex(element) {
 [**RealVLG-R1: A Large-Scale Real-World Visual-Language Grounding Benchmark for Robotic Perception and Manipulation**](https://arxiv.org/abs/2603.14880)
 
 **Linfei Li**, Lin Zhang, Ying Shen
+
 [[webpage]](https://lif314.github.io/projects/realvlg_r1)
 [[code]](https://github.com/lif314/RealVLG-R1)
 [[arXiv]](https://arxiv.org/abs/2603.14880)
