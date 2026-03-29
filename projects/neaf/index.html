@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Representing Sounds as Neural Amplitude Fields: A Benchmark of Coordinate-MLPs and A Fourier Kolmogorov-Arnold Framework">
+  <meta name="keywords"
+    content="Neural Amplitude Fields, Coordinate-MLPs, Fourier Kolmogorov-Arnold Framework, Audio Representation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Representing Sounds as Neural Amplitude Fields: A Benchmark of Coordinate-MLPs and A Fourier Kolmogorov-Arnold
+    Framework</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+
+</head>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://lif314.github.io/">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://smartsplat.github.io/SmartSplat-Website/">
+              SmartSplat(AAAI'26)
+            </a>
+            <a class="navbar-item" href="https://lif314.github.io/projects/realvlg_r1/">
+              RealVLG-R1(CVPR'26)
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Representing Sounds as Neural Amplitude Fields: A Benchmark of
+              Coordinate-MLPs and A Fourier Kolmogorov-Arnold Framework</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://lif314.github.io/">Linfei Li</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=8VOk_S4AAAAJ&hl=en">Lin
+                  Zhang</a><sup>1,*</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=rrkp_usAAAAJ&hl=en">Zhong Wang</a><sup>2</sup></span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=Wj6eikAAAAAJ&hl=en">Fengyi
+                  Zhang</a><sup>3</sup></span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=QeFwnVsAAAAJ&hl=en">Zelin Li</a><sup>4</sup></span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=A0N_mS0AAAAJ&hl=en">Ying Shen</a><sup>1</sup></span>
+
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>School of Computer Science and Technology, Tongji University
+                &nbsp;&nbsp;</span>
+              <br>
+              <span class="author-block"><sup>2</sup>Department of Automation, Shanghai Jiao Tong University
+                &nbsp;&nbsp;</span>
+              <br>
+              <span class="author-block"><sup>3</sup>School of Electrical Engineering and Computer Science, The
+                University of Queensland &nbsp;&nbsp;</span>
+              <br>
+              <span class="author-block"><sup>4</sup>McCormick School of Engineering, Northwestern University
+                &nbsp;&nbsp;</span>
+              <br>
+              <span class="author-block"><sup>*</sup>Corresponding author &nbsp;&nbsp;</span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><b>AAAI 2025</b></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://ojs.aaai.org/index.php/AAAI/article/view/34624"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2601.06406" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/lif314/Fourier-ASR"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Although Coordinate-MLP-based implicit neural representations have excelled in representing radiance
+              fields, 3D shapes, and images, their application to audio signals remains underexplored. To fill this gap,
+              we investigate existing implicit neural representations, from which we extract 3 types of positional
+              encoding and 16 commonly used activation functions. Through combinatorial design, we establish the first
+              benchmark for Coordinate-MLPs in audio signal representations. Our benchmark reveals that Coordinate-MLPs
+              require complex hyperparameter tuning and frequency-dependent initialization, limiting their robustness.
+              To address these issues, we propose Fourier-ASR, a novel framework based on the Fourier series theorem and
+              the Kolmogorov-Arnold representation theorem. Fourier-ASR introduces Fourier Kolmogorov-Arnold Networks
+              (Fourier-KAN), which leverage periodicity and strong nonlinearity to represent audio signals, eliminating
+              the need for additional positional encoding. Furthermore, a Frequency-adaptive Learning Strategy (FaLS) is
+              proposed to enhance the convergence of Fourier-KAN by capturing high-frequency components and preventing
+              overfitting of low-frequency signals. Extensive experiments conducted on natural speech and music datasets
+              reveal that: (1) well-designed positional encoding and activation functions in Coordinate-MLPs can
+              effectively improve audio representation quality; and (2) Fourier-ASR can robustly represent complex audio
+              signals without extensive hyperparameter tuning. Looking ahead, the continuity and infinite resolution of
+              implicit audio representations make our research highly promising for tasks such as audio compression,
+              synthesis, and generation.
+            </p>
+            <img src="./assets/teaser.png" alt="Teaser">
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Pipeline Overview. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">What is Neural Amplitude Fields?</h2>
+          <div class="content has-text-justified">
+            <img src="./assets/neaf.png" alt="Overview">
+            <p>
+              In contrast to local feature-based representation, Neural Amplitude Fields, as a specific instance of
+              implicit neural representations in audio signals, utilize time coordinates as inputs to regress the
+              corresponding amplitudes, thereby encoding the audio signal within the weights of a neural network. This
+              parameterized representation is not only <b>continuously differentiable</b> but also <b>decoupled from
+                spatial
+                resolution</b>, allowing for precise processing of audio signals at any resolution. It holds potential
+              for
+              applications in audio denoising, synthesis, generation, and other related fields.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">A Benchmark of Coordinate-MLPs in Audio Signal Representations</h2>
+          <div class="content has-text-justified">
+            <img src="./assets/benchmark.png" alt="Annotation">
+            <p>
+              Although Coordinate-MLP-based implicit neural representations have excelled in representing radiance
+              fields, 3D shapes, and images, their application to audio signals remains underexplored. To fill this gap,
+              we investigate existing implicit neural representations, from which we extract 3 types of positional
+              encoding and 16 commonly used activation functions. Through combinatorial design, we establish the first
+              benchmark for Coordinate-MLPs in audio signal representations.
+            </p>
+
+            <div>
+              <h3 class="title is-4">Quantitative Experiments</h3>
+              <img src="./assets/benchmark_table.png" alt="Dataset Overview">
+              <p><b>Conclusions: </b></p>
+              <ul>
+                <li>Most activation functions (Sigmoid, ReLU, Tanh, etc.), aside from those with strong nonlinearity
+                  (Gaussian-type) and periodicity (Sine-type), fail to capture the high-frequency and local
+                  periodicity of audio signals.</li>
+                <li>Positional encodings significantly enhance the ability of Coordinate-MLPs to represent audio
+                  signals due to their high-dimensional mapping capabilities, which improve the model's ability to
+                  capture high-frequency information. This enhancement is particularly notable for Gaussian
+                  (11.02dB <span style="color:red;">&uarr;</span> in SNR) and Sine (18.96dB <span
+                    style="color:red;">&uarr;</span> in SNR) activation functions.</li>
+                <li>In the context of positional encoding, the introduction of random Gaussian noise by
+                  <code>RFF</code> makes it more suited to Gaussian-type activation functions (~3dB <span
+                    style="color:red;">&uarr;</span> in SNR). Conversely, <code>NeFF</code> employs Fourier
+                  mappings, which are more compatible with Sine-type activation functions (~9dB <span
+                    style="color:red;">&uarr;</span> in SNR).
+                </li>
+              </ul>
+            </div>
+
+            <!-- Qualitative Experiments on ''Bach'' Audio -->
+            <div>
+              <!-- data sequence -->
+              <h3 style="text-align: left;">Qualitative Experiments on ''Bach'' Audio</h3>
+
+              <!-- ground truth -->
+              <div style="text-align: center;">
+                <div class="col-sm-3" style="display: inline-block; text-align: center;">
+                  <h5>Ground truth</h5>
+                  <img src="assets/gt_bach.png" style="width:100%">
+                  <audio controls src="assets/gt_bach.wav" class="media-left" style="width:100%">
+                    Your browser does not support the
+                    <code>audio</code> element.
+                  </audio>
+                </div>
+              </div>
+
+              <br>
+
+              <!-- Sine-MLPs -->
+              <div class="row justify-content-left" style="text-align: center;">
+                <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column">
+                  <h5>Sine</h5>
+                </div>
+                <div class="col-sm-3">
+                  <h5>w/o Pos. Enc.</h5>
+                  <div style="position: relative; width: fit-content;">
+                    <img src="assets/amps/bach_sine_None.png" style="width:100%">
+                    <p
+                      style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                      SNR=13.36 dB
+                    </p>
+                  </div>
+
+                  <audio controls src="assets/audio/bach_sine_None.wav" class="media-left" style="width:100%">
+                    Your browser does not support the
+                    <code>audio</code> element.
+                  </audio>
+                </div>
+                <div class="col-sm-3">
+                  <h5>w/ RFF Pos. Enc.</h5>
+                  <div style="position: relative; width: fit-content;">
+                    <img src="assets/amps/bach_sine_FFN.png" style="width:100%">
+                    <p
+                      style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                      SNR=39.02 dB
+                    </p>
+                  </div>
+
+                  <audio controls src="assets/audio/bach_sine_FFN.wav" class="media-left" style="width:100%">
+                    Your browser does not support the
+                    <code>audio</code> element.
+                  </audio>
+                </div>
+                <div class="col-sm-3">
+                  <h5>w/ NeFF Pos. Enc.</h5>
+                  <div style="position: relative; width: fit-content;">
+                    <img src="assets/amps/bach_sine_NeRF.png" style="width:100%;">
+                    <p
+                      style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                      SNR=42.39 dB
+                    </p>
+                  </div>
+                  <audio controls src="assets/audio/bach_sine_NeRF.wav" class="media-left" style="width:100%">
+                    Your browser does not support the
+                    <code>audio</code> element.
+                  </audio>
+                </div>
+
+                <!-- IncodeSine-MLPs -->
+                <div class="row justify-content-left" style="text-align: center;">
+
+                  <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column">
+                    <h5>IncodeSine</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_learnable-sine_None.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=15.98 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_learnable-sine_None.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_learnable-sine_FFN.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=38.10 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_learnable-sine_FFN.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_learnable-sine_NeRF.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=41.40 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_learnable-sine_NeRF.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                </div>
+
+                <!-- Gaussian-MLPs -->
+                <div class="row justify-content-left" style="text-align: center;">
+
+                  <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column">
+                    <h5>Gaussian</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_gaussian_None.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=6.35 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_gaussian_None.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_gaussian_FFN.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=20.85 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_gaussian_FFN.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_gaussian_NeRF.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=19.68 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_gaussian_NeRF.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                </div>
+
+
+                <!-- Laplacian-MLPs -->
+                <div class="row justify-content-left" style="text-align: center;">
+
+                  <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column">
+                    <h5>Laplacian</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_laplacian_None.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=12.04 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_laplacian_None.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_laplacian_FFN.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=15.57 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_laplacian_FFN.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_laplacian_NeRF.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=15.26 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_laplacian_NeRF.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                </div>
+
+                <!-- Super-Caussian-MLPs -->
+                <div class="row justify-content-left" style="text-align: center;">
+
+                  <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column">
+                    <h5>SuperCaussian</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_super-gaussian_None.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=6.38 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_super-gaussian_None.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_super-gaussian_FFN.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=20.86 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_super-gaussian_FFN.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_super-gaussian_NeRF.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=19.69 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_super-gaussian_NeRF.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                </div>
+
+                <!-- ReLU-MLPs -->
+                <div class="row justify-content-left" style="text-align: center;">
+
+                  <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column">
+                    <h5>ReLU</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_relu_None.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=0.00 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_relu_None.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_relu_FFN.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=15.62 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_relu_FFN.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/bach_relu_NeRF.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=22.29 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_relu_NeRF.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                </div>
+
+              </div>
+
+
+
+            </div>
+
+
+            <!-- Qualitative Experiments on ''Counting'' Audio -->
+            <div>
+              <!-- data sequence -->
+              <h3 style="text-align: left;">Qualitative Experiments on ''Counting'' Audio</h3>
+
+              <!-- ground truth -->
+              <div style="text-align: center;">
+                <div class="col-sm-3" style="display: inline-block; text-align: center;">
+                  <h5>Ground truth</h5>
+                  <img src="assets/gt_counting.png" style="width:100%">
+                  <audio controls src="assets/gt_counting.wav" class="media-left" style="width:100%">
+                    Your browser does not support the
+                    <code>audio</code> element.
+                  </audio>
+                </div>
+              </div>
+
+              <br>
+
+              <!-- Sine-MLPs -->
+              <div class="row justify-content-left" style="text-align: center;">
+                <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column">
+                  <h5>Sine</h5>
+                </div>
+                <div class="col-sm-3">
+                  <h5>w/o Pos. Enc.</h5>
+                  <div style="position: relative; width: fit-content;">
+                    <img src="assets/amps/counting_sine_None.png" style="width:100%">
+                    <p
+                      style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                      SNR=7.96 dB
+                    </p>
+                  </div>
+
+                  <audio controls src="assets/audio/counting_sine_None.wav" class="media-left" style="width:100%">
+                    Your browser does not support the
+                    <code>audio</code> element.
+                  </audio>
+                </div>
+                <div class="col-sm-3">
+                  <h5>w/ RFF Pos. Enc.</h5>
+                  <div style="position: relative; width: fit-content;">
+                    <img src="assets/amps/counting_sine_FFN.png" style="width:100%">
+                    <p
+                      style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                      SNR=13.06 dB
+                    </p>
+                  </div>
+
+                  <audio controls src="assets/audio/counting_sine_FFN.wav" class="media-left" style="width:100%">
+                    Your browser does not support the
+                    <code>audio</code> element.
+                  </audio>
+                </div>
+                <div class="col-sm-3">
+                  <h5>w/ NeFF Pos. Enc.</h5>
+                  <div style="position: relative; width: fit-content;">
+                    <img src="assets/amps/counting_sine_NeRF.png" style="width:100%;">
+                    <p
+                      style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                      SNR=33.58 dB
+                    </p>
+                  </div>
+                  <audio controls src="assets/audio/counting_sine_NeRF.wav" class="media-left" style="width:100%">
+                    Your browser does not support the
+                    <code>audio</code> element.
+                  </audio>
+                </div>
+
+                <!-- IncodeSine-MLPs -->
+                <div class="row justify-content-left" style="text-align: center;">
+
+                  <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column">
+                    <h5>IncodeSine</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_learnable-sine_None.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=8.16 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_learnable-sine_None.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_learnable-sine_FFN.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=12.86 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_learnable-sine_FFN.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_learnable-sine_NeRF.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=32.24 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_learnable-sine_NeRF.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                </div>
+
+                <!-- Gaussian-MLPs -->
+                <div class="row justify-content-left" style="text-align: center;">
+
+                  <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column">
+                    <h5>Gaussian</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_gaussian_None.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=0.74 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_gaussian_None.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_gaussian_FFN.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=12.14 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_gaussian_FFN.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_gaussian_NeRF.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=9.20 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_gaussian_NeRF.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                </div>
+
+
+                <!-- Laplacian-MLPs -->
+                <div class="row justify-content-left" style="text-align: center;">
+
+                  <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column">
+                    <h5>Laplacian</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_laplacian_None.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=1.34 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_laplacian_None.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_laplacian_FFN.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=10.97 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_laplacian_FFN.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_laplacian_NeRF.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=8.67 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_laplacian_NeRF.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                </div>
+
+                <!-- Super-Caussian-MLPs -->
+                <div class="row justify-content-left" style="text-align: center;">
+
+                  <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column">
+                    <h5>SuperCaussian</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_super-gaussian_None.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=0.75 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_super-gaussian_None.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_super-gaussian_FFN.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=12.44 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_super-gaussian_FFN.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_super-gaussian_NeRF.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=9.20 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_super-gaussian_NeRF.wav" class="media-left"
+                      style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                </div>
+
+                <!-- ReLU-MLPs -->
+                <div class="row justify-content-left" style="text-align: center;">
+
+                  <div class="col-sm-3 d-flex justify-content-center align-items-center flex-column">
+                    <h5>ReLU</h5>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_relu_None.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=-7.66 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_relu_None.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_relu_FFN.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=4.93 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_relu_FFN.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                  <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                      <img src="assets/amps/counting_relu_NeRF.png" style="width:100%">
+                      <p
+                        style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                        SNR=9.57 dB
+                      </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_relu_NeRF.wav" class="media-left" style="width:100%">
+                      Your browser does not support the
+                      <code>audio</code> element.
+                    </audio>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Fourier-ASR: A Fourier Kolmogorov-Arnold Framework</h2>
+          <div class="content has-text-justified">
+            <img src="./assets/fourier.png" alt="Annotation">
+            <p>
+             To avoid spectral bias from positional encoding and
+                complex parameter tuning of activation functions, we
+                propose a novel audio signal representation framework,
+                <b>Fourier-ASR</b>, based on the Fourier series theorem and
+                the Kolmogorov-Arnold theorem. Fourier-ASR includes
+                Fourier Kolmogorov-Arnold Networks (Fourier-KAN)
+                and a Frequency-adaptive Learning Strategy (FaLS). Due
+                to the periodicity and strong nonlinearity of Fourier basis
+                functions, Fourier-ASR can effectively represent audio signals and provide enhanced interpretability.
+            </p>
+
+            <div>
+              <h3 class="title is-4">Quantitative Experiments</h3>
+              <img src="./assets/fourier_table.png" alt="Dataset Overview">
+              <p><b>Conclusions: </b></p>
+                <ul>
+                    <li>It is noteworthy that although Gaussian and Sine activation functions were introduced to
+                        mitigate the complex parameter adjustments and spectral bias associated with positional
+                        encoding, we found that positional encoding remains essential due to the high-frequency nature
+                        and local periodicity of audio signals. Consequently, we designed <strong>new nonlinear
+                            mappings</strong>, namely <code>RFF+Gaussian</code> and <code>NeFF+Sine</code>, to address
+                        these challenges.
+                    </li>
+                    <li>The designs <code>RFF+Gaussian</code> and <code>NeFF+Sine</code> significantly enhance the
+                        ability of Coordinate-MLPs to represent audio signals. On the GTZAN dataset, these methods
+                        improve the SNR by 10.15dB <span style="color:red;">&uarr;</span> and 12.28dB <span
+                            style="color:red;">&uarr;</span>, respectively. On the CSTR VCTK dataset, the SNR
+                        improvements are 10.40dB <span style="color:red;">&uarr;</span> and 14.04dB <span
+                            style="color:red;">&uarr;</span>, respectively.
+                    </li>
+                    <li>Due to the periodic nature of Fourier basis functions and the Frequency-adaptive Learning
+                        Strategy (FaLS), our proposed Fourier-ASR(KAN) significantly outperforms Sine(MLP) (~6dB <span
+                            style="color:red;">&uarr;</span>) and B-Spline(KAN) (~18dB <span
+                            style="color:red;">&uarr;</span>). However, because existing optimization strategies are not
+                        perfectly adapted to KAN networks, Fourier-ASR(KAN) performs slightly worse than the locally
+                        periodic NeFF+Sine(MLP). Nonetheless, Fourier-ASR(KAN) does not require positional encoding,
+                        thereby avoiding the need for cumbersome hyperparameter tuning.
+                    </li>
+                </ul>
+            </div>
+
+            <h3 style="text-align: left;">Qualitative Experiments</h3>
+            <!-- Bach -->
+            <div class="row justify-content-left" style="text-align: center;">
+                <div class="col-sm-3">
+                    <h5>Ground truth</h5>
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/gt_bach.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            Bach
+                        </p>
+                    </div>
+                    
+                    <audio controls src="assets/gt_bach.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <h5>RFF+Gaussian</h5>
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/amps/bach_gaussian_FFN.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=20.85 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_gaussian_FFN.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <h5>NeFF+Sine</h5>
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/amps/bach_sine_NeRF.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=42.39 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_sine_NeRF.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Fourier-ASR</h5>
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/amps/bach_fourier.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=33.14 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/audio/bach_fourier.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+            </div>
+
+            <!-- Counting -->
+            <div class="row justify-content-left" style="text-align: center;">
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/gt_counting.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            Counting
+                        </p>
+                    </div>
+                   
+                    <audio controls src="assets/gt_counting.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/amps/counting_gaussian_FFN.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=12.14 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_gaussian_FFN.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/amps/counting_sine_NeRF.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=33.58 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_sine_NeRF.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/amps/counting_fourier.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=20.10 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/audio/counting_fourier.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+
+            </div>
+
+            <!-- Blues -->
+            <div class="row justify-content-left" style="text-align: center;">
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/gt_gtzan/gt_blues_00000.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            Blues (GTZAN)
+                        </p>
+                    </div>
+                   
+                    <audio controls src="assets/gt_gtzan/gt_blues_00000.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/pred_gtzan/blues_gaussian_FFN.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=11.80 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/pred_gtzan/blues_gaussian_FFN.wav" class="media-left"
+                        style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/pred_gtzan/blues_sine_NeRF.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=22.02 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/pred_gtzan/blues_sine_NeRF.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/pred_gtzan/blues_fourier_None.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=13.80 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/pred_gtzan/blues_fourier_None.wav" class="media-left"
+                        style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+
+            </div>
+
+            <!-- Classical -->
+            <div class="row justify-content-left" style="text-align: center;">
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/gt_gtzan/gt_classical_00000.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            Classical (GTZAN)
+                        </p>
+                    </div>
+                   
+                    <audio controls src="assets/gt_gtzan/gt_classical_00000.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/pred_gtzan/classical_gaussian_FFN.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=10.76 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/pred_gtzan/classical_gaussian_FFN.wav" class="media-left"
+                        style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/pred_gtzan/classical_sine_NeRF.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=25.95 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/pred_gtzan/classical_sine_NeRF.wav" class="media-left"
+                        style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/pred_gtzan/classical_fourier_None.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=15.05 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/pred_gtzan/classical_fourier_None.wav" class="media-left"
+                        style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+
+            </div>
+
+
+            <!-- NorthernIrish: 234 -->
+            <div class="row justify-content-left" style="text-align: center;">
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/gt_vctk/gt_p234_023_mic1.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            NorthernIrish (VCTK)
+                        </p>
+                    </div>
+                    
+                    <audio controls src="assets/gt_vctk/gt_p234_023_mic1.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/pred_vctk/234_gaussian_FFN.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=16.19 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/pred_vctk/234_gaussian_FFN.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/pred_vctk/234_sine_NeRF.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=19.59 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/pred_vctk/234_sine_NeRF.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/pred_vctk/234_fourier_None.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=17.12 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/pred_vctk/234_fourier_None.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+
+            </div>
+
+            <!-- NewZealand: 335 -->
+            <div class="row justify-content-left" style="text-align: center;">
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/gt_vctk/gt_p335_023_mic1.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            NewZealand (VCTK)
+                        </p>
+                    </div>
+                   
+                    <audio controls src="assets/gt_vctk/gt_p335_023_mic1.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/pred_vctk/335_gaussian_FFN.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=13.32 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/pred_vctk/335_gaussian_FFN.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/pred_vctk/335_sine_NeRF.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=16.87 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/pred_vctk/335_sine_NeRF.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+                <div class="col-sm-3">
+                    <div style="position: relative; width: fit-content;">
+                        <img src="assets/pred_vctk/335_fourier_None.png" style="width:100%">
+                        <p
+                            style="position: absolute; top: 10px; left: 10px; background-color: rgba(255, 255, 255, 0.7); margin: 0;">
+                            SNR=15.79 dB
+                        </p>
+                    </div>
+                    <audio controls src="assets/pred_vctk/335_fourier_None.wav" class="media-left" style="width:100%">
+                        Your browser does not support the
+                        <code>audio</code> element.
+                    </audio>
+                </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+
+
+
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{Li2025nerf,
+   title={Representing Sounds as Neural Amplitude Fields: A Benchmark of Coordinate-MLPs and a Fourier Kolmogorov-Arnold Framework},
+   volume={39},
+   number={23},
+   journal={Proceedings of the AAAI Conference on Artificial Intelligence},
+   publisher={AAAI},
+   author={Li, Linfei and Zhang, Lin and Wang, Zhong and Zhang, Fengyi and Li, Zelin and Shen, Ying},
+   year={2025},
+   pages={24458–24466}
+}</code></pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

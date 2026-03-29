@@ -218,7 +218,7 @@ Recent advances in generative AI have accelerated the production of ultra-high-r
 
 **Linfei Li**, Lin Zhang, Zhong Wang, Fengyi Zhang, Zelin Li, Ying Shen
 
-[[webpage]](https://neaf-audio.github.io/NeAF-Audio/)
+[[webpage]](https://lif314.github.io/projects/neaf/)
 [[code]](https://github.com/lif314/Fourier-ASR)
 [[arXiv]](https://arxiv.org/abs/2601.06406)
 <span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
