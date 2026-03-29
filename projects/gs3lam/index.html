@@ -25,6 +25,20 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+ 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" 
+        onload="renderMathInElement(document.body, {
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError : false
+        });">
+    </script>
 </head>
 <body>
 
@@ -175,110 +189,103 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Overview</h2>
         <div class="content has-text-justified">
-          <img src="./teaser.png" alt="Overview">
+          <img src="./images/teaser.png" alt="Overview">
           <p>
-          We propose RealVLG, a unified framework that integrates the RealVLG-11B dataset and RealVLG-R1 model to enable multigranularity, zero-shot robotic visual-language grounding and grasping in real-world scenarios.
-          </p>
+          Our proposed GS3LAM utilizes the 3D semantic Gaussian representation and the differentiable splatting rasterization pipeline, and jointly optimizes camera poses and field for appearance, geometry and semantics, achieving robust tracking, real-time high-quality rendering, and precise 3D semantic reconstruction.
+          Our contributions are summarized as follows:
+        </p>
           <ul>
-            <li><b>RealVLG-11B Dataset: </b> The largest real-world grounding and grasping dataset with multi-granularity annotations from semantic localization to grasp-level understanding.</li>
-            <li><b>RealVLG-R1 Model:</b> A unified model trained via Reinforcement Learning Fine-tuning for zero-shot language-driven grounding and grasping.</li>
-            <li><b>RealVLG Benchmark:</b> A unified visual-language grounding and grasping benchmark for robotic perception and grasping policy learning. </li>
+            <li><b>GS<sup>3</sup>LAM Framework: </b> GS<sup>3</sup>LAM is a <b>G</b>aussian <b>S</b>platting <b>S</b>emantic <b>SLAM</b> framework, which models the scene as a Semantic Gaussian Field (SG-Field) to efficiently facilitate the conversion between 3D semantic features and 2D labels. By the joint optimization of camera poses and field for appearance, geometry, and semantics, it achieves robust tracking, real-time high-quality rendering, and precise semantic reconstruction. </li>
+            <li><b>DSR Scheme:</b> A Depth-adaptive Scale Regularization (DSR) scheme is proposed to reduce the blurring of geometric surfaces induced by irregular Gaussian scales within the SG-Field. By constraining Gaussian scales within a reasonable range determined by depth, it alleviates the ambiguity of geometric surfaces, thereby enhancing accuracy in semantic reconstruction.</li>
+            <li><b>RSKM Strategy:</b> To address the forgetting phenomenon in GS<sup>3</sup>LAM, we propose an efficacious Random Sampling-based Keyframe Mapping (RSKM) strategy, which exhibits notable superiority over prevalent local covisibility optimization strategies commonly employed in 3DGS-based SLAM systems. Our method significantly enhances both the reconstruction accuracy and rendering quality while maintaining the global consistency of the semantic map. </li>
+            <li><b>Comprehensive Evaluation:</b> Extensive experiments conducted on Replica and ScanNet datasets demonstrate that our GS<sup>3</sup>LAM outperforms its counterparts in terms of tracking accuracy, rendering quality and speed, and semantic reconstruction.</li>
           </ul>
         </div>
       </div>
     </div>
     <!--/ Pipeline Overview. -->
 
-    <!-- Pipeline Overview. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">RealVLG-11B Dataset</h2>
-        <div class="content has-text-justified">
-          <h3 class="title is-4">Unified Data Annotation</h3>
-          <img src="./RealVLG-11B.png" alt="Annotation">
-          <p>
-          The pipeline integrates automatic language generation, model-based verification, and manual review to generate high-quality multi-granularity visual and language annotations.
-          </p>
-          <h3 class="title is-4">Unified Vision-Language Grounding and Grasping Dataset</h3>
-          <img src="./realvlg_dataset.png" alt="Dataset Overview">
-          <p>
-           Comparison of RealVLG-11B with existing grasping datasets. “–” indicates unknown values.
-          </p>
-          <h3 class="title is-4">Qualitative Comparison of Data Quality</h3>
-          <img src="./RealVLG-DataCompare.png" alt="Dataset Compare">
-          <p>
-           Unlike the diffusion-generated, low-resolution images and weakly aligned textual and grasp annotations in Grasp-Anything datasets, RealVLG-11B provides high-resolution real-world imagery, instance-level language grounding, and standardized, physically executable grasp labels, enabling more accurate and robust visual–language grasping.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Pipeline Overview. -->
-
     <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">Framework of RealVLG-R1</h2>
+      <h2 class="title is-3">Framework of GS<sup>3</sup>LAM</h2>
       <div class="content has-text-justified">
-        <img src="./RealVLG-R1.png" alt="RealVLG-R1 Model">
+        <img src="./images/framework.png" alt="GS3LAM Model">
         <p>
-        RealVLG-R1 fine-tunes pretrained LVLMs via reward-driven RL using task-specific verifiable rewards, enabling adaptive learning and improved generalization over bounding boxes, segmentation, grasp rectangles, and contact points. It includes two aspects:
+       <b>The framework overview of GS<sup>3</sup>LAM.</b> GS<sup>3</sup>LAM models the scene as a Semantic Gaussian Field (SG-Field). For geometric-semantic consistent keyframe mapping, an adaptive 3D Gaussian expansion technique and a Random Sampling-based Keyframe Mapping (RSKM) strategy are employed. GS<sup>3</sup>LAM optimizes camera poses and SG-Field using appearance, geometry, and semantics, along with a Depth-adaptive Scale Regularization (DSR) scheme.
         </p>
-        <ul>
-          <li><b>Policy Optimization with Verifiable Rewards: </b> GRPO and GSPO. </li>
-          <li><b>Task-Specific Pipelines and Verifiable Rewards:</b> Bbox, Segmentation, 4-DoF Grasp Pose, Grasp Contact Points. </li>
-        </ul>
+
+        <h3 class="title is-4"> The Forgetting Problem in SG-Field.</h2>
+        <img src="./images/forgetting.png" alt="forgetting">
+        <p>
+          The forgetting problem in SG-Field. During the incremental optimization process, Gaussians $\mathcal{G}_A$ in camera $A$  are initially optimized. However, when optimizing the Gaussians $\mathcal{G}_B$ in camera $B$ , the co-visible Gaussians $\mathcal{G}_C = \mathcal{G}_A \cap \mathcal{G}_B$ tend to be excessively fitted to the latest frame of camera $B$, resulting in a decrease in the reconstruction quality of the previous frame captured by camera $A$.
+        </p>
+        <!--  -->
+        <h3 class="title is-4"> Illustration of Optimization Bias</h2>
+        <img src="./images/bias.png" alt="Optimization Bias">
+        <p>
+        To address the forgetting phenomenon in GS<sup>3</sup>LAM, we propose a Random Sampling-based Keyframe Mapping (RSKM) strategy, which proves to be more effective than the Local Covisibility Keyframe Mapping (LCKM) strategy  commonly adopted in 3DGS-based SLAM systems. Our observation suggests that the latter method introduces a considerable bias during the optimization of the Gaussian field, thereby leading to poor global map consistency. In particular, as depicted in the above figure, frames with dense co-observations (dense camera trajectories) and increased optimization iterations (large point radii) exhibit lower PSNR values (darker color), suggesting challenges in achieving convergence of the Gaussian field under the LCKM strategy. Conversely, our proposed RSKM strategy not only enhances the rendering quality of the global map (higher mean PSNR) but also ensures high consistency among all perspectives (smaller PSNR variance), effectively reducing the optimization bias.
+      </p>
       </div>
     </div>
   </div>
 
     <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">RealVLG Benchmark</h2>
+      <h2 class="title is-3">Comprehensive Evaluation</h2>
       <div class="content has-text-justified">
-        <h3 class="title is-4">Comprehensive Results</h2>
-        <img src="./RealVLG-Benchmark.png" alt="RealVLG Benchmark">
-        <p>
-        All metrics are reported in percentage format.
-        </p>
+        <h3 class="title is-4">Rendering Evaluation</h3>
+        <h4 class="title is-5">Rendering performance on ScanNet Dataset</h4>
+        <img src="./images/scannet_rendering.png" alt="Scannet Rendering">
 
-        <h3 class="title is-4">Training Performance</h2>
-        <img src="./RealVLG-Training.png" alt="RealVLG Training">
-        <p>
-        Training reward/accuracy curves for GRPO, GSPO, and SFT on Contact tasks. Overall, GRPO and GSPO significantly improve SFT through RLVR. GRPO achieves slightly higher accuracy on 3B, while GSPO performs better on 7B and exhibits more stable outputs across training steps.
-        </p>
+        <h4 class="title is-5">Rendering performance on Replica Dataset</h4>
+        <img src="./images/replica_rendering.png" alt="Replica Rendering">
+
+        <h4 class="title is-5">Qualitative comparison</h4>
+        <img src="./images/replica_scannet_v1.png" alt="Qualitative comparison">
+
+        <h3 class="title is-4">Tracking performance on Replica (ATE RMSE)</h3>
+        <img src="./images/tracking.png" alt="Tracking">
+
+        <h3 class="title is-4">Semantic Reconstruction Evaluation</h3>
+        <img src="./images/semantic.png" alt="Semantic">
+
+        <h3 class="title is-4">Ablation Study</h3>
+        <img src="./images/ablation_table.png" alt="ablation table">
+        <img src="./images/ablation_fig.png" alt="ablation figure">
+
       </div>
     </div>
   </div>
 
-    <div class="columns is-centered has-text-centered">
+
+   <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">Real-World Visual-Language Grasping Experiments</h2>
+      <h2 class="title is-3">Further Experiments</h2>
       <div class="content has-text-justified">
-          <h3 class="title is-4">Real-world Experimental Setup</h3>
-          <img src="./RealVLG-Setting.png" alt="Setup">
-          <p>
-           (a) The 7-DoF Franka Research 3 robot equipped with an eye-in-hand Intel RealSense D435i camera, used for real-world evaluation of RealVLG-R1. (b) The set of 10 test objects used to assess the model’s generalization and manipulation performance.
-          </p>
+        <h3 class="title is-4"> Optimization bias on Replica</h3>
+        <p> Our proposed RSKM strategy not only improves rendering quality (higher mean PSNR $\mu_{PSNR}$) but also enhances the global consistency of the map (lower PSNR variance $\sigma_{PSNR}$). The LCKM strategy employed in SplaTAM \cite{keetha2024splatam} exhibits lower PSNR in regions with high covisibility and frequent optimization iterations, thereby hindering model convergence in these areas. Conversely, in regions with fewer covisible frames, the reduced optimization iterations lead to under-optimized model, resulting in decreased PSNR.</p>
+        <img src="./images/replica_bias.png" alt="replica bias">
 
-          <h3 class="title is-4">Single Object Grasping</h3>
-          <img src="./RealVLG-Single.png" alt="Single">
-          <p>
-           GraspNet often fails or predicts misaligned grasp poses due to noisy or incomplete point cloud data (e.g., Cup), reflective surfaces, and small or thin objects, such as Marker, Screwdriver, and Razor. In contrast, RealVLG-R1 leverages RGB vision and language instructions to accurately localize the target and generate executable grasp contact points, demonstrating robust and reliable grasping behavior across diverse objects.
-          </p>
+        <h3 class="title is-4">Visualization of the Semantic Gaussian Fields</h3>
+        <p>The visualization of the semantic Gaussian fields constructed by our GS<sup>3</sup>LAM on the Replica and ScanNet datasets. GS<sup>3</sup>LAM demonstrates robust tracking capabilities and achieves real-time high-quality rendering at 109 FPS, along with precise 3D semantic reconstruction.</p>
+        <img src="./images/SG-Field-v1.png" alt="Semantic Gaussian Fields">
 
-           <h3 class="title is-4"> Clutter Object Grasping</h3>
-          <img src="./RealVLG-Clutter-lgd.png" alt="Clutter LGD">
-          <p>
-           LGD struggles to perform language-conditioned grasps in cluttered environments due to limited perceptual resolution, suboptimal language integration, and reliance on unconditional grasp pose predictions.
-          </p>
-          <img src="./RealVLG-Clutter-ours.png" alt="Clutter Ours">
-          <p>
-           RealVLG-R1 demonstrates accurate language-conditioned grasping, robust zero-shot performance in cluttered environments, and interpretable predictions of grasp poses.
-          </p>
+        <h3 class="title is-4">Semantic Gaussian Field Decoupling</h3>
+        <p>GS<sup>3</sup>LAM is capable of real-time construction of 3D semantic maps that exhibit geometric, appearance, and semantic consistency, thereby enabling potential downstream real-time tasks.</p>
+        <img src="./images/SG-Field-Decouple-v1.png" alt="Semantic Gaussian Field Decoupling">
+
+        <h3 class="title is-4">More rendering results on Replica</h3>
+        <img src="./images/replica_viz_table-v1.png" alt="Replica Visualization Table">
+
+        <h3 class="title is-4">More rendering results on ScanNet</h3>
+        <img src="./images/scannet_v2.png" alt="ScanNet Visualization Table">
+        
+        <h3 class="title is-4">Semantic rendering on Replica and ScanNet</h3>
+        <img src="./images/semantics_v1.png" alt="Semantic Visualization Table">
+        
       </div>
     </div>
   </div>
-   
-
 
   </div>
 </section>
