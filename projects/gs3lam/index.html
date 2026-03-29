@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="RealVLG-R1: A Large-Scale Real-World Visual-Language Grounding Benchmark for Robotic Perception and Manipulation">
-  <meta name="keywords" content="Vision-Language Grounding, 6-DOF, Vision-Language Grasping, Robot Manipulation, GRPO">
+        content="GS3LAM: Gaussian Semantic Splatting SLAM">
+  <meta name="keywords" content="Gaussian Semantic Splatting, SLAM, Semantic Mapping, 3D Reconstruction">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>RealVLG-R1: A Large-Scale Real-World Visual-Language Grounding Benchmark for Robotic Perception and Manipulation</title>
+  <title>GS3LAM: Gaussian Semantic Splatting SLAM</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -49,14 +49,14 @@
           More Research
         </a>
         <div class="navbar-dropdown">
+           <a class="navbar-item" href="https://lif314.github.io/projects/realvlg_r1/">
+            RealVLG-R1(CVPR'26)
+          </a>
           <a class="navbar-item" href="https://smartsplat.github.io/SmartSplat-Website/">
             SmartSplat(AAAI'26)
           </a>
           <a class="navbar-item" href="https://lif314.github.io/projects/neaf/">
             NeAF(AAAI'25)
-          </a>
-          <a class="navbar-item" href="https://lif314.github.io/projects/gs3lam/">
-            GS3LAM(MM'24)
           </a>
         </div>
       </div>
@@ -70,12 +70,14 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">RealVLG-R1: A Large-Scale Real-World Visual-Language Grounding Benchmark for Robotic Perception and Manipulation</h1>
+          <h1 class="title is-1 publication-title">GS<sup>3</sup>LAM: Gaussian Semantic Splatting SLAM</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://lif314.github.io/">Linfei Li</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=8VOk_S4AAAAJ&hl=en">Lin Zhang</a><sup>1,*</sup>,</span>
+            <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=rrkp_usAAAAJ&hl=en">Zhong Wang</a><sup>1</sup></span>
             <span class="author-block">
               <a href="https://scholar.google.com/citations?user=A0N_mS0AAAAJ&hl=en">Ying Shen</a><sup>1</sup></span>
           </div>
@@ -87,18 +89,14 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><b>CVPR 2026</b></span>
-          </div>
-
-          <div class="column has-text-centered" style="margin-top: 1rem;">
-            <img src="./CVPR_Denver_2026.jpg" alt="CVPR 2026" style="max-width: 600px; width: 100%;">
+            <span class="author-block"><b>ACM MM 2024</b></span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2603.14880"
+                <a href="https://dl.acm.org/doi/10.1145/3664647.3680739"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -117,7 +115,7 @@
               </span>
               <!-- Video Link. -->
               <span class="link-block">
-                <a href="https://youtu.be/-pza4VF1jRk"
+                <a href="https://youtu.be/o0FwoOuR4Kg"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -127,7 +125,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/lif314/RealVLG-R1"
+                <a href="https://github.com/lif314/GS3LAM"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -148,11 +146,10 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <div class="publication-video">
-        <iframe src="https://www.youtube.com/embed/-pza4VF1jRk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 100%; aspect-ratio: 16 / 9;"></iframe>
+        <iframe src="https://www.youtube.com/embed/o0FwoOuR4Kg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 100%; aspect-ratio: 16 / 9;"></iframe>
       </div>
       <h2 class="subtitle has-text-centered">
-        We propose RealVLG, a unified framework that integrates the RealVLG-11B dataset and RealVLG-R1 model to enable multigranularity, zero-shot robotic visual-language grounding and grasping in real-world scenarios.
-      </h2>
+       Our proposed GS3LAM utilizes the 3D semantic Gaussian representation and the differentiable splatting rasterization pipeline, and jointly optimizes camera poses and field for appearance, geometry and semantics, achieving robust tracking, real-time high-quality rendering, and precise 3D semantic reconstruction. </h2>
     </div>
   </div>
 </section>
@@ -166,7 +163,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-           Visual-language grounding aims to establish semantic correspondences between natural language and visual entities, enabling models to accurately identify and localize target objects based on textual instructions. Existing VLG approaches focus on coarse-grained, object-level localization, while traditional robotic grasping methods rely predominantly on geometric cues and lack language guidance, which limits their applicability in language-driven manipulation scenarios. To address these limitations, we propose the RealVLG framework, which integrates the RealVLG-11B dataset and the RealVLG-R1 model to unify real-world visual-language grounding and grasping tasks. RealVLG-11B dataset provides multi-granularity annotations including bounding boxes, segmentation masks, grasp poses, contact points, and human-verified fine-grained language descriptions, covering approximately 165,000 images, over 800 object instances, 1.3 million segmentation, detection, and language annotations, and roughly 11 billion grasping examples. Building on this dataset, RealVLG-R1 employs Reinforcement Fine-tuning on pretrained large-scale vision-language models to predict bounding boxes, segmentation masks, grasp poses, and contact points in a unified manner given natural language instructions. Experimental results demonstrate that RealVLG supports zero-shot perception and manipulation in real-world unseen environments, establishing a unified semantic-visual multimodal benchmark that provides a comprehensive data and evaluation platform for language-driven robotic perception and grasping policy learning. 
+            Recently, the multi-modal fusion of RGB, depth, and semantics has shown great potential in the domain of dense Simultaneous Localization and Mapping (SLAM), as known as dense semantic SLAM. Yet a prerequisite for generating consistent and continuous semantic maps is the availability of dense, efficient, and scalable scene representations. To date, existing semantic SLAM systems based on explicit scene representations (points/meshes/surfels) are limited by their resolutions and inabilities to predict unknown areas, thus failing to generate dense maps. Contrarily, a few implicit scene representations (Neural Radiance Fields) to deal with these problems rely on time-consuming ray tracing-based volume rendering technique, which cannot meet the real-time rendering requirements of SLAM. Fortunately, the Gaussian Splatting scene representation has recently emerged, which inherits the efficiency and scalability of point/surfel representations while smoothly represents geometric structures in a continuous manner, showing promise in addressing the aforementioned challenges. To this end, we propose GS3LAM, a Gaussian Semantic Splatting SLAM framework, which takes multimodal data as input and can render consistent, continuous dense semantic maps in real-time. To fuse multimodal data, GS3LAM models the scene as a Semantic Gaussian Field (SG-Field), and jointly optimizes camera poses and the field by establishing error constraints between observed and predicted data. Furthermore, a Depth-adaptive Scale Regularization (DSR) scheme is proposed to tackle the problem of misalignment between scale-invariant Gaussians and geometric surfaces within the SG-Field. To mitigate the forgetting phenomenon, we propose an effective Random Sampling-based Keyframe Mapping (RSKM) strategy, which exhibits notable superiority over local covisibility optimization strategies commonly utilized in 3DGS-based SLAM systems. Extensive experiments conducted on the benchmark datasets reveal that compared with state-of-the-art competitors, GS3LAM demonstrates increased tracking robustness, superior real-time rendering quality, and enhanced semantic reconstruction precision.
           </p>
         </div>
       </div>
@@ -290,12 +287,16 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{li2026realvlg,
-  title     = {RealVLG-R1: A Large-Scale Real-World Visual-Language Grounding Benchmark for Robotic Perception and Manipulation},
-  author    = {Li, Linfei and Zhang, Lin and Shen, Ying},
-  booktitle = {CVPR},
-  year      = {2026},
-}</code></pre>
+    <pre><code>@inproceedings{li2024gs3lam,
+    author = {Li, Linfei and Zhang, Lin and Wang, Zhong and Shen, Ying},
+    title = {GS3LAM: Gaussian Semantic Splatting SLAM},
+    year = {2024},
+    booktitle = {Proceedings of the 32nd ACM International Conference on Multimedia},
+    pages = {3019–3027},
+    numpages = {9},
+    series = {MM '24}
+}
+</code></pre>
   </div>
 </section>
 
