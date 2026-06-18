@@ -29,7 +29,8 @@ My goal is to leverage multimodal perception and large-scale models to enhance t
 # 🔥 News
 <div id="news-container">
 <ul>
-<!-- <li><em>2026.03</em>: &nbsp;🎉 Invited to serve as a Reviewer for NeurIPS 2026.</li> -->
+<li><em>2026.06</em>: &nbsp;🎉 Our paper on Vision-Language Feature Upsampling got accepted in ECCV 2026.</li>
+<li><em>2026.03</em>: &nbsp;🎉 Invited to serve as a Reviewer for NeurIPS 2026.</li>
 <li><em>2026.02</em>: &nbsp;🎉 Invited to serve as a Reviewer for ECCV 2026.</li>
 <li><em>2026.02</em>: &nbsp;🎉 Our paper on Vision-Language Grounding and Grasping got accepted in CVPR 2026.</li>
 <li><em>2025.11</em>: &nbsp;🎉 Our paper on Efficient Image Representation got accepted in AAAI 2026.</li>
@@ -121,6 +122,33 @@ function toggleBibtex(element) {
 </script>
 
 # 📝 Publications 
+<!-- 7 -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2026</div><img src='images/raysup_eccv2026.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[**RaysUp: Ultra-light Universal Feature Upsampling via Geometry-Aware Ray Representation**](TODO)
+
+Yuchuan Ding, **Linfei Li** (co-first author), Lin Zhang, Ying Shen
+
+[[webpage]](TODO)
+[[code]](TODO)
+[[arXiv]](TODO)
+<span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
+<span class="bibtex-toggle" onclick="toggleBibtex(this)">[bibtex]</span>
+<span class="abstract-content">
+Pre-trained Vision Foundation Models (VFMs) have become central to modern computer vision due to their powerful semantic representations and strong generalization ability. However, their patchified or pooled outputs are inherently low-resolution, limiting their effectiveness in tasks requiring fine-grained, pixel-level reasoning. Existing feature upsampling approaches either degrade semantic fidelity or rely on VFM-specific retraining and heavy architectures, hindering efficiency and scalability. To address these challenges, we propose RaysUp, an ultra-lightweight, task-agnostic, and VFM-agnostic feature upsampling framework that reconstructs high-resolution feature maps at arbitrary resolutions. Unlike conventional 2D interpolation or attention-based schemes, RaysUp lifts feature reconstruction into a geometry-aware ray domain. Specifically, we introduce a Spatially Decoupled Guidance Encoder for direction-aware guidance encoding, an Any-Resolution Cross-Attention mechanism for resolution-flexible reconstruction, and a novel Ray Positional Encoding (RayPE) that injects implicit 3D geometric priors via 6D Plücker ray coordinates. Finally, A Geometry-Aware Neighborhood Attention module further ensures content-adaptive bilateral aggregation while preserving geometric consistency. Extensive experiments across diverse dense prediction tasks demonstrate that RaysUp achieves state-of-the-art performance while using only 16% of the parameters of AnyUp and delivering approximately 7 times faster inference. These results highlight a substantially improved accuracy–efficiency trade-off and establish RaysUp as a practical and scalable solution for universal feature upsampling.
+</span>
+<span class="bibtex-content">
+@article{li2026raysup,
+  title={RaysUp: Ultra-light Universal Feature Upsampling via Geometry-Aware Ray Representation},
+  author={Ding, Yuchuan and Li, Linfei and Zhang, Lin and Shen, Ying},
+  journal={ECCV},
+  year={2026}
+}
+</span>
+
+</div>
+</div>
 
 <!-- 6 -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2026</div><img src='images/cvpr26_realvlg_r1.png' alt="sym" width="500" height="300"></div></div>
