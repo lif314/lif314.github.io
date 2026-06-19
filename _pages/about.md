@@ -126,13 +126,13 @@ function toggleBibtex(element) {
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2026</div><img src='images/raysup_eccv2026.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
 
-[**RaysUp: Ultra-light Universal Feature Upsampling via Geometry-Aware Ray Representation**](TODO)
+[**RaysUp: Ultra-light Universal Feature Upsampling via Geometry-Aware Ray Representation**](https://lif314.github.io/projects/raysup/)
 
 Yuchuan Ding, **Linfei Li** (co-first author), Lin Zhang, Ying Shen
 
-[[webpage]](TODO)
-[[code]](TODO)
-[[arXiv]](TODO)
+[[webpage]](https://lif314.github.io/projects/raysup/)
+[[code]](https://github.com/MAP-RaysUp/RaysUp)
+[[arXiv]](https://lif314.github.io/projects/raysup/)
 <span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
 <span class="bibtex-toggle" onclick="toggleBibtex(this)">[bibtex]</span>
 <span class="abstract-content">

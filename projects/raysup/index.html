@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="RaysUp: Ultra-light Universal Feature Upsampling via Geometry-Aware Ray Representation">
+  <meta name="keywords" content="CLIP, DINO, Feature Upsampling">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RaysUp: Ultra-light Universal Feature Upsampling via Geometry-Aware Ray Representation</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" 
+        onload="renderMathInElement(document.body, {
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          throwOnError : false
+        });">
+    </script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://lif314.github.io/">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://lif314.github.io/projects/realvlg_r1">
+            RealVLG-R1(CVPR'26)
+          </a>
+          <a class="navbar-item" href="https://smartsplat.github.io/SmartSplat-Website/">
+            SmartSplat(AAAI'26)
+          </a>
+          <a class="navbar-item" href="https://lif314.github.io/projects/neaf/">
+            NeAF(AAAI'25)
+          </a>
+          <a class="navbar-item" href="https://lif314.github.io/projects/gs3lam/">
+            GS3LAM(MM'24)
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">RaysUp: Ultra-light Universal Feature Upsampling via Geometry-Aware Ray Representation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/dyccyber">Yuchuan Ding</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://lif314.github.io/">Linfei Li</a><sup>*</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=8VOk_S4AAAAJ&hl=en">Lin Zhang</a><sup>†</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=A0N_mS0AAAAJ&hl=en">Ying Shen</a></span>
+          </div>
+
+          <div style="font-size: 1rem; color: #333;">
+            <sup>*</sup>Equal contributions (Co-first authors). &nbsp;&nbsp;
+            <sup>†</sup>Corresponding author &nbsp;&nbsp;
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">School of Computer Science and Technology, Tongji University, Shanghai, China &nbsp;&nbsp;</span>
+            <br>
+          </div>
+          
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><b>ECCV 2026</b></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://github.com/MAP-RaysUp/RaysUp"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/MAP-RaysUp/RaysUp"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/gJ2Ij1xEmlU"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/MAP-RaysUp/RaysUp"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Github</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="publication-video">
+        <iframe src="https://www.youtube.com/embed/gJ2Ij1xEmlU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width: 100%; aspect-ratio: 16 / 9;"></iframe>
+      </div>
+      <h2 class="subtitle has-text-centered">
+      We propose RaysUp, an (a) ultra-lightweight, (b) task-agnostic, and (c) VFMagnostic upsampling framework, capable of upsampling backbone features to arbitrary
+resolutions while preserving (d) high semantic fidelity and geometric consistency. 
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Pre-trained Vision Foundation Models (VFMs) have become central to modern computer vision due to their powerful semantic representations and strong generalization ability. However, their patchified or pooled outputs are inherently low-resolution, limiting their effectiveness in tasks requiring fine-grained, pixel-level reasoning. Existing feature upsampling approaches either degrade semantic fidelity or rely on VFM-specific retraining and heavy architectures, hindering efficiency and scalability. To address these challenges, we propose RaysUp, an ultra-lightweight, task-agnostic, and VFM-agnostic feature upsampling framework that reconstructs high-resolution feature maps at arbitrary resolutions. Unlike conventional 2D interpolation or attention-based schemes, RaysUp lifts feature reconstruction into a geometry-aware ray domain. Specifically, we introduce a Spatially Decoupled Guidance Encoder for direction-aware guidance encoding, an Any-Resolution Cross-Attention mechanism for resolution-flexible reconstruction, and a novel Ray Positional Encoding (RayPE) that injects implicit 3D geometric priors via 6D Plücker ray coordinates. Finally, A Geometry-Aware Neighborhood Attention module further ensures content-adaptive bilateral aggregation while preserving geometric consistency. Extensive experiments across diverse dense prediction tasks demonstrate that RaysUp achieves state-of-the-art performance while using only 16% of the parameters of AnyUp and delivering approximately 7$\times$ faster inference. These results highlight a substantially improved accuracy–efficiency trade-off and establish RaysUp as a practical and scalable solution for universal feature upsampling. 
+ faster inference. These results highlight a substantially improved accuracy–efficiency trade-off and establish RaysUp as a practical and scalable solution for universal feature upsampling. 
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Pipeline Overview. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Overview</h2>
+        <div class="content has-text-justified">
+          <img src="./imgs/teaser.png" alt="Overview">
+          <ul>
+            <li>We propose <b>RaysUp</b>, an ultra-lightweight, task-agnostic, and VFM-agnostic framework for universal feature upsampling at arbitrary resolutions.</li>
+            <li>A lightweight <b>Spatially Decoupled Guidance Encoder</b> is proposed to extract direction-aware spatial semantic guidance features. Building upon this, RaysUp employs an Any-Resolution Cross-Attention mechanism to enable adaptive reconstruction of backbone features at arbitrary resolutions.</li>
+            <li>We propose <b>Ray Positional Encoding (RayPE)</b>, which injects implicit 3D geometric priors via 6D Plücker ray coordinates, extending classical JBU into a geometry-aware reconstruction process that enhances boundary fidelity and mitigates structural drift.</li>
+            <li> Extensive experiments demonstrate that, with only about 1/5 of the parameters of baseline methods, RaysUp achieves state-of-the-art performance across multiple dense prediction tasks and delivers approximately 7x faster inference, significantly reducing both computational and memory costs while balancing accuracy and practical efficiency.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Pipeline Overview. -->
+
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Framework of RaysUp</h2>
+      <div class="content has-text-justified">
+        <img src="./imgs/framework.png" alt="RaysUp Model">
+        <p>
+          Given an input RGB image ${I} \in \mathbb{R}^{3 \times H_{in} \times W_{in}}$ and a low-resolution feature map ${F}^{lr} \in \mathbb{R}^{D_f \times H_{lr} \times W_{lr}}$ extracted from a Vision Foundation Model (VFM), where $D_f$ denotes the feature dimension and $(H_{lr}, W_{lr})$ are typically small (e.g., $16 \times 16$ or $32 \times 32$), the goal of RaysUp is to reconstruct a high-resolution feature map ${F}^{hr} \in \mathbb{R}^{D_f \times H_{any} \times W_{any}}$ at an arbitrary target resolution $(H_{any}, W_{any})$. To achieve this, RaysUp first employs a lightweight Spatially Decoupled Guidance Encoder to extract direction-aware guidance features from the input image, producing ${F}_g \in \mathbb{R}^{D_g \times H_{in} \times W_{in}}$, where $D_g$ denotes the dimensionality of the guidance features. Then, an adaptive average pooling operation generates a target-resolution query 
+${Q}_g \in \mathbb{R}^{D_g \times H_{any} \times W_{any}}$ and a VFM-resolution key ${K}_g \in \mathbb{R}^{D_g \times H_{lr} \times W_{lr}}$. Both ${Q}_g$ and ${K}_g$ are subsequently encoded via Ray Positional Encoding (RayPE) to produce geometry-aware ray representations ${Q}_{ray}$ and ${K}_{ray}$, which embed implicit 3D spatial priors. Finally, a geometry-aware Neighborhood Cross-Attention mechanism aggregates the low-resolution features ${F}^{lr}$ (acting as the value ${V}$) into the high-resolution positions, yielding the reconstructed feature map ${F}^{hr}$. This process ensures spatial consistency across resolutions while preserving the underlying 3D geometric structure.
+          </p>
+
+          <h3 class="title is-4">Lightweight Spatially Decoupled Guidance Encoder</h2>
+            <img src="./imgs/conv.png" alt="Guidance Encoder">
+            <p>
+              <b>Visualization of convolutional kernel weights.</b> Conventional kernels in JAFAR assign lower weights to the center and higher weights to corners and edges, potentially reducing central channel mixing and causing holes in upsampled features. In contrast, the Spatially Decoupled Guidance Encoder increases central weights to 1.00 and employs independent horizontal, vertical, and corner branches, enhancing spatial consistency and preserving semantic continuity during cross-attention.
+            </p>
+
+           <h3 class="title is-4">Ray Positional Encoding (RayPE)</h2>
+            <img src="./imgs/attention_bias_Map.png" alt="RayPE">
+            <p>
+            <b>Implicit Geometric Injection in RayPE.</b> RoPE is defined on a planar isotropic 2D Euclidean grid, where the positional phase is linearly associated with pixel coordinates $(i,j)$: $\boldsymbol{\theta}_{\mathrm{RoPE}}(i,j)=[i\omega,\; j\omega]^T$ ($\omega$ denotes the frequency). In contrast, RayPE implicitly encodes 3D spatial positions using normalized camera rays. \textit{Assuming an identity camera extrinsic matrix}, the positional phase is:
+$$\begin{equation*}
+    \scriptsize
+    \boldsymbol{\theta}_{\mathrm{RayPE}}(i,j) = \omega \cdot \frac{[i,j,f]^T}{\sqrt{i^2+j^2+f^2}},
+\end{equation*}$$
+where $f$ denotes the focal length. During upsampling, the positional phase in RoPE shifts with increasing coordinates, requiring additional interpolation for alignment. In contrast, RayPE preserves geometric feature consistency under identical viewing directions, thereby naturally achieving scale equivariance. As shown in the above figure, RayPE extends positional encoding from a 2D image grid to the unit viewing sphere, enabling the attention mechanism to model angular consistency rather than pixel-distance consistency.
+            </p>
+      </div>
+    </div>
+  </div>
+
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Experiments</h2>
+      <div class="content has-text-justified">
+        <h3 class="title is-4">Task-agnostic Performance</h3>
+          <p align="center">
+            <a href="">
+              <img src="./imgs/task_agnostic.png" width="80%" alt="Task-agnostic Performance">
+              <img src="./imgs/task_figures.png" alt="Task results" width="80%">
+            </a>
+          </p>
+
+          <h3 class="title is-4">VFM-agnostic Performance</h3>
+         
+          <p align="center">
+           <img src="./imgs/vfm.png" width="80%" alt="VFM-agnostic Performance">
+          </p>
+          
+          <h3 class="title is-4">Ultra-lightweight Performance</h3>
+           <p align="center">
+          <img src="./imgs/light_gpu.png" width="80%" alt="Ultra-lightweight Performance">
+          </p>
+
+          <h3 class="title is-4">Upsampling from Any to Any Resolution</h3>
+          <p align="center">
+          <img src="./imgs/anyup.png" width="80%" alt="Upsampling from Any to Any Resolution">
+          </p>
+          
+
+          <h3 class="title is-4">Ablation Study</h3>
+          <p align="center">
+          <img src="./imgs/Ablation.png" width="80%" alt="Ablation Study">
+          </p>
+      </div>
+    </div>
+  </div>
+
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Qualitative Experiments</h2>
+      <div class="content has-text-justified">
+          <h3 class="title is-4">Feature Upsampling (PCA)</h3>
+          <p align="center">
+          <img src="./imgs/feature.png" width="90%" alt="Feature">
+          </p>
+
+          <h3 class="title is-4">Depth Estimation</h3>
+          <p align="center">
+          <img src="./imgs/depth.png" width="90%" alt="Depth">
+          </p>
+
+          <h3 class="title is-4">Surface Normal Estimation</h3>
+          <p align="center">
+          <img src="./imgs/norm.png" width="90%" alt="Normal">
+          </p>
+
+          <h3 class="title is-4">Image Semantic Segmentation</h3>
+          <p align="center">
+          <img src="./imgs/seg.png" width="90%" alt="Segmentation">
+          </p>
+
+
+          <h3 class="title is-4">Video Object Segmentation </h3>
+          <p align="center">
+          <img src="./imgs/video.png" width="90%" alt="Video Segmentation">
+          </p>
+          
+      </div>
+    </div>
+  </div>
+   
+
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{raysup_eccv2026,
+  title={RaysUp: Ultra-light Universal Feature Upsampling via Geometry-Aware Ray Representation},
+  author={Ding, Yuchuan and Li, Linfei and Zhang, Lin and Shen, Ying},
+  booktitle={ECCV},
+  year={2026}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
