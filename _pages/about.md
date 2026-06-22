@@ -25,7 +25,7 @@ My research interests lie in the field of Embodied AI, focusing on enabling robo
 
 My goal is to leverage multimodal perception and large-scale models to enhance the generalization and manipulation capabilities of robots in complex, real-world environments.
 
-I'm actively seeking internship and collaboration opportunities, with an expected graduation before March 2029. Here is my [resume](https://github.com/lif314/lif314.github.io/blob/main/docs/resume.pdf).
+I'm actively seeking internship and collaboration opportunities. Here is my [resume](https://github.com/lif314/lif314.github.io/blob/main/docs/resume.pdf).
 
 
 # 🔥 News
