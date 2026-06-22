@@ -346,7 +346,7 @@ Recently, the multi-modal fusion of RGB, depth, and semantics has shown great po
 - *2023.07*, Outstanding Undergraduate Thesis of Tongji University
 
 # 📚 Academic Services
-- Reviewer: CVPR 2026, ICML 2025,  AAAI 2025/2026, MM 2025
+- Reviewer: CVPR 2026, ECCV 2026, NeurIPS 2026, ICML 2025,  AAAI 2025/2026, MM 2025
 
-# 🤝 Project Experience
-- Changchun City Science and Technology Tackling and Open Competition Program "Development of In-Vehicle High-Precision Augmented Reality (AR) Navigation Software Based on Multi-Sensor Fusion Technology" (24JB), 2025.01–2025.12, Changchun Municipal Bureau of Science and Technology.
+<!-- # 🤝 Project Experience
+- Changchun City Science and Technology Tackling and Open Competition Program "Development of In-Vehicle High-Precision Augmented Reality (AR) Navigation Software Based on Multi-Sensor Fusion Technology" (24JB), 2025.01–2025.12, Changchun Municipal Bureau of Science and Technology. -->
