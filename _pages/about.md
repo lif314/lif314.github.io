@@ -56,14 +56,14 @@ I'm actively seeking internship and collaboration opportunities. Here is my [res
 #news-toggle:hover {
   text-decoration: underline;
 }
-.abstract-toggle, .bibtex-toggle {
+.abstract-toggle, .bibtex-toggle , .contribution-toggle {
   color: #224b8d;
   cursor: pointer;
 }
-.abstract-toggle:hover, .bibtex-toggle:hover {
+.abstract-toggle:hover, .bibtex-toggle:hover , .contribution-toggle:hover {
   text-decoration: underline;
 }
-.abstract-content, .bibtex-content {
+.abstract-content, .bibtex-content, .contribution-content {
   display: none;
   position: absolute;
   z-index: 100;
@@ -80,7 +80,7 @@ I'm actively seeking internship and collaboration opportunities. Here is my [res
   font-family: monospace;
   white-space: pre-wrap;
 }
-.abstract-content.show, .bibtex-content.show {
+.abstract-content.show, .bibtex-content.show , .contribution-content.show {
   display: block;
 }
 .paper-box-text {
@@ -114,6 +114,13 @@ function toggleAbstract(element) {
   }
 }
 
+function toggleContribution(element) {
+  var content = element.parentElement.querySelector('.contribution-content');
+  if (content) {
+    content.classList.toggle('show');
+  }
+}
+
 function toggleBibtex(element) {
   var content = element.parentElement.querySelector('.bibtex-content');
   if (content) {
@@ -136,6 +143,7 @@ Yuchuan Ding, **Linfei Li** (co-first author), Lin Zhang, Ying Shen
 [[arXiv]](https://arxiv.org/abs/2606.22749)
 <span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
 <span class="bibtex-toggle" onclick="toggleBibtex(this)">[bibtex]</span>
+<span class="contribution-toggle" onclick="toggleContribution(this)">[contribution]</span>
 <span class="abstract-content">
 Pre-trained Vision Foundation Models (VFMs) have become central to modern computer vision due to their powerful semantic representations and strong generalization ability. However, their patchified or pooled outputs are inherently low-resolution, limiting their effectiveness in tasks requiring fine-grained, pixel-level reasoning. Existing feature upsampling approaches either degrade semantic fidelity or rely on VFM-specific retraining and heavy architectures, hindering efficiency and scalability. To address these challenges, we propose RaysUp, an ultra-lightweight, task-agnostic, and VFM-agnostic feature upsampling framework that reconstructs high-resolution feature maps at arbitrary resolutions. Unlike conventional 2D interpolation or attention-based schemes, RaysUp lifts feature reconstruction into a geometry-aware ray domain. Specifically, we introduce a Spatially Decoupled Guidance Encoder for direction-aware guidance encoding, an Any-Resolution Cross-Attention mechanism for resolution-flexible reconstruction, and a novel Ray Positional Encoding (RayPE) that injects implicit 3D geometric priors via 6D Plücker ray coordinates. Finally, A Geometry-Aware Neighborhood Attention module further ensures content-adaptive bilateral aggregation while preserving geometric consistency. Extensive experiments across diverse dense prediction tasks demonstrate that RaysUp achieves state-of-the-art performance while using only 16% of the parameters of AnyUp and delivering approximately 7 times faster inference. These results highlight a substantially improved accuracy–efficiency trade-off and establish RaysUp as a practical and scalable solution for universal feature upsampling.
 </span>
@@ -146,6 +154,9 @@ Pre-trained Vision Foundation Models (VFMs) have become central to modern comput
   journal={ECCV},
   year={2026}
 }
+</span>
+<span class="contribution-content">
+As a co-first author, I proposed the core scientific question of this study and established the overall research framework and technical roadmap. I completed the writing of the manuscript and the conceptualization and creation of all figures, and led the formulation of the response strategy and the writing of the full rebuttal during the peer review stage.
 </span>
 
 </div>
