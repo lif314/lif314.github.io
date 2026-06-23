@@ -21,9 +21,7 @@ redirect_from:
 I am a third-year PhD student in the [MAP-Group](https://cslinzhang.github.io/home/) at [Tongji University](https://en.tongji.edu.cn/p/#/), under the supervision of Prof. [Lin Zhang](https://scholar.google.com/citations?user=8VOk_S4AAAAJ&hl=en) and Prof. [Ying Shen](https://scholar.google.com/citations?user=A0N_mS0AAAAJ&hl=en). I obtained my bachelor’s degree from Tongji University in 2023, after which I began my doctoral studies.
 
 <!-- research interest -->
-My research interests lie in the field of Embodied AI, focusing on enabling robots to perceive and interact with the physical world through advanced learning representations. Specifically, my work explores: Multimodal Representation for Robotics, Vision-Language Fields, and Generalist Robot Models.
-
-My goal is to leverage multimodal perception and large-scale models to enhance the generalization and manipulation capabilities of robots in complex, real-world environments.
+My research interests lie in the field of Embodied AI, focusing on enabling robots to perceive and interact with the physical world through advanced learning representations. Specifically, my work explores: Multimodal Representation for Robotics, Vision-Language Fields, and Generalist Robot Models. My goal is to leverage multimodal perception and large-scale models to enhance the generalization and manipulation capabilities of robots in complex, real-world environments.
 
 I'm actively seeking internship and collaboration opportunities. Here is my [resume](https://github.com/lif314/lif314.github.io/blob/main/docs/resume.pdf).
 
@@ -31,6 +29,7 @@ I'm actively seeking internship and collaboration opportunities. Here is my [res
 # 🔥 News
 <div id="news-container">
 <ul>
+<li><em>2026.06</em>: &nbsp;🎉 Invited to serve as a Program Committee for AAAI 2027.</li>
 <li><em>2026.06</em>: &nbsp;🎉 Our paper on Vision-Language Feature Upsampling got accepted in ECCV 2026.</li>
 <li><em>2026.03</em>: &nbsp;🎉 Invited to serve as a Reviewer for NeurIPS 2026.</li>
 <li><em>2026.02</em>: &nbsp;🎉 Invited to serve as a Reviewer for ECCV 2026.</li>
@@ -346,7 +345,7 @@ Recently, the multi-modal fusion of RGB, depth, and semantics has shown great po
 - *2023.07*, Outstanding Undergraduate Thesis of Tongji University
 
 # 📚 Academic Services
-- Reviewer: CVPR 2026, ECCV 2026, NeurIPS 2026, ICML 2025,  AAAI 2025/2026, MM 2025
+- Reviewer: CVPR 2026, ECCV 2026, NeurIPS 2026, ICML 2025,  AAAI 2025/2026/2027, MM 2025
 
 <!-- # 🤝 Project Experience
 - Changchun City Science and Technology Tackling and Open Competition Program "Development of In-Vehicle High-Precision Augmented Reality (AR) Navigation Software Based on Multi-Sensor Fusion Technology" (24JB), 2025.01–2025.12, Changchun Municipal Bureau of Science and Technology. -->
