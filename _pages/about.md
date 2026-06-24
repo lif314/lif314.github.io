@@ -23,8 +23,7 @@ I am a third-year PhD student in the [MAP-Group](https://cslinzhang.github.io/ho
 <!-- research interest -->
 My research interests lie in the field of Embodied AI, focusing on enabling robots to perceive and interact with the physical world through advanced learning representations. Specifically, my work explores: Multimodal Representation for Robotics, Vision-Language Fields, and Generalist Robot Models. My goal is to leverage multimodal perception and large-scale models to enhance the generalization and manipulation capabilities of robots in complex, real-world environments.
 
-I'm actively seeking internship and collaboration opportunities. Here is my [resume](https://github.com/lif314/lif314.github.io/blob/main/docs/resume.pdf).
-
+I'm actively seeking internship and collaboration opportunities. Here is my [resume](https://lif314.github.io/resume/linfeili.pdf).
 
 # 🔥 News
 <div id="news-container">
