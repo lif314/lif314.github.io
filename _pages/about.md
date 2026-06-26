@@ -154,9 +154,9 @@ Pre-trained Vision Foundation Models (VFMs) have become central to modern comput
   year={2026}
 }
 </span>
-<!-- <span class="contribution-content">
+<span class="contribution-content">
 As a co-first author, I proposed the core scientific question of this study and established the overall research framework and technical roadmap. I completed the writing of the manuscript and the conceptualization and creation of all figures, and led the formulation of the response strategy and the writing of the full rebuttal during the peer review stage.
-</span> -->
+</span>
 
 </div>
 </div>
