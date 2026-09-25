@@ -28,6 +28,7 @@ I'm actively seeking internship and collaboration opportunities. Here is my [res
 # 🔥 News
 <div id="news-container">
 <ul>
+<li><em>2026.09</em>: &nbsp;🎉 Our paper on Affordance Reasoning and Actionable Perception got accepted in NeurIPS 2026.</li>
 <li><em>2026.06</em>: &nbsp;🎉 Invited to serve as a Program Committee for AAAI 2027.</li>
 <li><em>2026.06</em>: &nbsp;🎉 Our paper on Vision-Language Feature Upsampling got accepted in ECCV 2026.</li>
 <li><em>2026.03</em>: &nbsp;🎉 Invited to serve as a Reviewer for NeurIPS 2026.</li>
@@ -129,6 +130,32 @@ function toggleBibtex(element) {
 </script>
 
 # 📝 Publications 
+<!-- 8 -->
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2026</div><img src='images/UniRAP_NeurIPS_2026_framework.png' alt="sym" width="500" height="300"></div></div>
+<div class='paper-box-text' markdown="1">
+
+[**UniRAP: Towards Unified Part-level Physical Affordance Reasoning and Actionable Perception**](https://arxiv.org)
+
+**Linfei Li**, Ruining Hu, Lin Zhang, Zhong Wang, Fengyi Zhang, Ying Shen, Binqiang Wang, Xin Zhang
+
+[[webpage]](https://lif314.github.io/projects/unirap)
+[[code]](https://github.com/lif314/UniRAP)
+[[arXiv]](https://arxiv.org/)
+<span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
+<span class="bibtex-toggle" onclick="toggleBibtex(this)">[bibtex]</span>
+<span class="abstract-content">
+Vision-language perception has achieved impressive progress in aligning natural language with visual observations, yet grounding high-level semantics into part-level physical interaction remains challenging. To address this gap, we propose UniRAP, a unified model for inferring part-level physical affordances and mapping language instructions to actionable geometric representations. UniRAP formulates this problem as a conditional multimodal generation task, integrating visual inputs, textual instructions, and optional prompts into a shared spatiotemporal representation space through a unified interface token mechanism. To predict executable contact geometry, we introduce a Unified Affordance Decoder (UAD), which jointly performs object detection, part-level affordance segmentation, and 4-DoF interaction pose estimation by leveraging intermediate segmentation features. In addition, we propose a curriculum-based transfer training strategy that progressively adapts the model from general visual parsing to interaction-aware perception, improving data efficiency under limited textual annotations. Experiments show that UniRAP achieves state-of-the-art performance on referring expression segmentation, affordance grounding, and interaction pose estimation, while maintaining strong spatiotemporal consistency in dynamic video scenarios. These results demonstrate the effectiveness of UniRAP as a unified perception framework for language-guided physical manipulation.
+</span>
+<span class="bibtex-content">
+@article{li2026unirap,
+}
+</span>
+
+</div>
+</div>
+
+
+
 <!-- 7 -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">ECCV 2026</div><img src='images/raysup_eccv2026.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
