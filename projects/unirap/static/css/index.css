@@ -17,6 +17,8 @@ a { color: var(--blue); }
 .project-nav { border-bottom: 1px solid rgba(20, 24, 33, .08); background: rgba(255,255,255,.88); backdrop-filter: blur(14px); }
 .project-nav .navbar-item { font-weight: 600; color: #343a46; }
 .project-nav .navbar-item:hover { color: var(--coral); background: transparent; }
+.project-nav .home-link .icon { display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 9px; background: #f3f4f6; transition: background .2s ease, color .2s ease; }
+.project-nav .home-link:hover .icon { color: #fff; background: linear-gradient(135deg, var(--coral), var(--blue)); }
 .project-nav .research-toggle { height: 100%; border: 0; color: #343a46; cursor: pointer; font: inherit; font-weight: 600; background: transparent; }
 .project-nav .research-toggle:hover { color: var(--coral); background: transparent; }
 .project-nav .navbar-dropdown { overflow: hidden; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 16px 38px rgba(23,29,44,.12); }
