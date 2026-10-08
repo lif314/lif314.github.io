@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="UniRAP: Towards Unified Part-level Physical Affordance Reasoning and Actionable Perception">
+  <meta name="keywords" content="UniRAP, affordance reasoning, actionable perception, vision-language model, robotic manipulation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>UniRAP: Unified Part-level Physical Affordance Reasoning</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script defer src="./static/js/index.js"></script>
+</head>
+<body>
+  <nav class="navbar is-fixed-top project-nav" role="navigation" aria-label="main navigation">
+    <div class="container is-max-desktop">
+      <div class="navbar-brand">
+        <a class="navbar-item brand-mark" href="#top" aria-label="UniRAP home"><span>U</span> UniRAP</a>
+        <button class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="project-menu">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div id="project-menu" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="#overview">Overview</a>
+          <a class="navbar-item" href="#method">Method</a>
+          <a class="navbar-item" href="#results">Results</a>
+          <a class="navbar-item" href="#demos">Demos</a>
+          <a class="navbar-item" href="#robot">Robot Experiments</a>
+          <a class="navbar-item" href="#bibtex">BibTeX</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero paper-hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop has-text-centered">
+          <div class="venue-pill">NeurIPS 2026</div>
+          <h1 class="title publication-title"><span class="gradient-text">UniRAP</span>: Towards Unified Part-level Physical Affordance Reasoning and Actionable Perception</h1>
+          <p class="hero-summary">From linguistic intent to pixel-level affordances and executable contact geometry—in one unified model.</p>
+
+          <div class="publication-authors">
+            <span class="author-block"><a href="https://lif314.github.io/">Linfei Li</a><sup>1</sup></span>
+            <span class="author-block">Ruining Hu<sup>1</sup></span>
+            <span class="author-block"><a href="https://scholar.google.com/citations?user=8VOk_S4AAAAJ&amp;hl=en">Lin Zhang</a><sup>1,*</sup></span>
+            <span class="author-block">Zhong Wang<sup>1</sup></span>
+            <span class="author-block">Fengyi Zhang<sup>4</sup></span>
+            <span class="author-block">Ying Shen<sup>1</sup></span>
+            <span class="author-block">Binqiang Wang<sup>2</sup></span>
+            <span class="author-block">Xin Zhang<sup>3</sup></span>
+          </div>
+          <div class="affiliations">
+            <p><sup>1</sup>Tongji University &nbsp; <sup>2</sup>IEIT SYSTEMS &nbsp; <sup>3</sup>NAIS, Neusoft Corporation</p>
+            <p><sup>4</sup>The University of Queensland &nbsp; <sup>*</sup>Corresponding author</p>
+          </div>
+
+          <div class="publication-links">
+            <span class="link-block"><span class="button is-rounded is-light is-static"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper coming soon</span></span></span>
+            <span class="link-block"><a href="https://github.com/lif314/UniRAP" class="button is-rounded is-dark"><span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="teaser-section">
+      <div class="container is-widescreen">
+        <figure class="paper-figure hero-figure">
+          <img src="./static/images/teaser.webp" alt="UniRAP task overview across segmentation, affordance perception, and actionable perception">
+          <figcaption>UniRAP transfers generic segmentation knowledge to part-level affordance reasoning and spatiotemporally consistent actionable perception.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section video-overview">
+      <div class="container is-max-desktop">
+        <div class="section-heading has-text-centered">
+          <span class="eyebrow">Video</span>
+          <h2 class="title is-2">UniRAP in action</h2>
+        </div>
+        <div class="youtube-frame">
+          <iframe src="https://www.youtube.com/embed/L_YV3KpNh8w" title="UniRAP project video" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="overview">
+      <div class="container is-max-desktop">
+        <div class="section-heading has-text-centered">
+          <span class="eyebrow">The idea</span>
+          <h2 class="title is-2">Reason about <em>where</em> to interact—and <em>how</em></h2>
+        </div>
+        <div class="content abstract-copy">
+          <p>Vision-language perception has made impressive progress in aligning language with visual observations, yet grounding high-level semantics into part-level physical interaction remains challenging. UniRAP is a unified model that maps language instructions to actionable geometric representations. Through a unified interface token mechanism, it integrates images or videos, textual instructions, and optional visual prompts into a shared spatiotemporal representation space.</p>
+          <p>A Unified Affordance Decoder jointly predicts object detections, part-level affordance masks, and 4-DoF interaction poses. A curriculum transfer strategy then adapts the model from general visual parsing to interaction-aware perception, improving data efficiency when high-quality interaction labels are scarce.</p>
+        </div>
+
+        <div class="contribution-grid">
+          <article class="contribution-card">
+            <div class="card-number">01</div>
+            <h3>Unified interfaces</h3>
+            <p>Text, points, and boxes share a token-level interface for reasoning over both images and videos.</p>
+          </article>
+          <article class="contribution-card">
+            <div class="card-number">02</div>
+            <h3>Actionable geometry</h3>
+            <p>One decoder produces bounding boxes, part-level masks, and precise 4-DoF interaction poses.</p>
+          </article>
+          <article class="contribution-card">
+            <div class="card-number">03</div>
+            <h3>Transfer by curriculum</h3>
+            <p>Four progressive stages bridge abundant segmentation data and scarce interaction annotations.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="method">
+      <div class="container is-widescreen">
+        <div class="section-heading has-text-centered">
+          <span class="eyebrow">Method</span>
+          <h2 class="title is-2">A unified path from prompts to actions</h2>
+        </div>
+        <figure class="paper-figure">
+          <img src="./static/images/framework.webp" alt="Architecture overview of the UniRAP model" loading="lazy">
+          <figcaption>Visual input, language, and optional visual references are fused through <code>&lt;REF&gt;</code> and <code>&lt;SEG&gt;</code> interfaces, then decoded into masks, detections, and 4-DoF poses.</figcaption>
+        </figure>
+
+        <div class="columns is-variable is-7 method-detail">
+          <div class="column is-5">
+            <div class="sticky-copy">
+              <span class="eyebrow">Unified Affordance Decoder</span>
+              <h3 class="title is-3">One representation, multiple granularities</h3>
+              <p>The UAD reuses dense segmentation features for three coupled tasks. Mask evidence initializes region geometry; task-specific tokens condition shared visual features; consistency constraints let detection and contact prediction refine one another.</p>
+              <div class="output-tags"><span>Detection</span><span>Segmentation</span><span>4-DoF pose</span></div>
+            </div>
+          </div>
+          <div class="column is-7">
+            <figure class="paper-figure compact-figure">
+              <img src="./static/images/unidecoder.webp" alt="Unified Affordance Decoder architecture" loading="lazy">
+            </figure>
+          </div>
+        </div>
+
+        <div class="training-block">
+          <div class="section-heading has-text-centered">
+            <span class="eyebrow">Curriculum transfer training</span>
+            <h3 class="title is-3">From seeing objects to understanding interaction</h3>
+          </div>
+          <figure class="paper-figure">
+            <img src="./static/images/transfer_training.webp" alt="Four-stage curriculum transfer training pipeline" loading="lazy">
+          </figure>
+          <div class="stage-grid" aria-label="Four training stages">
+            <div><b>1</b><span>General segmentation</span></div>
+            <div><b>2</b><span>Affordance pre-training</span></div>
+            <div><b>3</b><span>Visual referring pre-training</span></div>
+            <div><b>4</b><span>Actionable affordance fine-tuning</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container is-widescreen">
+        <div class="section-heading has-text-centered">
+          <span class="eyebrow">Results</span>
+          <h2 class="title is-2">Strong generalization from a 3B model</h2>
+          <p class="section-lead">UniRAP performs consistently across referring segmentation, affordance grounding, video reasoning, and fine-grained interaction prediction.</p>
+        </div>
+
+        <div class="metric-grid">
+          <div class="metric-card"><span class="metric-value">80.9</span><span class="metric-label">RefCOCO val cIoU</span></div>
+          <div class="metric-card"><span class="metric-value">64.1</span><span class="metric-label">ReVOS overall J&amp;F</span></div>
+          <div class="metric-card accent"><span class="metric-value">63.3</span><span class="metric-label">Novel-split grasp accuracy</span></div>
+          <div class="metric-card"><span class="metric-value">3×</span><span class="metric-label">Novel grasp gain over RealVLG-R1</span></div>
+        </div>
+
+        <div class="tables-block">
+          <div class="section-heading has-text-centered">
+            <span class="eyebrow">Quantitative comparisons</span>
+            <h3 class="title is-3">Results from the paper</h3>
+            <p class="section-lead">Gray column groups denote zero-shot benchmarks. Best results among the displayed methods are highlighted.</p>
+          </div>
+
+          <details class="result-table-panel" open>
+            <summary>Referring affordance segmentation</summary>
+            <div class="table-scroll">
+              <table class="result-table">
+                <thead><tr><th rowspan="2">Method</th><th rowspan="2">Size</th><th colspan="2">HANDAL</th><th colspan="2">GraspNet Seen</th><th colspan="2" class="zero-shot">GraspNet Novel</th><th colspan="2" class="zero-shot">3DOI</th></tr><tr><th>gIoU</th><th>cIoU</th><th>gIoU</th><th>cIoU</th><th class="zero-shot">gIoU</th><th class="zero-shot">cIoU</th><th class="zero-shot">gIoU</th><th class="zero-shot">cIoU</th></tr></thead>
+                <tbody>
+                  <tr><td>LISA</td><td>7B</td><td>15.4</td><td>11.8</td><td>17.7</td><td>17.7</td><td>25.2</td><td>24.1</td><td>21.5</td><td>13.7</td></tr>
+                  <tr><td>UniPixel</td><td>7B</td><td>26.0</td><td>16.4</td><td>45.0</td><td>12.5</td><td>48.0</td><td>11.5</td><td>41.5</td><td>24.9</td></tr>
+                  <tr><td>RAGNet</td><td>7B</td><td>60.5</td><td>60.3</td><td>63.3</td><td>64.0</td><td>45.6</td><td>33.2</td><td>37.4</td><td>37.4</td></tr>
+                  <tr class="ours"><td>UniRAP</td><td>3B</td><td>63.9</td><td>65.7</td><td>70.6</td><td>64.1</td><td>51.6</td><td>42.3</td><td>52.1</td><td>37.5</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details class="result-table-panel">
+            <summary>Reasoning affordance segmentation</summary>
+            <div class="table-scroll">
+              <table class="result-table">
+                <thead><tr><th rowspan="2">Method</th><th rowspan="2">Size</th><th colspan="2">HANDAL Easy</th><th colspan="2">HANDAL Hard</th><th colspan="2" class="zero-shot">3DOI</th></tr><tr><th>gIoU</th><th>cIoU</th><th>gIoU</th><th>cIoU</th><th class="zero-shot">gIoU</th><th class="zero-shot">cIoU</th></tr></thead>
+                <tbody>
+                  <tr><td>LISA</td><td>7B</td><td>15.5</td><td>11.9</td><td>12.3</td><td>8.1</td><td>12.3</td><td>8.1</td></tr>
+                  <tr><td>UniPixel</td><td>7B</td><td>26.7</td><td>15.7</td><td>24.5</td><td>11.6</td><td>38.5</td><td>21.0</td></tr>
+                  <tr><td>RAGNet</td><td>7B</td><td>58.3</td><td>58.1</td><td>58.2</td><td>57.8</td><td>38.1</td><td>39.4</td></tr>
+                  <tr class="ours"><td>UniRAP</td><td>3B</td><td>63.2</td><td>64.1</td><td>62.9</td><td>63.8</td><td>55.7</td><td>54.5</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <details class="result-table-panel">
+            <summary>Actionable perception on RealVLG-Benchmark</summary>
+            <div class="table-scroll">
+              <table class="result-table compact-table">
+                <thead><tr><th>Method (3B)</th><th>Seen<br><small>Seg. Fβ / Grasp gAcc</small></th><th>Similar<br><small>Seg. Fβ / Grasp gAcc</small></th><th class="zero-shot">Novel<br><small>Seg. Fβ / Grasp gAcc</small></th></tr></thead>
+                <tbody>
+                  <tr><td>Qwen2.5-VL + SFT</td><td>76.2 / 1.7</td><td>75.4 / 2.1</td><td>46.2 / 1.5</td></tr>
+                  <tr><td>RealVLG-R1 (GRPO)</td><td>83.9 / 40.3</td><td>84.1 / 31.9</td><td>49.4 / 17.1</td></tr>
+                  <tr><td>RealVLG-R1 (GSPO)</td><td>88.7 / 33.6</td><td>85.0 / 30.6</td><td>49.1 / 9.1</td></tr>
+                  <tr class="ours"><td>UniRAP</td><td>92.0 / 56.7</td><td>89.4 / 56.7</td><td>75.8 / 63.3</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </div>
+
+        <div class="result-story">
+          <div>
+            <h3 class="title is-4">General &amp; reasoning segmentation</h3>
+            <p>UniRAP reaches state-of-the-art results on referring expression segmentation at the 3B scale and remains competitive with larger models, while maintaining strong temporal consistency for video queries.</p>
+          </div>
+          <button class="image-button" data-lightbox="./static/images/RES.webp" aria-label="Enlarge referring segmentation results"><img src="./static/images/RES.webp" alt="Qualitative referring and reasoning segmentation results" loading="lazy"></button>
+        </div>
+
+        <div class="result-story reverse">
+          <div>
+            <h3 class="title is-4">Part-level affordance grounding</h3>
+            <p>On explicit and reasoning-based affordance segmentation, UniRAP improves generalization to unseen objects. On zero-shot 3DOI, it raises gIoU and cIoU by 17.6 and 15.1 points over RAGNet.</p>
+          </div>
+          <button class="image-button" data-lightbox="./static/images/affordance_seg.webp" aria-label="Enlarge affordance segmentation results"><img src="./static/images/affordance_seg.webp" alt="Qualitative affordance segmentation results" loading="lazy"></button>
+        </div>
+
+        <div class="gallery-grid">
+          <figure><button class="image-button" data-lightbox="./static/images/video_seg.webp"><img src="./static/images/video_seg.webp" alt="Video object segmentation results" loading="lazy"></button><figcaption>Spatiotemporal segmentation</figcaption></figure>
+          <figure><button class="image-button" data-lightbox="./static/images/realvlg_img.webp"><img src="./static/images/realvlg_img.webp" alt="Actionable perception on RealVLG benchmark" loading="lazy"></button><figcaption>Image actionable perception</figcaption></figure>
+          <figure><button class="image-button" data-lightbox="./static/images/realvlg_video.webp"><img src="./static/images/realvlg_video.webp" alt="Spatiotemporal actionable perception" loading="lazy"></button><figcaption>Video actionable perception</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="demos">
+      <div class="container is-widescreen">
+        <div class="section-heading has-text-centered">
+          <span class="eyebrow">Dynamic examples</span>
+          <h2 class="title is-2">Image understanding that stays consistent over time</h2>
+          <p class="section-lead">Examples extracted from the UniRAP supplementary presentation. Videos load only when they approach the viewport.</p>
+        </div>
+
+        <div class="demo-group">
+          <h3 class="title is-4">Referring video object segmentation</h3>
+          <div class="video-grid">
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image14.mp4"></video><figcaption>Referring sequence 1</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image9.mp4"></video><figcaption>Referring sequence 2</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image13.mp4"></video><figcaption>Referring sequence 3</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image12.mp4"></video><figcaption>Referring sequence 4</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image11.mp4"></video><figcaption>Referring sequence 5</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image10.mp4"></video><figcaption>Referring sequence 6</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="demo-group">
+          <h3 class="title is-4">Reasoning video object segmentation</h3>
+          <div class="video-grid">
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image20.mp4"></video><figcaption>Reasoning sequence 1</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image15.mp4"></video><figcaption>Reasoning sequence 2</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image19.mp4"></video><figcaption>Reasoning sequence 3</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image18.mp4"></video><figcaption>Reasoning sequence 4</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image17.mp4"></video><figcaption>Reasoning sequence 5</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image16.mp4"></video><figcaption>Reasoning sequence 6</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image21.mp4"></video><figcaption>Reasoning sequence 7</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="demo-group">
+          <h3 class="title is-4">Spatiotemporal actionable perception</h3>
+          <div class="video-grid">
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image28.mp4"></video><figcaption>Actionable sequence 1</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image23.mp4"></video><figcaption>Actionable sequence 2</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image27.mp4"></video><figcaption>Actionable sequence 3</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image26.mp4"></video><figcaption>Actionable sequence 4</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image25.mp4"></video><figcaption>Actionable sequence 5</figcaption></figure>
+            <figure><video class="demo-video auto-demo" muted loop playsinline preload="none" data-src="./static/media/image24.mp4"></video><figcaption>Actionable sequence 6</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section robot-section" id="robot">
+      <div class="container is-widescreen">
+        <div class="section-heading has-text-centered">
+          <span class="eyebrow">Real-world experiments</span>
+          <h2 class="title is-2">Perception that can be executed</h2>
+          <p class="section-lead">A Franka FR3 with an eye-in-hand RealSense D435i directly executes UniRAP's predicted 4-DoF poses across 13 household objects and both referring and reasoning prompts.</p>
+        </div>
+        <div class="robot-highlight">
+          <figure class="paper-figure"><img src="./static/images/robot_setting.webp" alt="Franka FR3 real-world robotic experiment setup" loading="lazy"></figure>
+          <div class="robot-stat"><span>+26.2%</span><p>overall grasp success rate compared with RealVLG-R1 (3B), across 10 trials per object.</p></div>
+        </div>
+        <div class="gallery-grid two-up">
+          <figure><button class="image-button" data-lightbox="./static/images/robot_realworld_s1.webp"><img src="./static/images/robot_realworld_s1.webp" alt="Real-world referring vision-language grasping results" loading="lazy"></button><figcaption>Referring vision-language grasping</figcaption></figure>
+          <figure><button class="image-button" data-lightbox="./static/images/robot_realworld_s2.webp"><img src="./static/images/robot_realworld_s2.webp" alt="Real-world reasoning-based grasping results" loading="lazy"></button><figcaption>Reasoning-based vision-language grasping</figcaption></figure>
+        </div>
+
+        <div class="robot-video-block">
+          <h3 class="title is-3 has-text-centered">Referring grasping demonstrations</h3>
+          <div class="video-grid two-up-videos">
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media1.mp4"></video><figcaption>“Please give me the blue spoon.”</figcaption></figure>
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media2.mp4"></video><figcaption>“Please grasp the orange cup.”</figcaption></figure>
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media3.mp4"></video><figcaption>“Please pick up the grey and black razor.”</figcaption></figure>
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media4.mp4"></video><figcaption>“Please give me the screwdriver.”</figcaption></figure>
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media5.mp4"></video><figcaption>“Please give me the milk box.”</figcaption></figure>
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media6.mp4"></video><figcaption>“Please grasp the green brush.”</figcaption></figure>
+          </div>
+
+          <h3 class="title is-3 has-text-centered reasoning-demo-title">Reasoning grasping demonstrations</h3>
+          <div class="video-grid two-up-videos">
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media7.mp4"></video><figcaption>Braise pork ribs → pressure cooker</figcaption></figure>
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media8.mp4"></video><figcaption>Blue tool on the induction cooker → stapler</figcaption></figure>
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media9.mp4"></video><figcaption>Stir-fry vegetables → shovel</figcaption></figure>
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media10.mp4"></video><figcaption>Cut fruit → knife</figcaption></figure>
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media11.mp4"></video><figcaption>Remove lint from clothes → rolling sticker</figcaption></figure>
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media12.mp4"></video><figcaption>Make a cup of tea → teapot</figcaption></figure>
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media13.mp4"></video><figcaption>Pour water from a lidded vessel → teapot</figcaption></figure>
+            <figure><video class="demo-video robot-demo" controls muted playsinline preload="none" data-src="./static/media/media14.mp4"></video><figcaption>Writable and erasable on a whiteboard → marker pen</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bibtex">
+      <div class="container is-max-desktop">
+        <div class="section-heading">
+          <span class="eyebrow">Citation</span>
+          <h2 class="title is-2">BibTeX</h2>
+        </div>
+        <div class="bibtex-wrap">
+          <button class="copy-button" aria-label="Copy BibTeX"><i class="far fa-copy"></i> Copy</button>
+          <pre><code>@inproceedings{li2026unirap,
+  title     = {UniRAP: Towards Unified Part-level Physical Affordance Reasoning and Actionable Perception},
+  author    = {Li, Linfei and Hu, Ruining and Zhang, Lin and Wang, Zhong and Zhang, Fengyi and Shen, Ying and Wang, Binqiang and Zhang, Xin},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026}
+}</code></pre>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer project-footer">
+    <div class="container is-max-desktop has-text-centered">
+      <p>UniRAP · Unified Reasoning-Aware Actionable Perception</p>
+      <p class="footer-note">Website adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> academic project page template.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Expanded figure" hidden>
+    <button class="lightbox-close" aria-label="Close figure">&times;</button>
+    <img alt="Expanded research figure">
+  </div>
+</body>
+</html>
