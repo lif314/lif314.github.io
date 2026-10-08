@@ -34,53 +34,38 @@
 
 </head>
 
-<body data-project="neaf">
+<body id="top" data-project="neaf">
 
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-    <div class="navbar-menu">
-      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-        <a class="navbar-item" href="https://lif314.github.io/">
-          <span class="icon">
-            <i class="fas fa-home"></i>
-          </span>
-        </a>
-
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More Research
-          </a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="https://lif314.github.io/projects/unirap/">
-              UniRAP(NeurIPS'26)
-            </a>
-            <a class="navbar-item" href="https://lif314.github.io/projects/raysup/">
-            RaysUp(ECCV'26)
-            </a>
-            <a class="navbar-item" href="https://lif314.github.io/projects/realvlg_r1/">
-              RealVLG-R1(CVPR'26)
-            </a>
-            <a class="navbar-item" href="https://smartsplat.github.io/SmartSplat-Website/">
-              SmartSplat(AAAI'26)
-            </a>
-            <a class="navbar-item" href="https://lif314.github.io/projects/gs3lam/">
-              GS3LAM(MM'24)
-            </a>
-          </div>
-        </div>
-        <a class="navbar-item page-nav-item" href="#abstract">Abstract</a>
-        <a class="navbar-item page-nav-item" href="#neaf">NeAF</a>
-        <a class="navbar-item page-nav-item" href="#benchmark">Benchmark</a>
-        <a class="navbar-item page-nav-item" href="#fourier-asr">Fourier-ASR</a>
-        <a class="navbar-item page-nav-item" href="#BibTeX">BibTeX</a>
+  <nav class="navbar is-fixed-top project-nav" role="navigation" aria-label="main navigation">
+    <div class="container is-max-desktop">
+      <div class="navbar-brand">
+        <a class="navbar-item brand-mark" href="#top" aria-label="NeAF home"><span>N</span> NeAF</a>
+        <button class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="project-menu">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </button>
       </div>
-
+      <div id="project-menu" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item home-link" href="https://lif314.github.io/" aria-label="Linfei Li homepage" title="Homepage">
+            <span class="icon"><i class="fas fa-home"></i></span>
+          </a>
+          <div class="navbar-item has-dropdown is-hoverable research-menu">
+            <button class="navbar-link research-toggle" type="button" aria-expanded="false">More Research</button>
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="https://lif314.github.io/projects/unirap/">UniRAP(NeurIPS'26)</a>
+              <a class="navbar-item" href="https://lif314.github.io/projects/raysup/">RaysUp(ECCV'26)</a>
+              <a class="navbar-item" href="https://lif314.github.io/projects/realvlg_r1/">RealVLG-R1(CVPR'26)</a>
+              <a class="navbar-item" href="https://smartsplat.github.io/SmartSplat-Website/">SmartSplat(AAAI'26)</a>
+              <a class="navbar-item" href="https://lif314.github.io/projects/gs3lam/">GS3LAM(MM'24)</a>
+            </div>
+          </div>
+          <a class="navbar-item page-nav-item" href="#abstract">Abstract</a>
+          <a class="navbar-item page-nav-item" href="#neaf">NeAF</a>
+          <a class="navbar-item page-nav-item" href="#benchmark">Benchmark</a>
+          <a class="navbar-item page-nav-item" href="#fourier-asr">Fourier-ASR</a>
+          <a class="navbar-item page-nav-item" href="#BibTeX">BibTeX</a>
+        </div>
+      </div>
     </div>
   </nav>
 
