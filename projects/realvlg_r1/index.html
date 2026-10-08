@@ -18,7 +18,8 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="stylesheet" href="../shared/project-polish.css">
+  <link rel="icon" href="../shared/favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -26,7 +27,7 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
-<body>
+<body data-project="realvlg">
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
@@ -49,6 +50,9 @@
           More Research
         </a>
         <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://lif314.github.io/projects/unirap/">
+            UniRAP(NeurIPS'26)
+          </a>
           <a class="navbar-item" href="https://lif314.github.io/projects/raysup/">
             RaysUp(ECCV'26)
           </a>
@@ -63,6 +67,12 @@
           </a>
         </div>
       </div>
+      <a class="navbar-item page-nav-item" href="#abstract">Abstract</a>
+      <a class="navbar-item page-nav-item" href="#overview">Overview</a>
+      <a class="navbar-item page-nav-item" href="#dataset">Dataset</a>
+      <a class="navbar-item page-nav-item" href="#method">Method</a>
+      <a class="navbar-item page-nav-item" href="#results">Results</a>
+      <a class="navbar-item page-nav-item" href="#BibTeX">BibTeX</a>
     </div>
 
   </div>
@@ -166,7 +176,7 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3" id="abstract">Abstract</h2>
         <div class="content has-text-justified">
           <p>
            Visual-language grounding aims to establish semantic correspondences between natural language and visual entities, enabling models to accurately identify and localize target objects based on textual instructions. Existing VLG approaches focus on coarse-grained, object-level localization, while traditional robotic grasping methods rely predominantly on geometric cues and lack language guidance, which limits their applicability in language-driven manipulation scenarios. To address these limitations, we propose the RealVLG framework, which integrates the RealVLG-11B dataset and the RealVLG-R1 model to unify real-world visual-language grounding and grasping tasks. RealVLG-11B dataset provides multi-granularity annotations including bounding boxes, segmentation masks, grasp poses, contact points, and human-verified fine-grained language descriptions, covering approximately 165,000 images, over 800 object instances, 1.3 million segmentation, detection, and language annotations, and roughly 11 billion grasping examples. Building on this dataset, RealVLG-R1 employs Reinforcement Fine-tuning on pretrained large-scale vision-language models to predict bounding boxes, segmentation masks, grasp poses, and contact points in a unified manner given natural language instructions. Experimental results demonstrate that RealVLG supports zero-shot perception and manipulation in real-world unseen environments, establishing a unified semantic-visual multimodal benchmark that provides a comprehensive data and evaluation platform for language-driven robotic perception and grasping policy learning. 
@@ -179,7 +189,7 @@
     <!-- Pipeline Overview. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview</h2>
+        <h2 class="title is-3" id="overview">Overview</h2>
         <div class="content has-text-justified">
           <img src="./teaser.png" alt="Overview">
           <p>
@@ -198,7 +208,7 @@
     <!-- Pipeline Overview. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">RealVLG-11B Dataset</h2>
+        <h2 class="title is-3" id="dataset">RealVLG-11B Dataset</h2>
         <div class="content has-text-justified">
           <h3 class="title is-4">Unified Data Annotation</h3>
           <img src="./RealVLG-11B.png" alt="Annotation">
@@ -222,7 +232,7 @@
 
     <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">Framework of RealVLG-R1</h2>
+      <h2 class="title is-3" id="method">Framework of RealVLG-R1</h2>
       <div class="content has-text-justified">
         <img src="./RealVLG-R1.png" alt="RealVLG-R1 Model">
         <p>
@@ -238,15 +248,15 @@
 
     <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">RealVLG Benchmark</h2>
+      <h2 class="title is-3" id="results">RealVLG Benchmark</h2>
       <div class="content has-text-justified">
-        <h3 class="title is-4">Comprehensive Results</h2>
+        <h3 class="title is-4">Comprehensive Results</h3>
         <img src="./RealVLG-Benchmark.png" alt="RealVLG Benchmark">
         <p>
         All metrics are reported in percentage format.
         </p>
 
-        <h3 class="title is-4">Training Performance</h2>
+        <h3 class="title is-4">Training Performance</h3>
         <img src="./RealVLG-Training.png" alt="RealVLG Training">
         <p>
         Training reward/accuracy curves for GRPO, GSPO, and SFT on Contact tasks. Overall, GRPO and GSPO significantly improve SFT through RLVR. GRPO achieves slightly higher accuracy on 3B, while GSPO performs better on 7B and exhibits more stable outputs across training steps.
@@ -257,7 +267,7 @@
 
     <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">Real-World Visual-Language Grasping Experiments</h2>
+      <h2 class="title is-3" id="robot">Real-World Visual-Language Grasping Experiments</h2>
       <div class="content has-text-justified">
           <h3 class="title is-4">Real-world Experimental Setup</h3>
           <img src="./RealVLG-Setting.png" alt="Setup">
@@ -328,5 +338,6 @@
   </div>
 </footer>
 
+<script defer src="../shared/project-polish.js"></script>
 </body>
 </html>

@@ -18,7 +18,8 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="stylesheet" href="../shared/project-polish.css">
+  <link rel="icon" href="../shared/favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -40,7 +41,7 @@
         });">
     </script>
 </head>
-<body>
+<body data-project="gs3lam">
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
@@ -63,6 +64,9 @@
           More Research
         </a>
         <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://lif314.github.io/projects/unirap/">
+            UniRAP(NeurIPS'26)
+          </a>
           <a class="navbar-item" href="https://lif314.github.io/projects/raysup/">
             RaysUp(ECCV'26)
           </a>
@@ -77,6 +81,11 @@
           </a>
         </div>
       </div>
+      <a class="navbar-item page-nav-item" href="#abstract">Abstract</a>
+      <a class="navbar-item page-nav-item" href="#overview">Overview</a>
+      <a class="navbar-item page-nav-item" href="#method">Method</a>
+      <a class="navbar-item page-nav-item" href="#results">Results</a>
+      <a class="navbar-item page-nav-item" href="#BibTeX">BibTeX</a>
     </div>
 
   </div>
@@ -177,7 +186,7 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3" id="abstract">Abstract</h2>
         <div class="content has-text-justified">
           <p>
             Recently, the multi-modal fusion of RGB, depth, and semantics has shown great potential in the domain of dense Simultaneous Localization and Mapping (SLAM), as known as dense semantic SLAM. Yet a prerequisite for generating consistent and continuous semantic maps is the availability of dense, efficient, and scalable scene representations. To date, existing semantic SLAM systems based on explicit scene representations (points/meshes/surfels) are limited by their resolutions and inabilities to predict unknown areas, thus failing to generate dense maps. Contrarily, a few implicit scene representations (Neural Radiance Fields) to deal with these problems rely on time-consuming ray tracing-based volume rendering technique, which cannot meet the real-time rendering requirements of SLAM. Fortunately, the Gaussian Splatting scene representation has recently emerged, which inherits the efficiency and scalability of point/surfel representations while smoothly represents geometric structures in a continuous manner, showing promise in addressing the aforementioned challenges. To this end, we propose GS3LAM, a Gaussian Semantic Splatting SLAM framework, which takes multimodal data as input and can render consistent, continuous dense semantic maps in real-time. To fuse multimodal data, GS3LAM models the scene as a Semantic Gaussian Field (SG-Field), and jointly optimizes camera poses and the field by establishing error constraints between observed and predicted data. Furthermore, a Depth-adaptive Scale Regularization (DSR) scheme is proposed to tackle the problem of misalignment between scale-invariant Gaussians and geometric surfaces within the SG-Field. To mitigate the forgetting phenomenon, we propose an effective Random Sampling-based Keyframe Mapping (RSKM) strategy, which exhibits notable superiority over local covisibility optimization strategies commonly utilized in 3DGS-based SLAM systems. Extensive experiments conducted on the benchmark datasets reveal that compared with state-of-the-art competitors, GS3LAM demonstrates increased tracking robustness, superior real-time rendering quality, and enhanced semantic reconstruction precision.
@@ -190,7 +199,7 @@
     <!-- Pipeline Overview. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview</h2>
+        <h2 class="title is-3" id="overview">Overview</h2>
         <div class="content has-text-justified">
           <img src="./images/teaser.png" alt="Overview">
           <p>
@@ -210,20 +219,20 @@
 
     <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">Framework of GS<sup>3</sup>LAM</h2>
+      <h2 class="title is-3" id="method">Framework of GS<sup>3</sup>LAM</h2>
       <div class="content has-text-justified">
         <img src="./images/framework.png" alt="GS3LAM Model">
         <p>
        <b>The framework overview of GS<sup>3</sup>LAM.</b> GS<sup>3</sup>LAM models the scene as a Semantic Gaussian Field (SG-Field). For geometric-semantic consistent keyframe mapping, an adaptive 3D Gaussian expansion technique and a Random Sampling-based Keyframe Mapping (RSKM) strategy are employed. GS<sup>3</sup>LAM optimizes camera poses and SG-Field using appearance, geometry, and semantics, along with a Depth-adaptive Scale Regularization (DSR) scheme.
         </p>
 
-        <h3 class="title is-4"> The Forgetting Problem in SG-Field.</h2>
+        <h3 class="title is-4">The Forgetting Problem in SG-Field.</h3>
         <img src="./images/forgetting.png" alt="forgetting">
         <p>
           The forgetting problem in SG-Field. During the incremental optimization process, Gaussians $\mathcal{G}_A$ in camera $A$  are initially optimized. However, when optimizing the Gaussians $\mathcal{G}_B$ in camera $B$ , the co-visible Gaussians $\mathcal{G}_C = \mathcal{G}_A \cap \mathcal{G}_B$ tend to be excessively fitted to the latest frame of camera $B$, resulting in a decrease in the reconstruction quality of the previous frame captured by camera $A$.
         </p>
         <!--  -->
-        <h3 class="title is-4"> Illustration of Optimization Bias</h2>
+        <h3 class="title is-4">Illustration of Optimization Bias</h3>
         <img src="./images/bias.png" alt="Optimization Bias">
         <p>
         To address the forgetting phenomenon in GS<sup>3</sup>LAM, we propose a Random Sampling-based Keyframe Mapping (RSKM) strategy, which proves to be more effective than the Local Covisibility Keyframe Mapping (LCKM) strategy  commonly adopted in 3DGS-based SLAM systems. Our observation suggests that the latter method introduces a considerable bias during the optimization of the Gaussian field, thereby leading to poor global map consistency. In particular, as depicted in the above figure, frames with dense co-observations (dense camera trajectories) and increased optimization iterations (large point radii) exhibit lower PSNR values (darker color), suggesting challenges in achieving convergence of the Gaussian field under the LCKM strategy. Conversely, our proposed RSKM strategy not only enhances the rendering quality of the global map (higher mean PSNR) but also ensures high consistency among all perspectives (smaller PSNR variance), effectively reducing the optimization bias.
@@ -234,7 +243,7 @@
 
     <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">Comprehensive Evaluation</h2>
+      <h2 class="title is-3" id="results">Comprehensive Evaluation</h2>
       <div class="content has-text-justified">
         <h3 class="title is-4">Rendering Evaluation</h3>
         <h4 class="title is-5">Rendering performance on ScanNet Dataset</h4>
@@ -263,7 +272,7 @@
 
    <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">Further Experiments</h2>
+      <h2 class="title is-3" id="more-results">Further Experiments</h2>
       <div class="content has-text-justified">
         <h3 class="title is-4"> Optimization bias on Replica</h3>
         <p> Our proposed RSKM strategy not only improves rendering quality (higher mean PSNR $\mu_{PSNR}$) but also enhances the global consistency of the map (lower PSNR variance $\sigma_{PSNR}$). The LCKM strategy employed in SplaTAM \cite{keetha2024splatam} exhibits lower PSNR in regions with high covisibility and frequent optimization iterations, thereby hindering model convergence in these areas. Conversely, in regions with fewer covisible frames, the reduced optimization iterations lead to under-optimized model, resulting in decreased PSNR.</p>
@@ -336,5 +345,6 @@
   </div>
 </footer>
 
+<script defer src="../shared/project-polish.js"></script>
 </body>
 </html>

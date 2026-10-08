@@ -18,7 +18,8 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="stylesheet" href="../shared/project-polish.css">
+  <link rel="icon" href="../shared/favicon.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -39,7 +40,7 @@
         });">
     </script>
 </head>
-<body>
+<body data-project="raysup">
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
@@ -62,6 +63,9 @@
           More Research
         </a>
         <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://lif314.github.io/projects/unirap/">
+            UniRAP(NeurIPS'26)
+          </a>
           <a class="navbar-item" href="https://lif314.github.io/projects/realvlg_r1">
             RealVLG-R1(CVPR'26)
           </a>
@@ -76,6 +80,11 @@
           </a>
         </div>
       </div>
+      <a class="navbar-item page-nav-item" href="#abstract">Abstract</a>
+      <a class="navbar-item page-nav-item" href="#overview">Overview</a>
+      <a class="navbar-item page-nav-item" href="#method">Method</a>
+      <a class="navbar-item page-nav-item" href="#results">Results</a>
+      <a class="navbar-item page-nav-item" href="#BibTeX">BibTeX</a>
     </div>
 
   </div>
@@ -183,7 +192,7 @@ resolutions while preserving (d) high semantic fidelity and geometric consistenc
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3" id="abstract">Abstract</h2>
         <div class="content has-text-justified">
           <p>
             Pre-trained Vision Foundation Models (VFMs) have become central to modern computer vision due to their powerful semantic representations and strong generalization ability. However, their patchified or pooled outputs are inherently low-resolution, limiting their effectiveness in tasks requiring fine-grained, pixel-level reasoning. Existing feature upsampling approaches either degrade semantic fidelity or rely on VFM-specific retraining and heavy architectures, hindering efficiency and scalability. To address these challenges, we propose RaysUp, an ultra-lightweight, task-agnostic, and VFM-agnostic feature upsampling framework that reconstructs high-resolution feature maps at arbitrary resolutions. Unlike conventional 2D interpolation or attention-based schemes, RaysUp lifts feature reconstruction into a geometry-aware ray domain. Specifically, we introduce a Spatially Decoupled Guidance Encoder for direction-aware guidance encoding, an Any-Resolution Cross-Attention mechanism for resolution-flexible reconstruction, and a novel Ray Positional Encoding (RayPE) that injects implicit 3D geometric priors via 6D Plücker ray coordinates. Finally, A Geometry-Aware Neighborhood Attention module further ensures content-adaptive bilateral aggregation while preserving geometric consistency. Extensive experiments across diverse dense prediction tasks demonstrate that RaysUp achieves state-of-the-art performance while using only 16% of the parameters of AnyUp and delivering approximately 7$\times$ faster inference. These results highlight a substantially improved accuracy–efficiency trade-off and establish RaysUp as a practical and scalable solution for universal feature upsampling. 
@@ -197,7 +206,7 @@ resolutions while preserving (d) high semantic fidelity and geometric consistenc
     <!-- Pipeline Overview. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview</h2>
+        <h2 class="title is-3" id="overview">Overview</h2>
         <div class="content has-text-justified">
           <img src="./imgs/teaser.png" alt="Overview">
           <ul>
@@ -213,7 +222,7 @@ resolutions while preserving (d) high semantic fidelity and geometric consistenc
 
     <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">Framework of RaysUp</h2>
+      <h2 class="title is-3" id="method">Framework of RaysUp</h2>
       <div class="content has-text-justified">
         <img src="./imgs/framework.png" alt="RaysUp Model">
         <p>
@@ -221,13 +230,13 @@ resolutions while preserving (d) high semantic fidelity and geometric consistenc
 ${Q}_g \in \mathbb{R}^{D_g \times H_{any} \times W_{any}}$ and a VFM-resolution key ${K}_g \in \mathbb{R}^{D_g \times H_{lr} \times W_{lr}}$. Both ${Q}_g$ and ${K}_g$ are subsequently encoded via Ray Positional Encoding (RayPE) to produce geometry-aware ray representations ${Q}_{ray}$ and ${K}_{ray}$, which embed implicit 3D spatial priors. Finally, a geometry-aware Neighborhood Cross-Attention mechanism aggregates the low-resolution features ${F}^{lr}$ (acting as the value ${V}$) into the high-resolution positions, yielding the reconstructed feature map ${F}^{hr}$. This process ensures spatial consistency across resolutions while preserving the underlying 3D geometric structure.
           </p>
 
-          <h3 class="title is-4">Lightweight Spatially Decoupled Guidance Encoder</h2>
+          <h3 class="title is-4">Lightweight Spatially Decoupled Guidance Encoder</h3>
             <img src="./imgs/conv.png" alt="Guidance Encoder">
             <p>
               <b>Visualization of convolutional kernel weights.</b> Conventional kernels in JAFAR assign lower weights to the center and higher weights to corners and edges, potentially reducing central channel mixing and causing holes in upsampled features. In contrast, the Spatially Decoupled Guidance Encoder increases central weights to 1.00 and employs independent horizontal, vertical, and corner branches, enhancing spatial consistency and preserving semantic continuity during cross-attention.
             </p>
 
-           <h3 class="title is-4">Ray Positional Encoding (RayPE)</h2>
+           <h3 class="title is-4">Ray Positional Encoding (RayPE)</h3>
             <img src="./imgs/attention_bias_Map.png" alt="RayPE">
             <p>
             <b>Implicit Geometric Injection in RayPE.</b> RoPE is defined on a planar isotropic 2D Euclidean grid, where the positional phase is linearly associated with pixel coordinates $(i,j)$: $\boldsymbol{\theta}_{\mathrm{RoPE}}(i,j)=[i\omega,\; j\omega]^T$ ($\omega$ denotes the frequency). In contrast, RayPE implicitly encodes 3D spatial positions using normalized camera rays. \textit{Assuming an identity camera extrinsic matrix}, the positional phase is:
@@ -243,7 +252,7 @@ where $f$ denotes the focal length. During upsampling, the positional phase in R
 
     <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">Experiments</h2>
+      <h2 class="title is-3" id="results">Experiments</h2>
       <div class="content has-text-justified">
         <h3 class="title is-4">Task-agnostic Performance</h3>
           <p align="center">
@@ -280,7 +289,7 @@ where $f$ denotes the focal length. During upsampling, the positional phase in R
 
     <div class="columns is-centered has-text-centered">
     <div class="column is-four-fifths">
-      <h2 class="title is-3">Qualitative Experiments</h2>
+      <h2 class="title is-3" id="qualitative">Qualitative Experiments</h2>
       <div class="content has-text-justified">
           <h3 class="title is-4">Feature Upsampling (PCA)</h3>
           <p align="center">
@@ -356,5 +365,6 @@ where $f$ denotes the focal length. During upsampling, the positional phase in R
   </div>
 </footer>
 
+<script defer src="../shared/project-polish.js"></script>
 </body>
 </html>

@@ -19,10 +19,11 @@
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="icon" href="../shared/favicon.svg">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../shared/project-polish.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -33,7 +34,7 @@
 
 </head>
 
-<body>
+<body data-project="neaf">
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
@@ -56,6 +57,9 @@
             More Research
           </a>
           <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://lif314.github.io/projects/unirap/">
+              UniRAP(NeurIPS'26)
+            </a>
             <a class="navbar-item" href="https://lif314.github.io/projects/raysup/">
             RaysUp(ECCV'26)
             </a>
@@ -70,6 +74,11 @@
             </a>
           </div>
         </div>
+        <a class="navbar-item page-nav-item" href="#abstract">Abstract</a>
+        <a class="navbar-item page-nav-item" href="#neaf">NeAF</a>
+        <a class="navbar-item page-nav-item" href="#benchmark">Benchmark</a>
+        <a class="navbar-item page-nav-item" href="#fourier-asr">Fourier-ASR</a>
+        <a class="navbar-item page-nav-item" href="#BibTeX">BibTeX</a>
       </div>
 
     </div>
@@ -164,7 +173,7 @@
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
+          <h2 class="title is-3" id="abstract">Abstract</h2>
           <div class="content has-text-justified">
             <p>
               Although Coordinate-MLP-based implicit neural representations have excelled in representing radiance
@@ -194,7 +203,7 @@
       <!-- Pipeline Overview. -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">What is Neural Amplitude Fields?</h2>
+          <h2 class="title is-3" id="neaf">What is Neural Amplitude Fields?</h2>
           <div class="content has-text-justified">
             <img src="./assets/neaf.png" alt="Overview">
             <p>
@@ -212,7 +221,7 @@
 
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">A Benchmark of Coordinate-MLPs in Audio Signal Representations</h2>
+          <h2 class="title is-3" id="benchmark">A Benchmark of Coordinate-MLPs in Audio Signal Representations</h2>
           <div class="content has-text-justified">
             <img src="./assets/benchmark.png" alt="Annotation">
             <p>
@@ -887,7 +896,7 @@
 
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Fourier-ASR: A Fourier Kolmogorov-Arnold Framework</h2>
+          <h2 class="title is-3" id="fourier-asr">Fourier-ASR: A Fourier Kolmogorov-Arnold Framework</h2>
           <div class="content has-text-justified">
             <img src="./assets/fourier.png" alt="Annotation">
             <p>
@@ -1345,6 +1354,7 @@
     </div>
   </footer>
 
+  <script defer src="../shared/project-polish.js"></script>
 </body>
 
 </html>

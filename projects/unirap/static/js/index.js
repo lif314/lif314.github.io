@@ -14,6 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
     burger?.setAttribute('aria-expanded', 'false');
   }));
 
+  const researchMenu = document.querySelector('.research-menu');
+  const researchToggle = researchMenu?.querySelector('.research-toggle');
+  researchToggle?.addEventListener('click', () => {
+    const open = researchMenu.classList.toggle('is-active');
+    researchToggle.setAttribute('aria-expanded', String(open));
+  });
+
   const lightbox = document.querySelector('.lightbox');
   const lightboxImage = lightbox?.querySelector('img');
   const closeLightbox = () => {
