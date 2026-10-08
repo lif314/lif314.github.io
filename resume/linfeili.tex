@@ -1,0 +1,121 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.72in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{microtype}
+
+\definecolor{accent}{RGB}{0, 86, 179}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=black,
+  linkcolor=black,
+  pdfauthor={Linfei Li},
+  pdftitle={Linfei Li - Curriculum Vitae}
+}
+\urlstyle{same}
+
+\titleformat{\section}
+  {\large\bfseries\color{accent}}
+  {}{0em}{}[\color{accent}\titlerule]
+\titlespacing*{\section}{0pt}{0.9em}{0.45em}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.25em, topsep=0.25em, itemsep=0.18em, parsep=0pt, partopsep=0pt}
+\setlist[enumerate]{leftmargin=1.45em, topsep=0.3em, itemsep=0.45em, parsep=0pt, partopsep=0pt}
+\raggedbottom
+\pagestyle{empty}
+
+\newcommand{\twocolline}[2]{%
+  \begin{minipage}[t]{0.76\textwidth}#1\end{minipage}\hfill%
+  \begin{minipage}[t]{0.22\textwidth}\raggedleft #2\end{minipage}\par}
+\newcommand{\datedline}[2]{\twocolline{\textbf{#1}}{#2}}
+\newcommand{\roleline}[2]{\twocolline{\textit{#1}}{#2}\vspace{-0.15em}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Linfei Li}\\[0.32em]
+  \small
+  \href{tel:+8618387400236}{(+86) 183-8740-0236}
+  $\cdot$ \href{mailto:cslinfeili@tongji.edu.cn}{cslinfeili@tongji.edu.cn}
+  $\cdot$ \href{https://lif314.github.io/}{lif314.github.io}
+  $\cdot$ \href{https://scholar.google.com/citations?user=V-ugTYUAAAAJ&hl=en}{Google Scholar}
+\end{center}
+\vspace{-0.35em}
+
+\section{EDUCATION}
+\datedline{Tongji University}{Shanghai, China}
+\roleline{Ph.D. Student in Computer Science, GPA: 90.67/100}{09/2023 -- 03/2029 (5.5-year program)}
+Advisors: Prof. Lin Zhang and Prof. Ying Shen
+
+\vspace{0.35em}
+\datedline{Tongji University}{Shanghai, China}
+\roleline{B.S. in Software Engineering, GPA: 4.79/5.0}{09/2019 -- 07/2023}
+Selected coursework: Computer Vision, Computer Graphics, Data Structures and Algorithms, Programming Languages, Operating Systems, Computer Networks, Software Engineering
+
+\section{SELECTED PUBLICATIONS}
+\textit{$^*$Equal contribution.}
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{Linfei Li}, Ruining Hu, Lin Zhang, Zhong Wang, Fengyi Zhang, Ying Shen, Binqiang Wang, Xin Zhang. \href{https://lif314.github.io/projects/unirap/}{\textit{UniRAP: Towards Unified Part-level Physical Affordance Reasoning and Actionable Perception.}} In \textbf{NeurIPS}, 2026. (CCF-A)
+
+  \item \textbf{Linfei Li}, Lin Zhang, Ying Shen. \href{https://lif314.github.io/projects/realvlg_r1/}{\textit{RealVLG-R1: A Large-Scale Real-World Visual-Language Grounding Benchmark for Robotic Perception and Manipulation.}} In \textbf{CVPR}, 2026. (CCF-A)
+
+  \item Yuchuan Ding$^*$, \textbf{Linfei Li}$^*$, Lin Zhang, Ying Shen. \href{https://lif314.github.io/projects/raysup/}{\textit{RaysUp: Ultra-light Universal Feature Upsampling via Geometry-Aware Ray Representation.}} In \textbf{ECCV}, 2026. (CCF-B)
+
+  \item \textbf{Linfei Li}, Lin Zhang, Zhong Wang, Ying Shen. \textit{SmartSplat: Feature-Smart Gaussians for Scalable Compression of Ultra-High-Resolution Images.} In \textbf{AAAI}, 2026. (CCF-A)
+
+  \item \textbf{Linfei Li}, Lin Zhang, Zhong Wang, Fengyi Zhang, Zelin Li, Ying Shen. \href{https://lif314.github.io/projects/neaf/}{\textit{Representing Sounds as Neural Amplitude Fields: A Benchmark of Coordinate-MLPs and a Fourier Kolmogorov-Arnold Framework.}} In \textbf{AAAI}, 2025. (CCF-A)
+
+  \item \textbf{Linfei Li}, Lin Zhang, Zhong Wang, Ying Shen. \href{https://lif314.github.io/projects/gs3lam/}{\textit{GS3LAM: Gaussian Semantic Splatting SLAM.}} In \textbf{ACM MM}, 2024. (CCF-A)
+
+  \item Zhanbo Shi, Lin Zhang, \textbf{Linfei Li}, Ying Shen. \textit{Towards Audio-Visual Navigation in Noisy Environments: A Large-Scale Benchmark Dataset and an Architecture Considering Multiple Sound Sources.} In \textbf{AAAI}, 2025. (CCF-A)
+
+  \item \textbf{Linfei Li}, Fengyi Zhang, Zhong Wang, Lin Zhang, Ying Shen. \textit{INR-Bench: A Unified Benchmark for Implicit Neural Representations in Multi-Domain Regression and Reconstruction.} Technical Report, 2025.
+\end{enumerate}
+
+\section{RESEARCH PROJECTS}
+\datedline{National Key R\&D Program - Next-Generation AI}{Beijing, China}
+\roleline{Sub-project Technical Lead: Multimodal LLM Cross-Modal Trustworthy Verification}{12/2025 -- Present}
+\begin{itemize}
+  \item Lead the technical roadmap and core algorithm development for trustworthy cross-modal reasoning in multimodal large language models.
+\end{itemize}
+
+\datedline{Changchun Science \& Technology Breakthrough Program}{Changchun, China}
+\roleline{Sub-project Technical Lead: Multi-Sensor Fusion-Based AR Navigation}{01/2025 -- 12/2025}
+\begin{itemize}
+  \item Led camera-IMU-LiDAR calibration and designed the multi-sensor fusion framework for in-vehicle AR navigation.
+\end{itemize}
+
+\datedline{Tongji University Scenario Validation Program}{Shanghai, China}
+\roleline{Sub-project Technical Lead: Multi-Robot Collaborative Localization and Mapping}{11/2024 -- 11/2025}
+\begin{itemize}
+  \item Designed the multi-robot SLAM architecture; led pose-graph optimization and dense semantic mapping from simulation through real-robot deployment.
+\end{itemize}
+
+\section{ACADEMIC SERVICE}
+\textbf{Reviewer:} CVPR 2026; NeurIPS 2026; ECCV 2026; AAAI 2025--2026; ICML 2025; ACM MM 2025
+
+\section{HONORS \& AWARDS}
+\begin{itemize}
+  \item Tongji University Outstanding Doctoral Student Scholarship \hfill 2025
+  \item Tongji University Outstanding Doctoral Student \hfill 2025
+  \item Outstanding Graduate of Tongji University \hfill 2023
+  \item First Prize, National Mathematical Contest in Modeling (Shanghai Division) \hfill 2021
+  \item National Endeavor Scholarship \hfill 2020, 2021, 2022
+  \item Tongji Scholarship of Excellence \hfill 2020, 2021, 2022
+\end{itemize}
+
+\section{TECHNICAL SKILLS}
+\textbf{Research:} Multimodal large language models, vision-language models, embodied AI and robot manipulation, visuo-tactile perception, reinforcement learning for robotics, dense prediction, 3D reconstruction\\
+\textbf{Robotics:} Franka Emika robot arms, dexterous hands, tactile sensors, humanoid robots, camera-LiDAR-IMU calibration\\
+\textbf{Programming:} Python, C/C++, Java \quad
+\textbf{Frameworks:} PyTorch, JAX, Hugging Face, ROS/ROS2, Isaac Sim, \LaTeX
+
+\end{document}
