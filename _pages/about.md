@@ -17,13 +17,30 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
+<div class="intro-card" markdown="1">
+<div class="intro-kicker">EMBODIED AI · ROBOT LEARNING · MULTIMODAL PERCEPTION</div>
+<div class="intro-title">Building multimodal intelligence for robots in the physical world.</div>
+
 <!-- PhD -->
 I am a third-year PhD student in the [MAP-Group](https://cslinzhang.github.io/home/) at [Tongji University](https://en.tongji.edu.cn/p/#/), under the supervision of Prof. [Lin Zhang](https://scholar.google.com/citations?user=8VOk_S4AAAAJ&hl=en) and Prof. [Ying Shen](https://scholar.google.com/citations?user=A0N_mS0AAAAJ&hl=en). I obtained my bachelor’s degree from Tongji University in 2023, after which I began my doctoral studies.
 
 <!-- research interest -->
 My research interests lie in the field of Embodied AI, focusing on enabling robots to perceive and interact with the physical world through advanced learning representations. Specifically, my work explores: Multimodal Representation for Robotics, Vision-Language Fields, and Generalist Robot Models. My goal is to leverage multimodal perception and large-scale models to enhance the generalization and manipulation capabilities of robots in complex, real-world environments.
 
-I'm actively seeking internship and collaboration opportunities. Here is my [resume](https://lif314.github.io/resume/linfeili.pdf).
+<div class="research-tags" aria-label="Research interests">
+  <span>Multimodal Robotics</span>
+  <span>Vision-Language Fields</span>
+  <span>Generalist Robot Models</span>
+</div>
+
+<div class="availability"><span class="availability-dot"></span><strong>Open to research internships and collaborations.</strong></div>
+
+<div class="intro-actions">
+  <a class="intro-button intro-button--primary" href="https://lif314.github.io/resume/linfeili.pdf">Curriculum Vitae</a>
+  <a class="intro-button" href="https://scholar.google.com/citations?user=V-ugTYUAAAAJ&hl=en">Google Scholar</a>
+  <a class="intro-button" href="https://github.com/lif314">GitHub</a>
+</div>
+</div>
 
 # 🔥 News
 <div id="news-container">
@@ -39,10 +56,168 @@ I'm actively seeking internship and collaboration opportunities. Here is my [res
 <li><em>2024.12</em>: &nbsp;🎉 Our paper on Audio-Visual Navigation got accepted in AAAI 2025.</li>
 <li><em>2024.07</em>: &nbsp;🎉 Our paper on 3D Semantic Gaussian Splatting Field got accepted in ACM MM 2024.</li>
 </ul>
-<span id="news-toggle" onclick="toggleNews()">Show more</span>
+<span id="news-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleNews()">Show all news ↓</span>
 </div>
 
 <style>
+:root {
+  --about-accent: #2457a7;
+  --about-accent-dark: #173f7a;
+  --about-ink: #172033;
+  --about-muted: #64748b;
+  --about-line: #e2e8f0;
+  --about-surface: #f8fafc;
+}
+
+.intro-card {
+  position: relative;
+  overflow: hidden;
+  margin: 0 0 2.4rem;
+  padding: 1.8rem 2rem;
+  border: 1px solid #dbe7f5;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(36, 87, 167, 0.13), transparent 34%),
+    linear-gradient(135deg, #ffffff 0%, #f7faff 100%);
+  box-shadow: 0 12px 32px rgba(30, 64, 110, 0.08);
+}
+.intro-card p {
+  margin: 0.7rem 0;
+  color: #344056;
+  font-size: 1rem;
+  line-height: 1.72;
+}
+.intro-kicker {
+  margin-bottom: 0.55rem;
+  color: var(--about-accent);
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+.intro-title {
+  max-width: 760px;
+  margin-bottom: 1rem;
+  color: var(--about-ink);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+.research-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.1rem 0;
+}
+.research-tags span {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #d7e3f4;
+  border-radius: 999px;
+  color: var(--about-accent-dark);
+  background: #f3f7fd;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1rem;
+  color: #166534;
+  font-size: 0.9rem;
+}
+.availability-dot {
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.14);
+}
+.intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.15rem;
+}
+.intro-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.35rem;
+  padding: 0.48rem 0.85rem;
+  border: 1px solid #cdd9e9;
+  border-radius: 8px;
+  color: var(--about-accent-dark) !important;
+  background: #fff;
+  font-size: 0.86rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.intro-button:hover {
+  border-color: #91add2;
+  box-shadow: 0 5px 14px rgba(36, 87, 167, 0.12);
+  transform: translateY(-1px);
+}
+.intro-button--primary {
+  border-color: var(--about-accent);
+  color: #fff !important;
+  background: var(--about-accent);
+}
+
+.page__content > h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 2.7rem 0 1.2rem;
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--about-line);
+  color: var(--about-ink);
+  font-size: 1.55rem;
+  letter-spacing: -0.02em;
+}
+
+#news-container {
+  padding: 0.35rem 1.1rem;
+  border: 1px solid var(--about-line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 7px 24px rgba(30, 41, 59, 0.05);
+}
+#news-container ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#news-container li {
+  position: relative;
+  margin: 0;
+  padding: 0.78rem 0 0.78rem 7.1rem;
+  border-bottom: 1px solid #eef2f7;
+  color: #3c485d;
+  line-height: 1.55;
+}
+#news-container li:last-child {
+  border-bottom: 0;
+}
+#news-container li::before {
+  position: absolute;
+  top: 1.16rem;
+  left: 6.15rem;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--about-accent);
+  box-shadow: 0 0 0 4px rgba(36, 87, 167, 0.1);
+  content: "";
+}
+#news-container li em {
+  position: absolute;
+  left: 0;
+  color: var(--about-accent-dark);
+  font-style: normal;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
 #news-container ul li:nth-child(n+7) {
   display: none;
 }
@@ -50,35 +225,63 @@ I'm actively seeking internship and collaboration opportunities. Here is my [res
   display: list-item;
 }
 #news-toggle {
+  display: inline-flex;
+  margin: 0.65rem 0 0.85rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 7px;
   color: #224b8d;
+  background: #f1f5fb;
+  font-size: 0.84rem;
+  font-weight: 600;
   cursor: pointer;
 }
 #news-toggle:hover {
   text-decoration: underline;
 }
+#news-toggle:focus-visible,
+.abstract-toggle:focus-visible,
+.bibtex-toggle:focus-visible,
+.contribution-toggle:focus-visible {
+  outline: 3px solid rgba(36, 87, 167, 0.2);
+  outline-offset: 2px;
+}
 .abstract-toggle, .bibtex-toggle , .contribution-toggle {
-  color: #224b8d;
+  display: inline-flex;
+  align-items: center;
+  margin: 0.15rem 0.18rem 0.15rem 0;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #d5dfed;
+  border-radius: 6px;
+  color: var(--about-accent-dark);
+  background: #f8fafc;
+  font-size: 0.8rem;
+  font-weight: 600;
   cursor: pointer;
 }
 .abstract-toggle:hover, .bibtex-toggle:hover , .contribution-toggle:hover {
-  text-decoration: underline;
+  border-color: #9cb4d4;
+  background: #f1f5fb;
 }
 .abstract-content, .bibtex-content, .contribution-content {
   display: none;
-  position: absolute;
-  z-index: 100;
-  margin-top: 5px;
-  padding: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-left: 3px solid #224b8d;
-  font-size: 0.9em;
-  max-width: 600px;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.15);
+  position: static;
+  width: 100%;
+  max-width: none;
+  margin-top: 0.75rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid #dfe7f1;
+  border-left: 3px solid var(--about-accent);
+  border-radius: 0 8px 8px 0;
+  color: #475569;
+  background: var(--about-surface);
+  box-shadow: none;
+  font-size: 0.86em;
+  line-height: 1.65;
 }
 .bibtex-content {
   font-family: monospace;
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 .abstract-content.show, .bibtex-content.show , .contribution-content.show {
   display: block;
@@ -92,6 +295,112 @@ I'm actively seeking internship and collaboration opportunities. Here is my [res
 .paper-box-text a:hover {
   text-decoration: underline;
 }
+
+.paper-box {
+  display: grid !important;
+  grid-template-columns: minmax(210px, 34%) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1.1rem;
+  padding: 1.25rem !important;
+  border: 1px solid var(--about-line) !important;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 7px 22px rgba(30, 41, 59, 0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+.paper-box:hover {
+  border-color: #c8d6e8 !important;
+  box-shadow: 0 13px 30px rgba(30, 64, 110, 0.09);
+  transform: translateY(-2px);
+}
+.paper-box .paper-box-image {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  order: initial !important;
+}
+.paper-box .paper-box-image > div {
+  position: relative;
+  width: 100%;
+}
+.paper-box .paper-box-image img {
+  display: block;
+  width: 100%;
+  max-width: none !important;
+  aspect-ratio: 5 / 3;
+  border: 1px solid #e5eaf1;
+  border-radius: 9px;
+  background: #f8fafc;
+  box-shadow: none !important;
+  object-fit: contain;
+}
+.paper-box .paper-box-text {
+  min-width: 0;
+  max-width: none !important;
+  padding-left: 0 !important;
+  order: initial !important;
+}
+.paper-box-text > p {
+  margin: 0.55rem 0;
+  line-height: 1.55;
+}
+.paper-box-text > p:first-child {
+  margin-top: 0;
+  font-size: 1.03rem;
+  line-height: 1.4;
+}
+.paper-box-text > p:first-child a {
+  color: var(--about-ink);
+}
+.badge {
+  z-index: 2;
+  margin: 0.65rem 0 0 0.65rem !important;
+  padding: 0.3rem 0.62rem !important;
+  border-radius: 6px;
+  background: var(--about-accent) !important;
+  box-shadow: 0 3px 9px rgba(23, 63, 122, 0.22);
+  font-size: 0.72rem !important;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 700px) {
+  .intro-card {
+    padding: 1.3rem 1.15rem;
+    border-radius: 14px;
+  }
+  .intro-title {
+    font-size: 1.45rem;
+  }
+  #news-container li {
+    padding: 0.8rem 0 0.8rem 0.95rem;
+  }
+  #news-container li::before {
+    top: 1.05rem;
+    left: 0;
+  }
+  #news-container li em {
+    position: static;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .paper-box {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem !important;
+  }
+  .paper-box .paper-box-image {
+    max-width: 460px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper-box,
+  .intro-button {
+    transition: none;
+  }
+}
 </style>
 
 <script>
@@ -100,10 +409,12 @@ function toggleNews() {
   var toggle = document.getElementById('news-toggle');
   if (container.classList.contains('expanded')) {
     container.classList.remove('expanded');
-    toggle.textContent = 'Show more';
+    toggle.textContent = 'Show all news ↓';
+    toggle.setAttribute('aria-expanded', 'false');
   } else {
     container.classList.add('expanded');
-    toggle.textContent = 'Show less';
+    toggle.textContent = 'Show less ↑';
+    toggle.setAttribute('aria-expanded', 'true');
   }
 }
 
@@ -111,6 +422,7 @@ function toggleAbstract(element) {
   var content = element.parentElement.querySelector('.abstract-content');
   if (content) {
     content.classList.toggle('show');
+    element.setAttribute('aria-expanded', content.classList.contains('show'));
   }
 }
 
@@ -118,6 +430,7 @@ function toggleContribution(element) {
   var content = element.parentElement.querySelector('.contribution-content');
   if (content) {
     content.classList.toggle('show');
+    element.setAttribute('aria-expanded', content.classList.contains('show'));
   }
 }
 
@@ -125,8 +438,26 @@ function toggleBibtex(element) {
   var content = element.parentElement.querySelector('.bibtex-content');
   if (content) {
     content.classList.toggle('show');
+    element.setAttribute('aria-expanded', content.classList.contains('show'));
   }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  var controls = document.querySelectorAll('#news-toggle, .abstract-toggle, .bibtex-toggle, .contribution-toggle');
+  controls.forEach(function (control) {
+    control.setAttribute('role', 'button');
+    control.setAttribute('tabindex', '0');
+    if (!control.hasAttribute('aria-expanded')) {
+      control.setAttribute('aria-expanded', 'false');
+    }
+    control.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        control.click();
+      }
+    });
+  });
+});
 </script>
 
 # 📝 Publications 
@@ -371,7 +702,7 @@ Recently, the multi-modal fusion of RGB, depth, and semantics has shown great po
 </div>
 
 
-# 📖 Educations
+# 📖 Education
 - *2023.09 - 2029.03 (expected)*, PhD, Computer Science and Technology, Tongji University.
 - *2019.09 - 2023.07*, Undergraduate, Software Engineering, Tongji University.
 
