@@ -18,19 +18,19 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 <div class="intro-card" markdown="1">
-<div class="intro-kicker">EMBODIED AI · ROBOT LEARNING · MULTIMODAL PERCEPTION</div>
+<div class="intro-kicker">EMBODIED AI &nbsp;&middot;&nbsp; ROBOT LEARNING &nbsp;&middot;&nbsp; MULTIMODAL PERCEPTION</div>
 <div class="intro-title">Building multimodal intelligence for robots in the physical world.</div>
 
 <!-- PhD -->
 I am a third-year PhD student in the [MAP-Group](https://cslinzhang.github.io/home/) at [Tongji University](https://en.tongji.edu.cn/p/#/), under the supervision of Prof. [Lin Zhang](https://scholar.google.com/citations?user=8VOk_S4AAAAJ&hl=en) and Prof. [Ying Shen](https://scholar.google.com/citations?user=A0N_mS0AAAAJ&hl=en). I obtained my bachelor’s degree from Tongji University in 2023, after which I began my doctoral studies.
 
 <!-- research interest -->
-My research interests lie in the field of Embodied AI, focusing on enabling robots to perceive and interact with the physical world through advanced learning representations. Specifically, my work explores: Multimodal Representation for Robotics, Vision-Language Fields, and Generalist Robot Models. My goal is to leverage multimodal perception and large-scale models to enhance the generalization and manipulation capabilities of robots in complex, real-world environments.
+My research investigates how robots can <strong>represent</strong>, <strong>perceive</strong>, and ultimately <strong>act in</strong> the physical world. I develop continuous multimodal representations, build spatial and semantic perception systems, and translate language-grounded understanding into actionable geometry for robotic manipulation.
 
 <div class="research-tags" aria-label="Research interests">
-  <span>Multimodal Robotics</span>
-  <span>Vision-Language Fields</span>
-  <span>Generalist Robot Models</span>
+  <span>Multimodal Representation</span>
+  <span>Embodied Perception</span>
+  <span>Embodied Manipulation</span>
 </div>
 
 <div class="availability"><span class="availability-dot"></span><strong>Open to research internships and collaborations.</strong></div>
@@ -42,19 +42,53 @@ My research interests lie in the field of Embodied AI, focusing on enabling robo
 </div>
 </div>
 
-# 🔥 News
+<section class="research-trajectory" aria-labelledby="research-trajectory-title">
+  <div class="section-heading">
+    <span class="section-eyebrow">RESEARCH TRAJECTORY</span>
+    <h1 id="research-trajectory-title">From representation to physical interaction</h1>
+    <p>My work follows a progressive path from modeling multimodal signals, to understanding embodied environments, to producing interaction-ready predictions for robots.</p>
+  </div>
+
+  <div class="trajectory-grid">
+    <article class="trajectory-card trajectory-card--representation">
+      <div class="trajectory-index">01</div>
+      <div class="trajectory-icon" aria-hidden="true">R</div>
+      <h2>Multimodal Representation</h2>
+      <p>Efficient, continuous, and high-fidelity representations of images, audio, features, and 3D scenes.</p>
+      <div class="trajectory-projects">INR-Bench &middot; SmartSplat &middot; Neural Amplitude Fields &middot; RaysUp</div>
+    </article>
+
+    <article class="trajectory-card trajectory-card--perception">
+      <div class="trajectory-index">02</div>
+      <div class="trajectory-icon" aria-hidden="true">P</div>
+      <h2>Embodied Perception</h2>
+      <p>Multimodal scene understanding, semantic mapping, localization, and robust perception in complex environments.</p>
+      <div class="trajectory-projects">GS3LAM &middot; ENMuS3 &middot; RaysUp</div>
+    </article>
+
+    <article class="trajectory-card trajectory-card--action">
+      <div class="trajectory-index">03</div>
+      <div class="trajectory-icon" aria-hidden="true">A</div>
+      <h2>Embodied Manipulation</h2>
+      <p>Grounding language into affordances, contact points, and interaction poses for language-guided manipulation.</p>
+      <div class="trajectory-projects">RealVLG-R1 &middot; UniRAP</div>
+    </article>
+  </div>
+</section>
+
+# News
 <div id="news-container">
 <ul>
-<li><em>2026.09</em>: &nbsp;🎉 Our paper on Affordance Reasoning and Actionable Perception got accepted in NeurIPS 2026.</li>
-<li><em>2026.06</em>: &nbsp;🎉 Invited to serve as a Program Committee for AAAI 2027.</li>
-<li><em>2026.06</em>: &nbsp;🎉 Our paper on Vision-Language Feature Upsampling got accepted in ECCV 2026.</li>
-<li><em>2026.03</em>: &nbsp;🎉 Invited to serve as a Reviewer for NeurIPS 2026.</li>
-<li><em>2026.02</em>: &nbsp;🎉 Invited to serve as a Reviewer for ECCV 2026.</li>
-<li><em>2026.02</em>: &nbsp;🎉 Our paper on Vision-Language Grounding and Grasping got accepted in CVPR 2026.</li>
-<li><em>2025.11</em>: &nbsp;🎉 Our paper on Efficient Image Representation got accepted in AAAI 2026.</li>
-<li><em>2024.12</em>: &nbsp;🎉 Our paper on Continuous Audio Signal Representation got accepted in AAAI 2025.</li>
-<li><em>2024.12</em>: &nbsp;🎉 Our paper on Audio-Visual Navigation got accepted in AAAI 2025.</li>
-<li><em>2024.07</em>: &nbsp;🎉 Our paper on 3D Semantic Gaussian Splatting Field got accepted in ACM MM 2024.</li>
+<li><em>2026.09</em>: &nbsp;Our paper on affordance reasoning and actionable perception was accepted to NeurIPS 2026.</li>
+<li><em>2026.06</em>: &nbsp;Invited to serve on the Program Committee for AAAI 2027.</li>
+<li><em>2026.06</em>: &nbsp;Our paper on vision-language feature upsampling was accepted to ECCV 2026.</li>
+<li><em>2026.03</em>: &nbsp;Invited to serve as a reviewer for NeurIPS 2026.</li>
+<li><em>2026.02</em>: &nbsp;Invited to serve as a reviewer for ECCV 2026.</li>
+<li><em>2026.02</em>: &nbsp;Our paper on vision-language grounding and grasping was accepted to CVPR 2026.</li>
+<li><em>2025.11</em>: &nbsp;Our paper on efficient image representation was accepted to AAAI 2026.</li>
+<li><em>2024.12</em>: &nbsp;Our paper on continuous audio signal representation was accepted to AAAI 2025.</li>
+<li><em>2024.12</em>: &nbsp;Our paper on audio-visual navigation was accepted to AAAI 2025.</li>
+<li><em>2024.07</em>: &nbsp;Our paper on 3D semantic Gaussian splatting was accepted to ACM MM 2024.</li>
 </ul>
 <span id="news-toggle" role="button" tabindex="0" aria-expanded="false" onclick="toggleNews()">Show all news ↓</span>
 </div>
@@ -162,6 +196,117 @@ My research interests lie in the field of Embodied AI, focusing on enabling robo
   border-color: var(--about-accent);
   color: #fff !important;
   background: var(--about-accent);
+}
+
+.research-trajectory {
+  margin: 2.7rem 0 3rem;
+}
+.section-heading {
+  max-width: 760px;
+  margin-bottom: 1.25rem;
+}
+.section-eyebrow {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--about-accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+}
+.section-heading h1 {
+  margin: 0 0 0.45rem;
+  color: var(--about-ink);
+  font-size: clamp(1.45rem, 3vw, 1.9rem);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+.section-heading p {
+  margin: 0;
+  color: var(--about-muted);
+  line-height: 1.65;
+}
+.trajectory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.trajectory-card {
+  position: relative;
+  min-width: 0;
+  padding: 1.25rem;
+  border: 1px solid var(--about-line);
+  border-top: 4px solid var(--thread-color);
+  border-radius: 14px;
+  background: linear-gradient(145deg, #fff 35%, var(--thread-tint) 100%);
+  box-shadow: 0 7px 22px rgba(30, 41, 59, 0.05);
+}
+.trajectory-card:not(:last-child)::after {
+  position: absolute;
+  z-index: 2;
+  top: 2.05rem;
+  right: -1.42rem;
+  width: 1.75rem;
+  color: #94a3b8;
+  background: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35rem;
+  text-align: center;
+  content: "→";
+}
+.trajectory-card--representation {
+  --thread-color: #2563a8;
+  --thread-tint: #f1f7ff;
+}
+.trajectory-card--perception {
+  --thread-color: #0f766e;
+  --thread-tint: #effcf9;
+}
+.trajectory-card--action {
+  --thread-color: #9a5b13;
+  --thread-tint: #fff8eb;
+}
+.trajectory-index {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.15rem;
+  color: var(--thread-color);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+}
+.trajectory-icon {
+  display: grid;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin-bottom: 0.85rem;
+  border-radius: 9px;
+  color: #fff;
+  background: var(--thread-color);
+  font-size: 0.78rem;
+  font-weight: 800;
+  place-items: center;
+}
+.trajectory-card h2 {
+  margin: 0 0 0.5rem;
+  color: var(--about-ink);
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+.trajectory-card p {
+  margin: 0 0 0.85rem;
+  color: #526078;
+  font-size: 0.86rem;
+  line-height: 1.6;
+}
+.trajectory-projects {
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(100, 116, 139, 0.17);
+  color: var(--thread-color);
+  font-size: 0.73rem;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .page__content > h1 {
@@ -353,6 +498,41 @@ My research interests lie in the field of Embodied AI, focusing on enabling robo
 .paper-box-text > p:first-child a {
   color: var(--about-ink);
 }
+.research-domain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.7rem 0 0.6rem;
+}
+.domain-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.23rem 0.52rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: 0.025em;
+}
+.domain-pill--representation {
+  color: #2563a8;
+  background: #f1f7ff;
+}
+.domain-pill--perception {
+  color: #0f766e;
+  background: #effcf9;
+}
+.domain-pill--action {
+  color: #9a5b13;
+  background: #fff8eb;
+}
+.publications-note {
+  margin: -0.45rem 0 1.35rem;
+  color: var(--about-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
 .badge {
   z-index: 2;
   margin: 0.65rem 0 0 0.65rem !important;
@@ -389,6 +569,15 @@ My research interests lie in the field of Embodied AI, focusing on enabling robo
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 1rem !important;
+  }
+  .trajectory-grid {
+    grid-template-columns: 1fr;
+  }
+  .trajectory-card:not(:last-child)::after {
+    top: auto;
+    right: 50%;
+    bottom: -1.42rem;
+    transform: translateX(50%) rotate(90deg);
   }
   .paper-box .paper-box-image {
     max-width: 460px !important;
@@ -460,7 +649,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-# 📝 Publications 
+# Publications
+<p class="publications-note">Research threads are marked below to show how each project contributes to the trajectory from foundational representations to robot interaction.</p>
+
 <!-- 8 -->
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">NeurIPS 2026</div><img src='images/UniRAP_NeurIPS_2026_framework.png' alt="sym" width="500" height="300"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -468,6 +659,8 @@ document.addEventListener('DOMContentLoaded', function () {
 [**UniRAP: Towards Unified Part-level Physical Affordance Reasoning and Actionable Perception**](https://arxiv.org)
 
 **Linfei Li**, Ruining Hu, Lin Zhang, Zhong Wang, Fengyi Zhang, Ying Shen, Binqiang Wang, Xin Zhang
+
+<div class="research-domain"><span class="domain-pill domain-pill--action">Embodied Manipulation</span><span class="domain-pill domain-pill--perception">Embodied Perception</span></div>
 
 [[webpage]](https://lif314.github.io/projects/unirap)
 [[code]](https://github.com/lif314/UniRAP)
@@ -494,6 +687,8 @@ Vision-language perception has achieved impressive progress in aligning natural 
 [**RaysUp: Ultra-light Universal Feature Upsampling via Geometry-Aware Ray Representation**](https://arxiv.org/abs/2606.22749)
 
 Yuchuan Ding, **Linfei Li** (co-first author), Lin Zhang, Ying Shen
+
+<div class="research-domain"><span class="domain-pill domain-pill--representation">Multimodal Representation</span><span class="domain-pill domain-pill--perception">Embodied Perception</span></div>
 
 [[webpage]](https://lif314.github.io/projects/raysup/)
 [[code]](https://github.com/MAP-RaysUp/RaysUp)
@@ -527,6 +722,8 @@ As a co-first author, I proposed the core scientific question of this study and 
 
 **Linfei Li**, Lin Zhang, Ying Shen
 
+<div class="research-domain"><span class="domain-pill domain-pill--action">Embodied Manipulation</span><span class="domain-pill domain-pill--perception">Embodied Perception</span></div>
+
 [[webpage]](https://lif314.github.io/projects/realvlg_r1)
 [[code]](https://github.com/lif314/RealVLG-R1)
 [[arXiv]](https://arxiv.org/abs/2603.14880)
@@ -555,6 +752,8 @@ Visual-language grounding aims to establish semantic correspondences between nat
 
 **Linfei Li**, Fengyi Zhang, Zhong Wang, Lin Zhang, Ying Shen
 
+<div class="research-domain"><span class="domain-pill domain-pill--representation">Multimodal Representation</span></div>
+
 [[code]](https://github.com/lif314/INR-Bench)
 [[arXiv]](https://arxiv.org/abs/2510.10188)
 <span class="abstract-toggle" onclick="toggleAbstract(this)">[abstract]</span>
@@ -582,6 +781,8 @@ Implicit Neural Representations (INRs) have gained success in various signal pro
 [**SmartSplat: Feature-Smart Gaussians for Scalable Compression of Ultra-High-Resolution Images**](https://ojs.aaai.org/index.php/AAAI/article/view/37558)
 
 **Linfei Li**, Lin Zhang, Zhong Wang, Ying Shen
+
+<div class="research-domain"><span class="domain-pill domain-pill--representation">Multimodal Representation</span></div>
 
 [[webpage]](https://smartsplat.github.io/SmartSplat-Website/)
 [[code]](https://github.com/lif314/SmartSplat)
@@ -615,6 +816,8 @@ Recent advances in generative AI have accelerated the production of ultra-high-r
 
 **Linfei Li**, Lin Zhang, Zhong Wang, Fengyi Zhang, Zelin Li, Ying Shen
 
+<div class="research-domain"><span class="domain-pill domain-pill--representation">Multimodal Representation</span></div>
+
 [[webpage]](https://lif314.github.io/projects/neaf/)
 [[code]](https://github.com/lif314/Fourier-ASR)
 [[arXiv]](https://arxiv.org/abs/2601.06406)
@@ -647,6 +850,8 @@ Although Coordinate-MLP-based implicit neural representations have excelled in r
 
 Zhanbo Shi, Lin Zhang, **Linfei Li**, Ying Shen
 
+<div class="research-domain"><span class="domain-pill domain-pill--perception">Embodied Perception</span></div>
+
 [[code]](https://github.com/ZhanboShiAI/ENMuS)
 [[pdf]](https://ojs.aaai.org/index.php/AAAI/article/view/33608)
 [[appendix]](https://github.com/ZhanboShiAI/ENMuS/blob/main/Appendix.pdf)
@@ -678,6 +883,8 @@ Audio-visual navigation has received considerable attention in recent years. How
 
 **Linfei Li**, Lin Zhang, Zhong Wang, Ying Shen
 
+<div class="research-domain"><span class="domain-pill domain-pill--representation">Multimodal Representation</span><span class="domain-pill domain-pill--perception">Embodied Perception</span></div>
+
 [[webpage]](https://lif314.github.io/projects/gs3lam/)
 [[pdf]](https://dl.acm.org/doi/abs/10.1145/3664647.3680739)
 [[arXiv]](https://arxiv.org/abs/2603.27781)
@@ -702,17 +909,17 @@ Recently, the multi-modal fusion of RGB, depth, and semantics has shown great po
 </div>
 
 
-# 📖 Education
+# Education
 - *2023.09 - 2029.03 (expected)*, PhD, Computer Science and Technology, Tongji University.
 - *2019.09 - 2023.07*, Undergraduate, Software Engineering, Tongji University.
 
-# 🎖️ Honors and Awards
+# Honors and Awards
 - *2025.12*, Tongji University Outstanding Doctoral Student Scholarship 
 - *2025.11*, Tongji University Outstanding Doctoral Student
 - *2023.08*, Outstanding Graduate of Tongji University
 - *2023.07*, Outstanding Undergraduate Thesis of Tongji University
 
-# 📚 Academic Services
+# Academic Services
 - Reviewer: CVPR 2026, ECCV 2026, NeurIPS 2026, ICML 2025,  AAAI 2025/2026/2027, MM 2025
 
 <!-- # 🤝 Project Experience
